@@ -90,6 +90,7 @@ abcd_base: &abcd_base
 gen_base: &gen_base
   - "gen_abspid"
   - "genE_pt"
+  - "genE_pt_highRange"
   - "genE0_pt"
   - "genE1_pt"
   - "genE0_pt_highRange"
@@ -97,6 +98,7 @@ gen_base: &gen_base
   - "genE_genE_dR"
   - "genE_genE_pt"
   - "genMu_pt"
+  - "genMu_pt_highRange"
   - "genMu0_pt"
   - "genMu1_pt"
   - "genMu0_pt_highRange"
