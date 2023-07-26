@@ -114,7 +114,20 @@ gen_base: &gen_base
   - "lj_genA_ptRatio"
   - "egm_lj_genA_ptRatio"
   - "mu_lj_genA_ptRatio"
-
+  #- "mu_ljs_n"
+  #- "egm_ljs_n"
+  - "matched_genA_n"
+  #- "matched_lj_n"
+  - "matched_genA_mu_n"
+  - "matched_genA_egm_n"
+  - "matched_genA_lxy"
+  - "matched_genA_mu_lxy"
+  - "matched_genA_egm_lxy"
+  - "genA_n"
+  - "genA_toMu_n"
+  - "genA_toE_n"
+  - "genA_lxy"
+#  - "genA_toMu_lxy"
 base: &base
   - *pv_base
   - *electron_base

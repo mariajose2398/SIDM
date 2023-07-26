@@ -545,6 +545,36 @@ hist_defs = {
         evt_mask=lambda objs: ak.num(objs["genMus"]) > 1,
     ),
     # gen dark photons (A)
+    "genA_n": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(10, 0, 10, name="genA_n"),
+                   lambda objs, mask: ak.num(objs["genAs"])),
+        ],
+    ),
+    "genA_toMu_n": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(10, 0, 10, name="genA_toMu_n"),
+                   lambda objs, mask: ak.num(objs["genAs_toMu"])),
+        ],
+    ),
+    "genA_toE_n": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(10, 0, 10, name="genA_toE_n"),
+                   lambda objs, mask: ak.num(objs["genAs_toE"])),
+        ],
+    ),
+    "genA_lxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 500, name="genA_lxy"),
+                   lambda objs, mask: (objs["genAs"].dauvtx -objs["genAs"].vtx).r),
+        ],
+    ), 
+    "genAs_toMu_lxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 500, name="genA_lxy"),
+                   lambda objs, mask: (objs["genAs_toMu"].dauvtx -objs["genAs_toMu"].vtx).r),
+        ],
+    ), 
     "genA_pt": h.Histogram(
         [
             h.Axis(hist.axis.Regular(100, 0, 200, name="genA_pt"),
@@ -612,6 +642,70 @@ hist_defs = {
             h.Axis(hist.axis.Regular(50, 0, 2.0, name="mu_lj_genA_ptRatio"),
                    lambda objs, mask: derived_objs["mu_ljs"](objs).p4.pt
                        / derived_objs["mu_ljs"](objs).p4.nearest(objs["genAs"].p4).pt),
+        ],
+    ),
+   # "mu_ljs_n": h.Histogram(
+   #     [
+   #         h.Axis(hist.axis.Regular(10, 0, 10, name="matched_genA_n",
+   #                                 ),
+   #                lambda objs, mask: ak.num(derived_objs["mu_ljs"])),
+   #     ],
+   # ),
+   # "egm_ljs_n": h.Histogram(
+   #     [
+   #         h.Axis(hist.axis.Regular(10, 0, 10, name="matched_genA_n",
+   #                                 ),
+   #                lambda objs, mask: ak.num(derived_objs["egm_ljs"])),
+   #     ],
+   # ),
+    "matched_genA_n": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(10, 0, 10, name="matched_genA_n",
+                                     #label="number of dark photons reconstructing lepton jet"
+                                    ),
+                   lambda objs, mask: ak.num(derived_objs["matched_genAs"](objs, 0.4))),
+        ],
+    ),
+    "matched_lj_n": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(10, 0, 10, name="matched_lj_n",
+                                    ),
+                   lambda objs, mask: ak.num(derived_objs["matched_ljs"](objs, 0.4), axis = -1)),
+        ],
+    ),
+    "matched_genA_mu_n": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(10, 0, 10, name="matched_genA_mu_n",
+                                    ),
+                   lambda objs, mask: ak.num(derived_objs["matched_genAs_mu"](objs, 0.4))),
+        ],
+    ),
+    "matched_genA_egm_n": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(10, 0, 10, name="matched_genA_egm_n",
+                                    ),
+                   lambda objs, mask: ak.num(derived_objs["matched_genAs_egm"](objs, 0.4))),
+        ],
+    ),
+    "matched_genA_lxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 500, name="matched_genA_lxy",
+                                    ),
+                   lambda objs, mask: (derived_objs["matched_genAs"](objs, 0.4).dauvtx -derived_objs["matched_genAs"](objs, 0.4).vtx).r),
+        ],
+    ),
+    "matched_genA_mu_lxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 500, name="matched_genA_mu_lxy",
+                                    ),
+                   lambda objs, mask: (derived_objs["matched_genAs_mu"](objs, 0.4).dauvtx -derived_objs["matched_genAs_mu"](objs, 0.4).vtx).r),
+        ],
+    ),
+    "matched_genA_egm_lxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 500, name="matched_genA_egm_lxy",
+                                    ),
+                   lambda objs, mask: (derived_objs["matched_genAs_egm"](objs, 0.4).dauvtx -derived_objs["matched_genAs_egm"](objs, 0.4).vtx).r),
         ],
     ),
 }
