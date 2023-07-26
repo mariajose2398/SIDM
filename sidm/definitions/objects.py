@@ -16,11 +16,16 @@ primary_objs = {
     "genEs": lambda evts: evts.gen[abs(evts.gen.pid) == 11],
     "genMus": lambda evts: evts.gen[abs(evts.gen.pid) == 13],
     "genAs": lambda evts: evts.gen[abs(evts.gen.pid) == 32],
+    "genAs_toMu": lambda evts : evts.gen[(abs(evts.gen.pid)== 32) & (abs(evts.gen.daupid) == 13)],
+    "genAs_toE": lambda evts : evts.gen[(abs(evts.gen.pid)== 32) & (abs(evts.gen.daupid) == 11)],
 }
 
 # define objects whose definitions depend on analysis choices
 derived_objs = {
     "mu_ljs": lambda objs: objs["ljs"][(objs["ljs"].muon_n >= 2)],
     "egm_ljs": lambda objs: objs["ljs"][(objs["ljs"].muon_n == 0)],
-    "matched_genAs": lambda objs, r: objs["genAs"][dR(objs["genAs"].p4, objs["ljs"].p4) < r]
+    "matched_genAs": lambda objs, r: objs["genAs"][dR(objs["genAs"].p4, objs["ljs"].p4) < r],  
+    "matched_ljs": lambda objs, r: objs["ljs"][dR(objs["genAs"].p4, objs["ljs"].p4) < r],  
+    "matched_genAs_mu": lambda objs, r: objs["genAs"][dR(objs["genAs"].p4, objs["ljs"][(objs["ljs"].muon_n >= 2)].p4) < r],  
+    "matched_genAs_egm": lambda objs, r: objs["genAs"][dR(objs["genAs"].p4, objs["ljs"][(objs["ljs"].muon_n == 0)].p4) < r]  
 }
