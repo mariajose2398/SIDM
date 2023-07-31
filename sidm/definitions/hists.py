@@ -705,6 +705,12 @@ hist_defs = {
                    lambda objs, mask: lxy(derived_objs["matched_genAs_toMu"](objs, 0.4)) ),
         ],
     ),
+    "matched_genA_toE_lxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 500, name="matched_genA_toE_lxy"),
+                   lambda objs, mask: lxy(derived_objs["matched_genAs_toE"](objs, 0.4)) ),
+        ],
+    ),
     "matched_genA_mu_lxy": h.Histogram(
         [
             h.Axis(hist.axis.Regular(100, 0, 500, name="matched_genA__mu_lxy"),
