@@ -130,6 +130,7 @@ gen_base: &gen_base
   - "matched_genA_mu_lxy"
   - "matched_genA_toMu_mu_lxy"
   - "matched_genA_egm_lxy"
+  - "matched_genA_toE_egm_lxy"
   - "matched_genA_n"
 
 base: &base
