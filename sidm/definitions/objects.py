@@ -28,4 +28,5 @@ derived_objs = {
     "matched_genAs_mu": lambda objs, r: objs["genAs"][dR(objs["genAs"], objs["ljs"][(objs["ljs"].muon_n >= 2)]) < r],
     "matched_genAs_toMu_mu": lambda objs, r: objs["genAs_toMu"][dR(objs["genAs_toMu"], objs["ljs"][(objs["ljs"].muon_n >= 2)]) < r],
     "matched_genAs_egm": lambda objs, r: objs["genAs"][dR(objs["genAs"], objs["ljs"][(objs["ljs"].muon_n == 0)]) < r],
+    "matched_genAs_toE_egm": lambda objs, r: objs["genAs_toE"][dR(objs["genAs_toE"], objs["ljs"][(objs["ljs"].muon_n == 0)]) < r],
 }
