@@ -117,6 +117,7 @@ gen_base: &gen_base
   - "genA_lxy"
   - "genAs_toMu_lxy"
   - "genAs_toMu_pt"
+  - "genAs_toMu_eta"
   - "genAs_toE_lxy"
   - "genAs_toE_pt"
   - "genAs_toMu_n"
