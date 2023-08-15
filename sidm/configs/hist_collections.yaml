@@ -133,6 +133,7 @@ gen_base: &gen_base
   - "mu_lj_genA_ptRatio"
   - "genA_matched_lj_lxy"
   - "genA_matched_lj_pt"
+  - "genA_matched_lj_eta"
   - "genA_toMu_matched_lj_lxy"
   - "genA_toE_matched_lj_lxy"
   - "genA_matched_muLj_lxy"
