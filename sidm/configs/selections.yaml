@@ -122,7 +122,7 @@ baseNoLj_veryDisplacedA: &baseNoLj_veryDisplacedA
     genAs_toMu:
       - "lxy >= 100 cm"
 
-baseNoLj_highPt: &baseNoLj_highPt
+baseNoLj_highPtA: &baseNoLj_highPtA
   <<: *baseNoLj
   obj_cuts:
     <<: *obj_baseNoLj
