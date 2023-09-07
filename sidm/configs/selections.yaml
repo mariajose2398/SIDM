@@ -121,3 +121,14 @@ baseNoLj_veryDisplacedA: &baseNoLj_veryDisplacedA
       - "lxy >= 100 cm"
     genAs_toMu:
       - "lxy >= 100 cm"
+
+baseNoLj_highPt: &baseNoLj_highPt
+  <<: *baseNoLj
+  obj_cuts:
+    <<: *obj_baseNoLj
+    genAs:
+      - "Pt > 30GeV"
+    genAs_toE:
+      - "Pt > 30GeV"
+    genAs_toMu:
+      - "Pt > 30GeV"
