@@ -516,7 +516,7 @@ hist_defs = {
     "genE_genE_dR": h.Histogram(
         [
             # dR(subleading gen E, leading gen E)
-            h.Axis(hist.axis.Regular(50, 0, 1.0, name="genE_genE_dR"),
+            h.Axis(hist.axis.Regular(50, 0, 1.0, name=r"$\Delta R(e, e)$"),
                    lambda objs, mask: objs["genEs"][mask, 1].delta_r(objs["genEs"][mask, 0])),
         ],
         evt_mask=lambda objs: ak.num(objs["genEs"]) > 1,
@@ -573,7 +573,7 @@ hist_defs = {
     "genMu_genMu_dR": h.Histogram(
         [
             # dR(subleading gen Mu, leading gen Mu)
-            h.Axis(hist.axis.Regular(50, 0, 1.0, name="genMu_genMu_dR"),
+            h.Axis(hist.axis.Regular(50, 0, 1.0, name=r"$\Delta R (\mu, \mu)$"),
                    lambda objs, mask: objs["genMus"][mask, 1].delta_r(
                        objs["genMus"][mask, 0])),
         ],
