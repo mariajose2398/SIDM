@@ -4,7 +4,7 @@
 import awkward as ak
 # local
 from sidm.definitions.objects import derived_objs
-from sidm.tools.utilities import dR, lxy, check_bit
+from sidm.tools.utilities import dR, lxy, check_bit, check_bits
 
 
 obj_cut_defs = {
@@ -95,6 +95,8 @@ obj_cut_defs = {
         "barrel ConversionVeto": lambda objs: (abs(objs["electrons"].GsfEleConversionVetoCut_0) == 1),
         "barrel H/E": lambda objs: (objs["electrons"].GsfEleHadronicOverEMEnergyScaledCut_0) < .05,
         "barrel MissingHits": lambda objs: (abs(objs["electrons"].GsfEleMissingHitsCut_0) < 1),
+        "bits2-8": lambda objs: check_bits(objs["electrons"].idbit,[2, 3, 4, 5, 6, 7, 8]),
+        "bits2-9": lambda objs: check_bits(objs["electrons"].idbit,[2, 3, 4, 5, 6, 7, 8, 9]),
     },
     "muons": {
         #Loose ID = bit 0
