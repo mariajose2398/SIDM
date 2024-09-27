@@ -768,6 +768,26 @@ hist_defs = {
         ],
         evt_mask=lambda objs: ak.num(objs["genEs"]) > 1,
     ),
+    "genE_genE_dPhi": h.Histogram(
+        [
+            # abs(dEta(subleading gen E, leading gen E))
+            h.Axis(hist.axis.Regular(50, 0, 1.0, name="genE_genE_dPhi",
+                                     label=r"$\Delta\, \phi$($e_0^{gen}$, $e_1^{gen}$)"),
+                   lambda objs, mask: abs(objs["genEs"][mask, 1].phi
+                                          - objs["genEs"][mask, 0].phi)),
+        ],
+        evt_mask=lambda objs: ak.num(objs["genEs"]) > 1,
+    ),
+    "genE_genE_dPt": h.Histogram(
+        [
+            # abs(dEta(subleading gen E, leading gen E))
+            h.Axis(hist.axis.Regular(50, 0, 100, name="genE_genE_dPt",
+                                     label=r"$\Delta\, p_T$($e_0^{gen}$, $e_1^{gen}$)"),
+                   lambda objs, mask: abs(objs["genEs"][mask, 1].pt
+                                          - objs["genEs"][mask, 0].pt)),
+        ],
+        evt_mask=lambda objs: ak.num(objs["genEs"]) > 1,
+    ),
     "genE_genE_pt": h.Histogram(
         [
             h.Axis(hist.axis.Regular(100, 0, 200, name="genE_genE_pt"),
@@ -866,6 +886,16 @@ hist_defs = {
                                      label=r"$\Delta\, \eta$($\mu_0^{gen}$, $\mu_1^{gen}$)"),
                    lambda objs, mask: abs(objs["genMus"][mask, 1].eta
                                           - objs["genMus"][mask, 0].eta)),
+        ],
+        evt_mask=lambda objs: ak.num(objs["genMus"]) > 1,
+    ),
+    "genMu_genMu_dPhi": h.Histogram(
+        [
+            # abs(dEta(subleading gen Mu, leading gen Mu))
+            h.Axis(hist.axis.Regular(50, 0, 1.0, name="genMu_genMu_dPhi",
+                                     label=r"$\Delta\, \phi$($\mu_0^{gen}$, $\mu_1^{gen}$)"),
+                   lambda objs, mask: abs(objs["genMus"][mask, 1].phi
+                                          - objs["genMus"][mask, 0].phi)),
         ],
         evt_mask=lambda objs: ak.num(objs["genMus"]) > 1,
     ),
