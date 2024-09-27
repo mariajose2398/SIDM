@@ -29,11 +29,12 @@ obj_cut_defs = {
         "pfDsaMuLj": lambda objs: (ak.num(objs["ljs"].pfMuons) > 0) & (ak.num(objs["ljs"].dsaMuons) > 0),
     },
     "genMus":{
-        "pT >= 10 GeV": lambda objs: objs["genMus"].pt >= 10,
-        "status 1": lambda objs: objs["genMus"].status == 1,
+        "pT >= 10 GeV": lambda objs: objs["genMus"].pt>10,
+        "parent == A": lambda objs: abs(objs["genMus"].parent.pdgId) == 32,
     },
     "genEs":{
-        "status 1": lambda objs: objs["genEs"].status == 1,
+        "parent == A": lambda objs: abs(objs["genEs"].parent.pdgId) == 32,
+
     },
     "genAs": {
         "dR(A, LJ) < 0.2": lambda objs: dR(objs["genAs"], objs["ljs"]) < 0.2,
@@ -125,7 +126,7 @@ obj_cut_defs = {
         "displaced ID" : lambda objs: objs["dsaMuons"].displacedID,
         "DT + CSC hits > 12": lambda objs: (objs["dsaMuons"].trkNumDTHits
                                             + objs["dsaMuons"].trkNumCSCHits) > 12,
-        "ifcsczero": lambda objs: ak.where(((objs["dsaMuons"].trkNumCSCHits == 0) 
+        "ifcsczero": lambda objs: ak.where(((objs["dsaMuons"].trkNumCSCHits == 0)
                                            & (objs["dsaMuons"].trkNumDTHits <= 18)), False, True),
         "normChi2 < 2.5": lambda objs: objs["dsaMuons"].normChi2 < 2.5,
         "ptErrorOverPT < 1": lambda objs: (objs["dsaMuons"].ptErr / objs["dsaMuons"].pt) < 1.0,
@@ -158,8 +159,8 @@ evt_cut_defs = {
     "genAs_toE_matched_egmLj": lambda objs: ak.num(derived_objs["genAs_toE_matched_egmLj"](objs, 0.4)) >= 1,
     "genAs_toMu_matched_muLj": lambda objs: ak.num(derived_objs["genAs_toMu_matched_muLj"](objs, 0.4)) >= 1,
     "genAs_toE": lambda objs: ak.num(objs["genAs_toE"]) >= 1,
-    "genAs_toMu": lambda objs: ak.num(objs["genAs_toMu"]) >= 1,           
-    "ljs": lambda objs: ak.num(objs["ljs"]) >= 1,           
+    "genAs_toMu": lambda objs: ak.num(objs["genAs_toMu"]) >= 1,
+    "ljs": lambda objs: ak.num(objs["ljs"]) >= 1,
     "50 GeV <= GenMu0_pT <= 60 GeV": lambda objs : (objs["genMus"][:, 0].pt >=50) & (objs["genMus"][:, 0].pt <=60),
     "genMus": lambda objs: ak.num(objs["genMus"]) > 1,
     "dR(Mu_0, Mu_1) > 0.3": lambda objs: objs["genMus"][:,0].delta_r(objs["genMus"][:,1]) > 0.03,
