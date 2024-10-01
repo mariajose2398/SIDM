@@ -638,9 +638,12 @@ baseNoLj_A_ee_matched_lj: &baseNoLj_A_ee_matched_lj
   obj_cuts:
     <<: *obj_baseNoLj
   postLj_obj_cuts: 
+    ljs:
+      - *lj_base
     genAs_toE:
       - "dR(A, LJ) < 0.4"
   evt_cuts: 
+    - *evt_pv_cuts
     - "genAs_toE_matched_egmLj"
 
 baseNoLj_A_mumu_matched_lj: &baseNoLj_A_mumu_matched_lj
@@ -648,9 +651,12 @@ baseNoLj_A_mumu_matched_lj: &baseNoLj_A_mumu_matched_lj
   obj_cuts:
     <<: *obj_baseNoLj
   postLj_obj_cuts: 
+    ljs:
+      - *lj_base
     genAs_toMu:
       - "dR(A, LJ) < 0.4"
   evt_cuts: 
+    - *evt_pv_cuts
     - "genAs_toMu_matched_muLj"
 
 baseNoLj_A_ee_highPtA_lowLxyA: &baseNoLj_A_ee_highPtA_lowLxyA
