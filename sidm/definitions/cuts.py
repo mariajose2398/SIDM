@@ -82,7 +82,7 @@ obj_cut_defs = {
         "125 cm <= lxy <= 135 cm": lambda objs: (lxy(objs["genAs_toE"]) >= 125) & (lxy(objs["genAs_toE"]) < 135),
         "lxy >= 100 cm": lambda objs: lxy(objs["genAs_toE"]) >= 100,
         "lxy <= 100 cm": lambda objs: lxy(objs["genAs_toE"]) <= 100,
-        "lxy <= 150 cm": lambda objs: lxy(objs["genAs_toE"]) <= 250,
+        "lxy <= 150 cm": lambda objs: lxy(objs["genAs_toE"]) <= 150,
         "lxy <= 250 cm": lambda objs: lxy(objs["genAs_toE"]) <= 250,
         "lxy <= 400 cm": lambda objs: lxy(objs["genAs_toMu"]) <= 400,
         "pT > 30 GeV": lambda objs: objs["genAs_toE"].pt > 30,
@@ -166,5 +166,5 @@ evt_cut_defs = {
     "ljs": lambda objs: ak.num(objs["ljs"]) >= 1,
     "50 GeV <= GenMu0_pT <= 60 GeV": lambda objs : (objs["genMus"][:, 0].pt >=50) & (objs["genMus"][:, 0].pt <=60),
     "genMus": lambda objs: ak.num(objs["genMus"]) > 1,
-    "dR(Mu_0, Mu_1) > 0.3": lambda objs: objs["genMus"][:,0].delta_r(objs["genMus"][:,1]) > 0.03,
+    "dR(Mu_0, Mu_1) > 0.03": lambda objs: objs["genMus"][:,0].delta_r(objs["genMus"][:,1]) > 0.03,
 }
