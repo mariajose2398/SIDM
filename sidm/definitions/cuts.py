@@ -94,7 +94,6 @@ obj_cut_defs = {
                                              & (abs(objs["electrons"].eta) < 2.4)),
         "|eta| < 2.4": lambda objs: abs(objs["electrons"].eta) < 2.4,
         "dR(e, A) < 0.5": lambda objs: dR(objs["electrons"], objs["genAs_toE"]) < 0.5,
-        #Loose ID = bit 1
         "looseID": lambda objs: objs["electrons"].cutBased > 1,
         "barrel SigmaIEtaIEtaCut": lambda objs: (objs["electrons"].GsfEleFull5x5SigmaIEtaIEtaCut_0) < .0112,
         "barrel DEtaInSeedCut": lambda objs: (abs(objs["electrons"].GsfEleDEtaInSeedCut_0) < .00377),
@@ -115,8 +114,7 @@ obj_cut_defs = {
     "photons":{
         "pT > 20 GeV": lambda objs: objs["photons"].pt > 20,
         "|eta| < 2.5": lambda objs: abs(objs["photons"].eta) < 2.5, # fixme: do we want eta or scEta
-        #Loose ID = bit 0
-        "looseID": lambda objs: objs["photons"].cutBased == 2,
+        "looseID": lambda objs: objs["photons"].cutBased > 0,
     },
     "dsaMuons": {
         "pT > 10 GeV": lambda objs: objs["dsaMuons"].pt > 10,
