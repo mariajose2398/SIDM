@@ -28,6 +28,11 @@ obj_cut_defs = {
         "2dsaMuLj": lambda objs: ak.num(objs["ljs"].dsaMuons) > 2,
         "pfDsaMuLj": lambda objs: (ak.num(objs["ljs"].pfMuons) > 0) & (ak.num(objs["ljs"].dsaMuons) > 0),
     },
+    "egm_ljs": {
+        "eLj": lambda objs: (objs["egm_ljs"].electron_n > 0) & (objs["egm_ljs"].photon_n == 0),
+        "gLj": lambda objs: (objs["egm_ljs"].electron_n == 0) & (objs["egm_ljs"].photon_n > 0),
+        "egLj": lambda objs: (objs["egm_ljs"].electron_n > 0) & (objs["egm_ljs"].photon_n > 0),
+    },
     "genMus":{
         "pT >= 10 GeV": lambda objs: objs["genMus"].pt >= 10,
         "status 1": lambda objs: objs["genMus"].status == 1,
