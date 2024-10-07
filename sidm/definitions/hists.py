@@ -414,8 +414,8 @@ hist_defs = {
         evt_mask=lambda objs: ak.num(objs["ljs"]) > 1,
     ),
     "lj_eta_phi": obj_eta_phi("ljs"),
-    "egm_lj_pt": obj_attr("egm_ljs", "pt", xmax=400),
-    "mu_lj_pt": obj_attr("mu_ljs", "pt", xmax=400),
+    "egm_lj_pt": obj_attr("egm_ljs", "pt", xmax=500),
+    "mu_lj_pt": obj_attr("mu_ljs", "pt", xmax=500),
     "lj_electronN": h.Histogram(
         [
             h.Axis(hist.axis.Integer(0, 10, name="lj_electronN"),
