@@ -416,58 +416,18 @@ hist_defs = {
     "lj_eta_phi": obj_eta_phi("ljs"),
     "egm_lj_pt": obj_attr("egm_ljs", "pt", xmax=500),
     "mu_lj_pt": obj_attr("mu_ljs", "pt", xmax=500),
-    "lj_electronN": h.Histogram(
-        [
-            h.Axis(hist.axis.Integer(0, 10, name="lj_electronN"),
-                   lambda objs, mask: objs["ljs"].electron_n),
-        ],
-    ),
-    "mu_lj_muonN": h.Histogram(
-        [
-            h.Axis(hist.axis.Integer(0, 10, name="mu_lj_muonN"),
-                   lambda objs, mask: objs["mu_ljs"].muon_n),
-        ],
-    ),
-    "egm_lj_electronN": h.Histogram(
-        [
-            h.Axis(hist.axis.Integer(0, 10, name="egm_lj_electronN"),
-                   lambda objs, mask: objs["egm_ljs"].electron_n),
-        ],
-    ),
-    "egm_lj_photonN": h.Histogram(
-        [
-            h.Axis(hist.axis.Integer(0, 10, name="egm_lj_photonN"),
-                   lambda objs, mask: objs["egm_ljs"].photon_n),
-        ],
-    ),
-    "lj_photonN": h.Histogram(
-        [
-            h.Axis(hist.axis.Integer(0, 10, name="lj_photonN"),
-                   lambda objs, mask: objs["ljs"].photon_n),
-        ],
-    ),
+    "lj_electronN": obj_attr("ljs", "electron_n", xmax =10),
+    "lj_photonN": obj_attr("ljs", "photon_n", xmax =10),
+    "lj_muonN": obj_attr("ljs", "muon_n", xmax =10),
+    "lj_dsaMuN": obj_attr("ljs", "dsaMu_n", xmax =10),
+    "lj_pfMuN": obj_attr("ljs", "pfMu_n", xmax =10),
+    "mu_lj_muonN": obj_attr("mu_ljs", "muon_n", xmax =10),
+    "egm_lj_electronN": obj_attr("egm_ljs", "muon_n", xmax =10),
+    "egm_lj_photonN": obj_attr("egm_ljs", "photon_n", xmax =10),
     "lj_electronPhotonN": h.Histogram(
         [
             h.Axis(hist.axis.Integer(0, 10, name="lj_electronPhotonN"),
                    lambda objs, mask: objs["ljs"].electron_n + objs["ljs"].photon_n),
-        ],
-    ),
-    "lj_muonN": h.Histogram(
-        [
-            h.Axis(hist.axis.Integer(0, 10, name="lj_muonN"),
-                   lambda objs, mask: objs["ljs"].muon_n),
-        ],
-    ),
-    "lj_dsaMuN": h.Histogram(
-        [
-            h.Axis(hist.axis.Integer(0, 10, name="lj_dsaMuN"),
-                   lambda objs, mask: objs["ljs"].dsaMu_n),
-        ],
-    ),
-    "lj_pfMuN": h.Histogram(
-        [
-            h.Axis(hist.axis.Integer(0, 10, name="lj_pfMuN"),
-                   lambda objs, mask: objs["ljs"].pfMu_n),
         ],
     ),
     # pfelectron-lj
