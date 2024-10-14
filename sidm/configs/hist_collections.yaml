@@ -33,6 +33,17 @@ electron_base: &electron_base
   - "electron_n"
   - "electron_pt"
   - "electron_eta_phi"
+  - "electron_photonIdx"
+  - "electron_dxy"
+  - "electron_pfRelIso03_all"
+  - "electron_pfRelIso03_all_lowRange"
+  - "electron_r9"
+  - "electron_scEtOverPt"
+  - "electron_sieie"
+  - "electron_hoe"
+  - "electron_eInvMinusPInv"
+  - "electron_lostHits"
+  - "electron_deltaEtaSC"
 
 photon_base: &photon_base
   - "photon_n"
@@ -254,7 +265,7 @@ genA_ratio: &genA_ratio
   - "genA_muLj_lxyRatio"
 
 lepton_genA_base: &lepton_genA_base
-  - "dsamuon_absd0_genAs_tomu_lxy"
+  #- "dsamuon_absd0_genAs_tomu_lxy"
   - "electron_nearGenA_n"
   - "electron_nearGenA_n_genA_lxy"
   - "photon_nearGenA_n"
@@ -264,8 +275,11 @@ lepton_genA_base: &lepton_genA_base
   - "dsaMuon_nearGenA_n"
   - "dsaMuon_nearGenA_n_genA_lxy"
   
+electron_photon_base: &electron_photon_base
+  - "electron_photon_dR"
 lepton_genLepton_base: &lepton_genLepton_base
   - "dsaMuon_absD0_genMus_dR"
+  - "electron_nearGenE_n"
   - "leadingDsaMuon_absD0_genMus_dR"
   - "subLeadingDsaMuon_absD0_genMus_dR"
   - "dsaMuon_absD0_genMus_dR_XLowRange"
@@ -323,6 +337,7 @@ base: &base
   - *dsaMuon_lj_base
   - *lj_lj_base
   - *abcd_base
+  - *electron_photon_base
 
 base_plus_gen: &base_plus_gen
   - *base

@@ -233,14 +233,32 @@ hist_defs = {
         evt_mask = lambda objs: ak.num(matched(objs["electrons"], objs["genAs_toE"], 0.5)) > 0,
     ),
     # pfelectron
-    "electron_n": obj_attr("electrons", "n"),
-    "electron_pt": obj_attr("electrons", "pt"),
+    "electron_n": obj_attr("electrons", "n", nbins=10),
+    "electron_pt": obj_attr("electrons", "pt", xmax=500),
     "electron_eta_phi": obj_eta_phi("electrons"),
+    "electron_photonIdx": obj_attr("electrons", "photonIdx", xmin=-1, xmax=10, nbins=10),
+    "electron_dxy": obj_attr("electrons", "dxy", xmax=0.2),
+    "electron_pfRelIso03_all": obj_attr("electrons", "pfRelIso03_all"),
+    "electron_pfRelIso03_all_lowRange": obj_attr("electrons", "pfRelIso03_all", xmax=5),
+    "electron_r9": obj_attr("electrons", "r9"),
+    "electron_scEtOverPt": obj_attr("electrons", "scEtOverPt"),
+    "electron_sieie": obj_attr("electrons", "sieie", xmax=.05),
+    "electron_hoe": obj_attr("electrons", "hoe", xmax=1),
+    "electron_eInvMinusPInv": obj_attr("electrons", "eInvMinusPInv", xmax=0.5),
+    "electron_lostHits": obj_attr("electrons", "lostHits", xmax=10, nbins=10),
+    "electron_deltaEtaSC": obj_attr("electrons", "deltaEtaSC", xmin=-0.1, xmax=0.1),
     "electron_nearGenA_n": h.Histogram(
         [
             # number of electrons within dR=0.5 of a genA that decays to electrons
             h.Axis(hist.axis.Integer(0, 10, name="electron_nearGenA_n"),
                    lambda objs, mask: ak.num(matched(objs["electrons"], objs["genAs_toE"], 0.5))),
+        ],
+    ),
+    "electron_nearGenE_n": h.Histogram(
+        [
+            # number of electrons within dR=0.5 of a genA that decays to electrons
+            h.Axis(hist.axis.Integer(0, 10, name="electron_nearGenE_n"),
+                   lambda objs, mask: ak.num(matched(objs["electrons"], objs["genEs"], 0.5))),
         ],
     ),
     # pfelectron-genA
@@ -265,13 +283,21 @@ hist_defs = {
     ),
     # pfphoton
     "photon_n": obj_attr("photons", "n"),
-    "photon_pt":obj_attr("photons", "pt"),
+    "photon_pt":obj_attr("photons", "pt", xmax=500),
     "photon_eta_phi": obj_eta_phi("photons"),
     "photon_nearGenA_n": h.Histogram(
         [
             # number of photons within dR=0.5 of a genA that decays to electrons
             h.Axis(hist.axis.Integer(0, 10, name="photon_nearGenA_n"),
                    lambda objs, mask: ak.num(matched(objs["photons"], objs["genAs_toE"], 0.5))),
+        ],
+    ),
+    #electron-photon
+    "electron_photon_dR": h.Histogram(
+        [
+            # dR(e, nearest gen e)
+            h.Axis(hist.axis.Regular(50, 0, .3, name="electron_photon_dR"),
+                   lambda objs, mask: dR(objs["electrons"], objs["photons"]))
         ],
     ),
     # pfphoton-genA
@@ -414,16 +440,16 @@ hist_defs = {
         evt_mask=lambda objs: ak.num(objs["ljs"]) > 1,
     ),
     "lj_eta_phi": obj_eta_phi("ljs"),
-    "lj_electronN": obj_attr("ljs", "electron_n", xmax =10),
-    "lj_photonN": obj_attr("ljs", "photon_n", xmax =10),
-    "lj_muonN": obj_attr("ljs", "muon_n", xmax =10),
-    "lj_dsaMuN": obj_attr("ljs", "dsaMu_n", xmax =10),
-    "lj_pfMuN": obj_attr("ljs", "pfMu_n", xmax =10),
+    "lj_electronN": obj_attr("ljs", "electron_n", xmax=10, nbins=10),
+    "lj_photonN": obj_attr("ljs", "photon_n", xmax=10, nbins=10),
+    "lj_muonN": obj_attr("ljs", "muon_n", xmax=10, nbins=10),
+    "lj_dsaMuN": obj_attr("ljs", "dsaMu_n", xmax=10, nbins=10),
+    "lj_pfMuN": obj_attr("ljs", "pfMu_n", xmax=10, nbins=10),
     "mu_lj_pt": obj_attr("mu_ljs", "pt", xmax=500),
-    "mu_lj_muonN": obj_attr("mu_ljs", "muon_n", xmax =10),
+    "mu_lj_muonN": obj_attr("mu_ljs", "muon_n", xmax=10, nbins=10),
     "egm_lj_pt": obj_attr("egm_ljs", "pt", xmax=500),
-    "egm_lj_electronN": obj_attr("egm_ljs", "muon_n", xmax =10),
-    "egm_lj_photonN": obj_attr("egm_ljs", "photon_n", xmax =10),
+    "egm_lj_electronN": obj_attr("egm_ljs", "muon_n", xmax=10, nbins=10),
+    "egm_lj_photonN": obj_attr("egm_ljs", "photon_n", xmax=10, nbins=10),
     "lj_electronPhotonN": h.Histogram(
         [
             h.Axis(hist.axis.Integer(0, 10, name="lj_electronPhotonN"),
