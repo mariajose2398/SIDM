@@ -124,7 +124,7 @@ baseNoLj_barrel_lostHists: &baseNoLj_barrel_lostHists
     electrons:
       - "pT > 10 GeV"
       - "|eta| < 1.479"
-      - "barrel_lostHits"
+      - "lostHits"
   evt_cuts:
     - *evt_baseNoLj
 
