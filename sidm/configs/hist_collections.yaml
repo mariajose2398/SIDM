@@ -48,6 +48,10 @@ electron_base: &electron_base
 photon_base: &photon_base
   - "photon_n"
   - "photon_pt"
+  - "photon_hoe"
+  - "photon_sieie"
+  - "photon_pfRelIso03_all"
+  - "photon_pfRelIso03_chg"
   - "photon_eta_phi"
 
 muon_base: &muon_base

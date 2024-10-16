@@ -284,6 +284,10 @@ hist_defs = {
     # pfphoton
     "photon_n": obj_attr("photons", "n"),
     "photon_pt":obj_attr("photons", "pt", xmax=500),
+    "photon_hoe": obj_attr("photons", "hoe", xmax=1),
+    "photon_sieie": obj_attr("photons", "sieie", xmax=.05),
+    "photon_pfRelIso03_all": obj_attr("photons", "pfRelIso03_all", xmax=5),
+    "photon_pfRelIso03_chg": obj_attr("photons", "pfRelIso03_chg", xmax=5),
     "photon_eta_phi": obj_eta_phi("photons"),
     "photon_nearGenA_n": h.Histogram(
         [
