@@ -128,6 +128,16 @@ baseNoLj_barrel_lostHists: &baseNoLj_barrel_lostHists
   evt_cuts:
     - *evt_baseNoLj
 
+baseNoLj_barrel_convVeto: &baseNoLj_barrel_convVeto
+  obj_cuts: 
+    <<: *obj_baseNoLj
+    electrons:
+      - "pT > 10 GeV"
+      - "|eta| < 1.479"
+      - "convVeto"
+  evt_cuts:
+    - *evt_baseNoLj
+
 baseNoLj_endcap: &baseNoLj_endcap
   obj_cuts: 
     <<: *obj_baseNoLj
