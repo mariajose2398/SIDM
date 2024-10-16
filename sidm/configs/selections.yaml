@@ -148,6 +148,66 @@ baseNoLj_endcap: &baseNoLj_endcap
   evt_cuts:
     - *evt_baseNoLj
 
+baseNoLj_endcap_sieie: &baseNoLj_endcap_sieie
+  obj_cuts: 
+    <<: *obj_baseNoLj
+    electrons:
+      - "pT > 10 GeV"
+      - "1.479 < |eta| < 2.4"
+      - "endcap_sieie"
+  evt_cuts:
+    - *evt_baseNoLj
+
+baseNoLj_endcap_hoe: &baseNoLj_endcap_hoe
+  obj_cuts: 
+    <<: *obj_baseNoLj
+    electrons:
+      - "pT > 10 GeV"
+      - "1.479 < |eta| < 2.4"
+      - "endcap_hoe"
+  evt_cuts:
+    - *evt_baseNoLj
+
+baseNoLj_endcap_iso: &baseNoLj_endcap_iso
+  obj_cuts: 
+    <<: *obj_baseNoLj
+    electrons:
+      - "pT > 10 GeV"
+      - "1.479 < |eta| < 2.4"
+      - "endcap_iso"
+  evt_cuts:
+    - *evt_baseNoLj
+
+baseNoLj_endcap_eInvMinusPInv: &baseNoLj_endcap_eInvMinusPInv
+  obj_cuts: 
+    <<: *obj_baseNoLj
+    electrons:
+      - "pT > 10 GeV"
+      - "1.479 < |eta| < 2.4"
+      - "endcap_eInvMinusPInv"
+  evt_cuts:
+    - *evt_baseNoLj
+
+baseNoLj_endcap_lostHists: &baseNoLj_endcap_lostHists
+  obj_cuts: 
+    <<: *obj_baseNoLj
+    electrons:
+      - "pT > 10 GeV"
+      - "1.479 < |eta| < 2.4"
+      - "lostHits"
+  evt_cuts:
+    - *evt_baseNoLj
+
+baseNoLj_endcap_convVeto: &baseNoLj_endcap_convVeto
+  obj_cuts: 
+    <<: *obj_baseNoLj
+    electrons:
+      - "pT > 10 GeV"
+      - "1.479 < |eta| < 2.4"
+      - "convVeto"
+  evt_cuts:
+    - *evt_baseNoLj
+
 baseNoLj_noLoose: &baseNoLj_noLoose
   obj_cuts:
     <<: *obj_ljsource_cuts
