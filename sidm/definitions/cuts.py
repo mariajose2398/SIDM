@@ -99,7 +99,7 @@ obj_cut_defs = {
                                              & (abs(objs["electrons"].eta) < 2.4)),
         "|eta| < 2.4": lambda objs: abs(objs["electrons"].eta) < 2.4,
         "dR(e, A) < 0.5": lambda objs: dR(objs["electrons"], objs["genAs_toE"]) < 0.5,
-        "looseID": lambda objs: objs["electrons"].cutBased > 1,
+        "looseID": lambda objs: objs["electrons"].cutBased == 2,
         "photonIdx": lambda objs: objs["electrons"].photonIdx != -1,
         "barrel_sieie": lambda objs: objs["electrons"].sieie <= 0.0112,
         "barrel_iso": lambda objs: objs["electrons"].pfRelIso03_all < (.112 + .506/objs["electrons"].pt),
@@ -130,7 +130,11 @@ obj_cut_defs = {
     "photons":{
         "pT > 20 GeV": lambda objs: objs["photons"].pt > 20,
         "|eta| < 2.5": lambda objs: abs(objs["photons"].eta) < 2.5, # fixme: do we want eta or scEta
-        "looseID": lambda objs: objs["photons"].cutBased > 0,
+        "looseID": lambda objs: objs["photons"].cutBased == 1,
+        "dR(gm, A) < 0.5": lambda objs: dR(objs["photons"], objs["genAs_toE"]) < 0.5,
+        "barrel_hoe": lambda objs: objs["photons"].hoe <= .04596,
+        "barrel_sieie": lambda objs: objs["photons"].sieie <=  0.0106 ,
+        "|eta| < 1.479": lambda objs: abs(objs["photons"].eta) < 1.479,
     },
     "dsaMuons": {
         "pT > 10 GeV": lambda objs: objs["dsaMuons"].pt > 10,
