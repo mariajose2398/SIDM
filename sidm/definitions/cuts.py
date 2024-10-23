@@ -101,7 +101,7 @@ obj_cut_defs = {
         "|eta| < 2.4": lambda objs: abs(objs["electrons"].eta) < 2.4,
         "dR(e, A) < 0.5": lambda objs: dR(objs["electrons"], objs["genAs_toE"]) < 0.5,
         "looseID": lambda objs: objs["electrons"].cutBased == 2,
-        "looseID>": lambda objs: objs["electrons"].cutBased > 1,
+        "looseID>": lambda objs: objs["electrons"].cutBased >=2,
         "isLoose": lambda objs: objs["electrons"].isLoose == True,
         "photonIdx": lambda objs: objs["electrons"].photonIdx != -1,
         "barrel_sieie": lambda objs: objs["electrons"].sieie <= 0.0112,
