@@ -156,7 +156,7 @@ baseNoLj_barrel_sieie: &baseNoLj_barrel_sieie
       - "barrel_sieie"
     photons:
       - "pT > 20 GeV"
-      - "|eta| < 1.479"
+      - "barrel"
       - "barrel_sieie"
   evt_cuts:
     - *evt_baseNoLj
@@ -170,7 +170,7 @@ baseNoLj_barrel_hoe: &baseNoLj_barrel_hoe
       - "barrel_hoe"
     photons:
       - "pT > 20 GeV"
-      - "|eta| < 1.479"
+      - "barrel"
       - "barrel_hoe"
   evt_cuts:
     - *evt_baseNoLj
