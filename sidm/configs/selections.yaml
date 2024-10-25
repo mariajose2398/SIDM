@@ -114,10 +114,10 @@ baseNoLj_noLoose_barrel: &baseNoLj_noLoose_barrel
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
-      - "|eta| < 1.479"
+      - "barrel"
     photons:
       - "pT > 20 GeV"
-      - "|eta| < 1.479"
+      - "barrel"
   evt_cuts:
     - *evt_baseNoLj
 
@@ -139,10 +139,10 @@ baseNoLj_barrel: &baseNoLj_barrel
     electrons:
       - "pT > 10 GeV"
       - "looseID>"
-      - "|eta| < 1.479"
+      - "barrel"
     photons:
       - "pT > 20 GeV"
-      - "|eta| < 1.479"
+      - "barrel"
       - "looseID>"
   evt_cuts:
     - *evt_baseNoLj
@@ -152,7 +152,7 @@ baseNoLj_barrel_sieie: &baseNoLj_barrel_sieie
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
-      - "|eta| < 1.479"
+      - "barrel"
       - "barrel_sieie"
     photons:
       - "pT > 20 GeV"
@@ -166,7 +166,7 @@ baseNoLj_barrel_hoe: &baseNoLj_barrel_hoe
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
-      - "|eta| < 1.479"
+      - "barrel"
       - "barrel_hoe"
     photons:
       - "pT > 20 GeV"
@@ -180,7 +180,7 @@ baseNoLj_barrel_iso: &baseNoLj_barrel_iso
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
-      - "|eta| < 1.479"
+      - "barrel"
       - "barrel_iso"
   evt_cuts:
     - *evt_baseNoLj
@@ -190,7 +190,7 @@ baseNoLj_barrel_eInvMinusPInv: &baseNoLj_barrel_eInvMinusPInv
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
-      - "|eta| < 1.479"
+      - "barrel"
       - "barrel_eInvMinusPInv"
   evt_cuts:
     - *evt_baseNoLj
@@ -200,7 +200,7 @@ baseNoLj_barrel_lostHists: &baseNoLj_barrel_lostHists
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
-      - "|eta| < 1.479"
+      - "barrel"
       - "lostHits"
   evt_cuts:
     - *evt_baseNoLj
@@ -210,7 +210,7 @@ baseNoLj_barrel_convVeto: &baseNoLj_barrel_convVeto
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
-      - "|eta| < 1.479"
+      - "barrel"
       - "convVeto"
   evt_cuts:
     - *evt_baseNoLj
@@ -220,8 +220,8 @@ baseNoLj_endcap: &baseNoLj_endcap
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
+      - "endcap"
       - "looseID"
-      - "1.479 < |eta| < 2.4"
   evt_cuts:
     - *evt_baseNoLj
 
@@ -230,7 +230,7 @@ baseNoLj_endcap_sieie: &baseNoLj_endcap_sieie
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
-      - "1.479 < |eta| < 2.4"
+      - "endcap"
       - "endcap_sieie"
   evt_cuts:
     - *evt_baseNoLj
@@ -240,7 +240,7 @@ baseNoLj_endcap_hoe: &baseNoLj_endcap_hoe
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
-      - "1.479 < |eta| < 2.4"
+      - "endcap"
       - "endcap_hoe"
   evt_cuts:
     - *evt_baseNoLj
@@ -250,7 +250,7 @@ baseNoLj_endcap_iso: &baseNoLj_endcap_iso
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
-      - "1.479 < |eta| < 2.4"
+      - "endcap"
       - "endcap_iso"
   evt_cuts:
     - *evt_baseNoLj
@@ -260,7 +260,7 @@ baseNoLj_endcap_eInvMinusPInv: &baseNoLj_endcap_eInvMinusPInv
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
-      - "1.479 < |eta| < 2.4"
+      - "endcap"
       - "endcap_eInvMinusPInv"
   evt_cuts:
     - *evt_baseNoLj
@@ -270,7 +270,7 @@ baseNoLj_endcap_lostHists: &baseNoLj_endcap_lostHists
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
-      - "1.479 < |eta| < 2.4"
+      - "endcap"
       - "lostHits"
   evt_cuts:
     - *evt_baseNoLj
@@ -280,7 +280,7 @@ baseNoLj_endcap_convVeto: &baseNoLj_endcap_convVeto
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
-      - "1.479 < |eta| < 2.4"
+      - "endcap"
       - "convVeto"
   evt_cuts:
     - *evt_baseNoLj

@@ -104,6 +104,8 @@ obj_cut_defs = {
         "looseID>": lambda objs: objs["electrons"].cutBased >=2,
         "isLoose": lambda objs: objs["electrons"].isLoose == True,
         "photonIdx": lambda objs: objs["electrons"].photonIdx != -1,
+        "barrel": lambda objs: (objs["electrons"].eta + objs["electrons"].deltaEtaSC) <= 1.479 ,
+        "endcap": lambda objs: (objs["electrons"].eta + objs["electrons"].deltaEtaSC) > 1.479 ,
         "barrel_sieie": lambda objs: objs["electrons"].sieie <= 0.0112,
         "barrel_iso": lambda objs: objs["electrons"].pfRelIso03_all < (.112 + .506/objs["electrons"].pt),
         "barrel_hoe": lambda objs: objs["electrons"].hoe < 0.05 + 1.16/((1 + objs["electrons"].scEtOverPt) * objs["electrons"].pt) + 0.0324*objs["rho_PFIso"]/((1 + objs["electrons"].scEtOverPt) * objs["electrons"].pt),
