@@ -147,8 +147,6 @@ obj_cut_defs = {
         "barrel_hoe": lambda objs: objs["photons"].hoe <= .04596,
         "barrel_sieie": lambda objs: objs["photons"].sieie <=  0.0106 ,
         "|eta| < 1.479": lambda objs: abs(objs["photons"].eta) < 1.479,
-        "barrel": lambda objs: objs["photons"].isScEtaEB,
-        "endcap": lambda objs: objs["photons"].isScEtaEE,
     },
     "dsaMuons": {
         "pT > 10 GeV": lambda objs: objs["dsaMuons"].pt > 10,
