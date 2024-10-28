@@ -42,13 +42,6 @@ trigger: &trigger
   evt_cuts:
     - "pass triggers"
 
-gen_level_cuts: &gen_level_cuts
-  obj_cuts: &obj_gen_level_cuts
-    genMus:
-      - "status == 1"
-    genEs:
-      - "status == 1"
-
 # PV filter
 pv_cuts: &pv_cuts
   obj_cuts: &obj_pv_cuts
