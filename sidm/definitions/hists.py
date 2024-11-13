@@ -451,9 +451,97 @@ hist_defs = {
     "lj_pfMuN": obj_attr("ljs", "pfMu_n", xmax=10, nbins=10),
     "mu_lj_pt": obj_attr("mu_ljs", "pt", xmax=500),
     "mu_lj_muonN": obj_attr("mu_ljs", "muon_n", xmax=10, nbins=10),
+    "mu_lj_pfMu_n": obj_attr("mu_ljs", "pfMu_n", xmax=10, nbins=10),
+    "mu_lj_dsaMu_n": obj_attr("mu_ljs", "dsaMu_n", xmax=10, nbins=10),
     "egm_lj_pt": obj_attr("egm_ljs", "pt", xmax=500),
     "egm_lj_electronN": obj_attr("egm_ljs", "muon_n", xmax=10, nbins=10),
     "egm_lj_photonN": obj_attr("egm_ljs", "photon_n", xmax=10, nbins=10),
+    "mu_lj_muon_pt": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 500, name=r"$\mu$- type LJ $\mu$ pT"),
+                   lambda objs, mask: objs["mu_ljs"].muons.pt),
+        ],
+    ),
+    "mu_lj_muon_dxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 50, name=r"$\mu$- type LJ $\mu$ dxy"),
+                   lambda objs, mask: objs["mu_ljs"].muons.dxy),
+        ],
+    ),
+    "mu_lj_pfMuon_dxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, 20, name=r"$\mu$- type LJ PF $\mu$ dxy"),
+                   lambda objs, mask: objs["mu_ljs"].pfMuons.dxy),
+        ],
+    ),
+    "mu_lj_dsaMuon_dxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 50, name=r"$\mu$- type LJ DSA $\mu$ dxy"),
+                   lambda objs, mask: objs["mu_ljs"].dsaMuons.dxy),
+        ],
+    ),
+    "mu_lj_muon_min_dxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 50, name=r"$\mu$- type LJ $mu$ min dxy"),
+                   lambda objs, mask: ak.min(objs["mu_ljs"].muons.dxy, axis=-1)),
+        ],
+    ),
+    "mu_lj_dsaMuon_min_dxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 50, name=r"$\mu$- type LJ DSA $\mu$ min dxy"),
+                   lambda objs, mask: ak.min(objs["mu_ljs"].dsaMuons.dxy, axis=-1)),
+        ],
+    ),
+    "mu_lj_pfMuon_min_dxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, 20, name=r"$\mu$- type LJ PF $\mu$ min dxy"),
+                   lambda objs, mask: ak.min(objs["mu_ljs"].pfMuons.dxy, axis=-1)),
+        ],
+    ),
+    "mu_lj_muon_max_dxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 50, name=r"$\mu$- type LJ $\mu$ max dxy"),
+                   lambda objs, mask: ak.max(objs["mu_ljs"].muons.dxy, axis=-1)),
+        ],
+    ),
+    "mu_lj_dsaMuon_max_dxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 50, name=r"$\mu$- type LJ DSA $\mu$ max dxy"),
+                   lambda objs, mask: ak.max(objs["mu_ljs"].dsaMuons.dxy, axis=-1)),
+        ],
+    ),
+    "mu_lj_pfMuon_max_dxy": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, 20, name=r"$\mu$- type LJ PF $\mu$ max dxy"),
+                   lambda objs, mask: ak.max(objs["mu_ljs"].pfMuons.dxy, axis=-1)),
+        ],
+    ),
+    "mu_lj_muon_nTrackerLayers": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ $\mu$ nTrackerLayers"),
+                   lambda objs, mask: objs["mu_ljs"].muons.nTrackerLayers),
+        ],
+    ),
+    "mu_lj_dsaMu_nTrackerLayers": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ DSA $\mu$ nTrackerLayers"),
+                   lambda objs, mask: objs["mu_ljs"].dsaMuons.nTrackerLayers),
+        ],
+    ),
+    "mu_lj_pfMu_nTrackerLayers": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ PF $\mu$ nTrackerLayers"),
+                   lambda objs, mask: objs["mu_ljs"].pfMuons.nTrackerLayers),
+        ],
+    ),
+    "mu_lj_muon_eta_phi": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, -3, 3, name="mu_lj_mu_eta"),
+                   lambda objs, mask: objs["mu_ljs"].muons.eta),
+            h.Axis(hist.axis.Regular(50, -1*math.pi, math.pi, name="mu_lj_mu_phi"),
+                   lambda objs, mask: objs["mu_ljs"].muons.phi),
+        ],
+    ),
     "lj_electronPhotonN": h.Histogram(
         [
             h.Axis(hist.axis.Integer(0, 10, name="lj_electronPhotonN"),
