@@ -558,16 +558,82 @@ hist_defs = {
                    lambda objs, mask: objs["mu_ljs"].pfMuons.nTrackerLayers),
         ],
     ),
-    "mu_lj_dsaMu_nTrackerLayers": h.Histogram(
+    "mu_lj_dsaMu_trkNumPlanes": h.Histogram(
         [
-            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ DSA $\mu$ nTrackerLayers"),
-                   lambda objs, mask: objs["mu_ljs"].dsaMuons.nTrackerLayers),
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ DSA $\mu$ trkNumPlanes"),
+                   lambda objs, mask: objs["mu_ljs"].dsaMuons.trkNumPlanes),
         ],
     ),
-    "mu_lj_pfMu_nTrackerLayers": h.Histogram(
+    "mu_lj_dsaMu_trkNumHits": h.Histogram(
         [
-            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ PF $\mu$ nTrackerLayers"),
-                   lambda objs, mask: objs["mu_ljs"].pfMuons.nTrackerLayers),
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ DSA $\mu$ trkNumHits"),
+                   lambda objs, mask: objs["mu_ljs"].dsaMuons.trkNumHits),
+        ],
+    ),
+    "mu_lj_dsaMu_trkNumDTHits": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ DSA $\mu$ trkDTHHits"),
+                   lambda objs, mask: objs["mu_ljs"].dsaMuons.trkNumDTHits),
+        ],
+    ),
+    "mu_lj_dsaMu_trkNumCSCHits": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ DSA $\mu$ trkNumCSCHits"),
+                   lambda objs, mask: objs["mu_ljs"].dsaMuons.trkNumCSCHits),
+        ],
+    ),
+    "mu_lj_dsaMu_nSegments": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ DSA $\mu$ nSegments"),
+                   lambda objs, mask: objs["mu_ljs"].dsaMuons.nSegments),
+        ],
+    ),
+    "mu_lj_dsaMu_nDTSegments": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ DSA $\mu$ nSegments"),
+                   lambda objs, mask: objs["mu_ljs"].dsaMuons.nDTSegments),
+        ],
+    ),
+    "mu_lj_dsaMu_nCSCSegments": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ DSA $\mu$ nCSCSegments"),
+                   lambda objs, mask: objs["mu_ljs"].dsaMuons.nCSCSegments),
+        ],
+    ),
+    "mu_lj_pfMu_trkNumPlanes": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ PF $\mu$ trkNumPlanes"),
+                   lambda objs, mask: objs["mu_ljs"].pfMuons.trkNumPlanes),
+        ],
+    ),
+    "mu_lj_pfMu_trkNumHits": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ PF $\mu$ trkNumHits"),
+                   lambda objs, mask: objs["mu_ljs"].pfMuons.trkNumHits),
+        ],
+    ),
+    "mu_lj_pfMu_trkNumDTHits": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ PF $\mu$ trkNumDTHHits"),
+                   lambda objs, mask: objs["mu_ljs"].pfMuons.trkNumDTHits),
+        ],
+    ),
+    "mu_lj_pfMu_trkNumCSCHits": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ PF $\mu$ trkNumCSCits"),
+                   lambda objs, mask: objs["mu_ljs"].pfMuons.trkNumCSCHits),
+        ],
+    ),
+    "mu_lj_pfMu_trkNumPixelHits": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ PF $\mu$ trkNumPixelHits"),
+                   lambda objs, mask: objs["mu_ljs"].pfMuons.trkNumPixelHits),
+        ],
+    ),
+    "mu_lj_pfMu_trkNumTrkLayers": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ PF $\mu$ trkNumTrkLayers"),
+                   lambda objs, mask: objs["mu_ljs"].pfMuons.trkNumTrkLayers),
         ],
     ),
     "mu_lj_muon_eta_phi": h.Histogram(
