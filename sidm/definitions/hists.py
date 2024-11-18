@@ -552,10 +552,10 @@ hist_defs = {
                    lambda objs, mask: ak.max(objs["mu_ljs"].pfMuons.dxy, axis=-1)),
         ],
     ),
-    "mu_lj_muon_nTrackerLayers": h.Histogram(
+    "mu_lj_pfMu_nTrackerLayers": h.Histogram(
         [
-            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ $\mu$ nTrackerLayers"),
-                   lambda objs, mask: objs["mu_ljs"].muons.nTrackerLayers),
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ PF $\mu$ nTrackerLayers"),
+                   lambda objs, mask: objs["mu_ljs"].pfMuons.nTrackerLayers),
         ],
     ),
     "mu_lj_dsaMu_nTrackerLayers": h.Histogram(
