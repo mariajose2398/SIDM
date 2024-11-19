@@ -492,6 +492,18 @@ hist_defs = {
                    lambda objs, mask: objs["mu_ljs"].muons.pt),
         ],
     ),
+    "mu_lj_pfMuon_pt": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 500, name=r"$\mu$- type LJ PF $\mu$ pT"),
+                   lambda objs, mask: objs["mu_ljs"].pfMuons.pt),
+        ],
+    ),
+    "mu_lj_dsaMuon_pt": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 500, name=r"$\mu$- type LJ DSA $\mu$ pT"),
+                   lambda objs, mask: objs["mu_ljs"].dsaMuons.pt),
+        ],
+    ),
     "mu_lj_muon_dxy": h.Histogram(
         [
             h.Axis(hist.axis.Regular(100, 0, 50, name=r"$\mu$- type LJ $\mu$ dxy"),
@@ -564,6 +576,24 @@ hist_defs = {
                    lambda objs, mask: ak.min(objs["mu_ljs"].pfMuons.dxy, axis=-1)),
         ],
     ),
+    "mu_lj_muon_min_dxy_XLowRange": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 1, name=r"$\mu$- type LJ $mu$ min dxy"),
+                   lambda objs, mask: ak.min(objs["mu_ljs"].muons.dxy, axis=-1)),
+        ],
+    ),
+    "mu_lj_dsaMuon_min_dxy_XLowRange": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 1, name=r"$\mu$- type LJ DSA $\mu$ min dxy"),
+                   lambda objs, mask: ak.min(objs["mu_ljs"].dsaMuons.dxy, axis=-1)),
+        ],
+    ),
+    "mu_lj_pfMuon_min_dxy_XLowRange": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 1, name=r"$\mu$- type LJ PF $\mu$ min dxy"),
+                   lambda objs, mask: ak.min(objs["mu_ljs"].pfMuons.dxy, axis=-1)),
+        ],
+    ),
     "mu_lj_muon_max_dxy": h.Histogram(
         [
             h.Axis(hist.axis.Regular(100, 0, 50, name=r"$\mu$- type LJ $\mu$ max dxy"),
@@ -579,6 +609,24 @@ hist_defs = {
     "mu_lj_pfMuon_max_dxy": h.Histogram(
         [
             h.Axis(hist.axis.Regular(50, 0, 20, name=r"$\mu$- type LJ PF $\mu$ max dxy"),
+                   lambda objs, mask: ak.max(objs["mu_ljs"].pfMuons.dxy, axis=-1)),
+        ],
+    ),
+    "mu_lj_muon_max_dxy_XLowRange": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 1, name=r"$\mu$- type LJ $\mu$ max dxy"),
+                   lambda objs, mask: ak.max(objs["mu_ljs"].muons.dxy, axis=-1)),
+        ],
+    ),
+    "mu_lj_dsaMuon_max_dxy_XLowRange": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 1, name=r"$\mu$- type LJ DSA $\mu$ max dxy"),
+                   lambda objs, mask: ak.max(objs["mu_ljs"].dsaMuons.dxy, axis=-1)),
+        ],
+    ),
+    "mu_lj_pfMuon_max_dxy_XLowRange": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 1, name=r"$\mu$- type LJ PF $\mu$ max dxy"),
                    lambda objs, mask: ak.max(objs["mu_ljs"].pfMuons.dxy, axis=-1)),
         ],
     ),
@@ -620,7 +668,7 @@ hist_defs = {
     ),
     "mu_lj_dsaMu_nDTSegments": h.Histogram(
         [
-            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ DSA $\mu$ nSegments"),
+            h.Axis(hist.axis.Regular(40, 0, 40, name=r"$\mu$- type LJ DSA $\mu$ nDTSegments"),
                    lambda objs, mask: objs["mu_ljs"].dsaMuons.nDTSegments),
         ],
     ),
