@@ -128,6 +128,11 @@ egm_lj_base: &egm_lj_base
   - "egm_lj_pt"
   - "egm_lj_electronN"
   - "egm_lj_photonN"
+  - "egm_lj_electron_pt"
+  - "egm_lj_photon_pt"
+  - "egm_lj_electron_dxy"
+  - "egm_lj_electron_min_dxy"
+  - "egm_lj_electron_max_dxy"
 
 electron_lj_base: &electron_lj_base
   - "electron_lj_dR"
