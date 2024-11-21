@@ -141,6 +141,16 @@ egm_lj_base: &egm_lj_base
   - "egm_lj_electron_dxy"
   - "egm_lj_electron_min_dxy"
   - "egm_lj_electron_max_dxy"
+  - "egm_lj_electron_dxy_lowRange"
+  - "egm_lj_electron_min_dxy_lowRange"
+  - "egm_lj_electron_max_dxy_lowRange"
+  - "egm_lj_electron_dxy_XLowRange"
+  - "egm_lj_electron_min_dxy_XLowRange"
+  - "egm_lj_electron_max_dxy_XLowRange"
+  - "egm_lj_electron_dxy_XXLowRange"
+  - "egm_lj_electron_min_dxy_XXLowRange"
+  - "egm_lj_electron_max_dxy_XXLowRange"
+  - "egm_lj_electron_lostHits"
 
 electron_lj_base: &electron_lj_base
   - "electron_lj_dR"
