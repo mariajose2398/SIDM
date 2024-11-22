@@ -453,7 +453,7 @@ hist_defs = {
     "mu_lj_muonN": obj_attr("mu_ljs", "muon_n", xmax=10, nbins=10),
     "mu_lj_pfMu_n": obj_attr("mu_ljs", "pfMu_n", xmax=10, nbins=10),
     "mu_lj_dsaMu_n": obj_attr("mu_ljs", "dsaMu_n", xmax=10, nbins=10),
-    "egm_lj_pt": obj_attr("egm_ljs", "pt", xmax=500),
+    "egm_lj_pt": obj_attr("egm_ljs", "pt", xmax=700),
     "egm_lj_electronN": obj_attr("egm_ljs", "electron_n", xmax=10, nbins=10),
     "egm_lj_photonN": obj_attr("egm_ljs", "photon_n", xmax=10, nbins=10),
     "egm_lj_electron_pt": h.Histogram(
