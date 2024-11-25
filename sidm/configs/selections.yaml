@@ -899,7 +899,7 @@ baseNoLj_A_ee_matched_lj: &baseNoLj_A_ee_matched_lj
     genAs_toE:
       - "dR(A, LJ) < 0.4"
   evt_cuts:
-    - *evt_pv_cuts
+    - *evt_baseNoLj
     - "genAs_toE_matched_egmLj"
 
 baseNoLj_A_mumu_matched_lj: &baseNoLj_A_mumu_matched_lj
@@ -912,7 +912,7 @@ baseNoLj_A_mumu_matched_lj: &baseNoLj_A_mumu_matched_lj
     genAs_toMu:
       - "dR(A, LJ) < 0.4"
   evt_cuts:
-    - *evt_pv_cuts
+    - *evt_baseNoLj
     - "genAs_toMu_matched_muLj"
 
 baseNoLj_A_ee_highPtA_lowLxyA: &baseNoLj_A_ee_highPtA_lowLxyA
