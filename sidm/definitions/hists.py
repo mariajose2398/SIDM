@@ -540,6 +540,42 @@ hist_defs = {
                    lambda objs, mask: ak.max(objs["egm_ljs"].electrons.dxy, axis=-1)),
         ],
     ),
+    "egm_lj_electron_dxy_XXXLowRange": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, .1, name=r"egm- type LJ e dxy"),
+                   lambda objs, mask: objs["egm_ljs"].electrons.dxy),
+        ],
+    ),
+    "egm_lj_electron_min_dxy_XXXLowRange": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, .1, name=r"egm- type LJ e min dxy"),
+                   lambda objs, mask: ak.min(objs["egm_ljs"].electrons.dxy, axis=-1)),
+        ],
+    ),
+    "egm_lj_electron_max_dxy_XXXLowRange": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, .1, name=r"egm- type LJ e max dxy"),
+                   lambda objs, mask: ak.max(objs["egm_ljs"].electrons.dxy, axis=-1)),
+        ],
+    ),
+    "egm_lj_electron_dxy_XXXXLowRange": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, .05, name=r"egm- type LJ e dxy"),
+                   lambda objs, mask: objs["egm_ljs"].electrons.dxy),
+        ],
+    ),
+    "egm_lj_electron_min_dxy_XXXXLowRange": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, .05, name=r"egm- type LJ e min dxy"),
+                   lambda objs, mask: ak.min(objs["egm_ljs"].electrons.dxy, axis=-1)),
+        ],
+    ),
+    "egm_lj_electron_max_dxy_XXXXLowRange": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, .05, name=r"egm- type LJ e max dxy"),
+                   lambda objs, mask: ak.max(objs["egm_ljs"].electrons.dxy, axis=-1)),
+        ],
+    ),
     "egm_lj_electron_lostHits": h.Histogram(
         [
             h.Axis(hist.axis.Regular(10, 0, 10, name=r"egm- type LJ e lostHits"),
