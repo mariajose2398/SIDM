@@ -32,6 +32,7 @@ electron_extra_2d: &electron_extra_2d
 electron_base: &electron_base
   - "electron_n"
   - "electron_pt"
+  - "electron_dxy"
   - "electron_eta_phi"
   - "electron_photonIdx"
   - "electron_dxy"
@@ -57,6 +58,7 @@ photon_base: &photon_base
 muon_base: &muon_base
   - "muon_n"
   - "muon_pt"
+  - "muon_dxy"
   - "muon_eta_phi"
   - "muon_absD0"
   - "muon_absD0_lowRange"
@@ -64,6 +66,7 @@ muon_base: &muon_base
 dsaMuon_base: &dsaMuon_base
   - "dsaMuon_n"
   - "dsaMuon_pt"
+  - "dsaMuon_dxy"
   - "dsaMuon_eta_phi"
   - "dsaMuon_absD0"
   - "dsaMuon_absD0_lowRange"
@@ -198,6 +201,7 @@ genE_base: &genE_base
   - "genE_n"
   - "genE_pt"
   - "genE_pt_highRange"
+  - "genE_dxy"
   - "genE0_pt"
   - "genE1_pt"
   - "genE0_pt_highRange"
@@ -219,6 +223,7 @@ genMu_base: &genMu_base
   - "genMu_n"
   - "genMu_pt"
   - "genMu_pt_highRange"
+  - "genMu_dxy"
   - "genMu0_pt"
   - "genMu1_pt"
   - "genMu0_pt_highRange"

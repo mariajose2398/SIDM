@@ -235,6 +235,7 @@ hist_defs = {
     # pfelectron
     "electron_n": obj_attr("electrons", "n", nbins=10),
     "electron_pt": obj_attr("electrons", "pt", xmax=500),
+    "electron_dxy": obj_attr("electrons", "dxy",),
     "electron_eta_phi": obj_eta_phi("electrons"),
     "electron_photonIdx": obj_attr("electrons", "photonIdx", xmin=-1, xmax=10, nbins=10),
     "electron_dxy": obj_attr("electrons", "dxy", xmax=0.2),
@@ -327,6 +328,7 @@ hist_defs = {
     # pfmuon
     "muon_n": obj_attr("muons", "n"),
     "muon_pt":obj_attr("muons", "pt"),
+    "muon_dxy":obj_attr("muons", "dxy"),
     "muon_eta_phi": obj_eta_phi("muons"),
     "muon_absD0": obj_attr("muons", "dxy", absval=True, xmax=500),
     "muon_absD0_lowRange": obj_attr("muons", "dxy", absval=True, xmax=10),
@@ -360,6 +362,7 @@ hist_defs = {
     # dsamuon
     "dsaMuon_n": obj_attr("dsaMuons", "n"),
     "dsaMuon_pt":obj_attr("dsaMuons", "pt"),
+    "dsaMuon_dxy":obj_attr("dsaMuons", "dxy"),
     "dsaMuon_eta_phi": obj_eta_phi("dsaMuons"),
     "dsaMuon_absD0": obj_attr("dsaMuons", "dxy", absval=True, xmax=500),
     "dsaMuon_absD0_lowRange": obj_attr("dsaMuons", "dxy", absval=True, xmax=10),
@@ -1036,6 +1039,7 @@ hist_defs = {
     "genE_n": obj_attr("genEs", "n"),
     "genE_pt": obj_attr("genEs", "pt"),
     "genE_pt_highRange": obj_attr("genEs", "pt", xmax=700),
+    "genE_dxy": obj_attr("genEs", "dxy", absval=True, xmax=300),
     "genE0_pt": h.Histogram(
         [
             h.Axis(hist.axis.Regular(100, 0, 200, name="genE0_pt",
@@ -1153,6 +1157,7 @@ hist_defs = {
     "genMu_n": obj_attr("genMus", "n"),
     "genMu_pt": obj_attr("genMus", "pt"),
     "genMu_pt_highRange": obj_attr("genMus", "pt", xmax=700),
+    "genMu_dxy": obj_attr("genMus", "dxy", absval=True, xmax=300),
     "genMu0_pt": h.Histogram(
         [
             h.Axis(hist.axis.Regular(200, 0, 200, name="genMu0_pt",
