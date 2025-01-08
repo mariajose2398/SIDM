@@ -1499,7 +1499,7 @@ hist_defs = {
                    lambda objs, mask: objs["genAs_toMu"].eta ),
         ],
     ),
-    "genAs_toE_lxy": obj_attr("genAs_toE", "lxy", xmax=500),
+    "genAs_toE_lxy": obj_attr("genAs_toE", "lxy", xmax=150),
     "genAs_toE_lxy_lowRange": obj_attr("genAs_toE", "lxy", xmax=20),
     "genAs_toE_lxy_midRange": obj_attr("genAs_toE", "lxy", xmin=40, xmax=80),
     "genAs_toE_lxy_ecal": obj_attr("genAs_toE", "lxy", xmin=125, xmax=135),
