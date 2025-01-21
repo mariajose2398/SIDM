@@ -20,6 +20,7 @@ ljsource_cuts: &ljsource_cuts
       - "eta"
       - "looseID"
       - "pixelSeed"
+      - "electronVeto"
     dsaMuons:
       - "pT > 10 GeV"
       - "|eta| < 2.4"
@@ -33,10 +34,8 @@ gen_level_cuts: &gen_level_cuts
   obj_cuts: &obj_gen_level_cuts
     genMus:
       - "status 1"
-      - "fromGenA"
     genEs:
       - "status 1"
-      - "fromGenA"
 
 trigger: &trigger
   evt_cuts:
@@ -60,34 +59,6 @@ baseNoLj: &baseNoLj
   evt_cuts: &evt_baseNoLj
     - *trigger
     - *evt_pv_cuts
-
-baseNoLj_isLoose: &baseNoLj_isLoose
-  obj_cuts:
-    <<: *obj_baseNoLj
-    electrons:
-      - "pT > 10 GeV"
-      - "|eta| < 2.4"
-      - "isLoose"
-    photons:
-      - "pT > 20 GeV"
-      - "|eta| < 2.5"
-      - "isLoose"
-  evt_cuts:
-    - *evt_baseNoLj
-
-baseNoLj_Loose_greater: &baseNoLj_isLoose_greater
-  obj_cuts:
-    <<: *obj_baseNoLj
-    electrons:
-      - "pT > 10 GeV"
-      - "|eta| < 2.4"
-      - "looseID>"
-    photons:
-      - "pT > 20 GeV"
-      - "|eta| < 2.5"
-      - "looseID>"
-  evt_cuts:
-    - *evt_baseNoLj
 
 baseNoLj_noLoose: &baseNoLj_noLoose
   obj_cuts:
@@ -131,12 +102,12 @@ baseNoLj_barrel: &baseNoLj_barrel
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
-      - "looseID>"
+      - "looseID"
       - "barrel"
     photons:
       - "pT > 20 GeV"
       - "barrel"
-      - "looseID>"
+      - "looseID"
   evt_cuts:
     - *evt_baseNoLj
 
