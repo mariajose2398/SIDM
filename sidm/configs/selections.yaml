@@ -25,7 +25,6 @@ ljsource_cuts: &ljsource_cuts
       - "|eta| < 2.4"
       - "displaced ID"
       - "no PF match"
-
 # require final-state gen e and mu
 gen_level_cuts: &gen_level_cuts
   obj_cuts: &obj_gen_level_cuts
