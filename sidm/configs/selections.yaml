@@ -80,7 +80,17 @@ base_ljObjCut: &base_ljObjCut
       - "mu_charge == 0"
   evt_cuts:
     - *evt_baseNoLj
- 
+
+dsaMuons_withoutNoPFMatch:  &dsaMuons_withoutNoPFMatch
+  obj_cuts:
+    <<: *obj_baseNoLj
+    dsaMuons:
+      - "pT > 10 GeV"
+      - "|eta| < 2.4"
+      - "displaced ID"
+  evt_cuts:
+    - *evt_baseNoLj
+
 # add >=2 LJ requirement
 base: &base
   obj_cuts: &obj_base
@@ -233,7 +243,7 @@ baseNoLj_veryDisplacedA: &baseNoLj_veryDisplacedA
     genAs_toMu:
       - "lxy >= 100 cm"
 
-# Selections for studying the Electron ID 
+# Selections for studying the Electron ID
 baseNoLj_noLoose: &baseNoLj_noLoose
   obj_cuts:
     <<: *obj_baseNoLj
@@ -271,7 +281,7 @@ baseNoLj_noLoose_barrel: &baseNoLj_noLoose_barrel
     - *evt_baseNoLj
 
 baseNoLj_barrel: &baseNoLj_barrel
-  obj_cuts: 
+  obj_cuts:
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
@@ -285,7 +295,7 @@ baseNoLj_barrel: &baseNoLj_barrel
     - *evt_baseNoLj
 
 baseNoLj_barrel_sieie: &baseNoLj_barrel_sieie
-  obj_cuts: 
+  obj_cuts:
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
@@ -299,7 +309,7 @@ baseNoLj_barrel_sieie: &baseNoLj_barrel_sieie
     - *evt_baseNoLj
 
 baseNoLj_barrel_hoe: &baseNoLj_barrel_hoe
-  obj_cuts: 
+  obj_cuts:
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
@@ -313,7 +323,7 @@ baseNoLj_barrel_hoe: &baseNoLj_barrel_hoe
     - *evt_baseNoLj
 
 baseNoLj_barrel_iso: &baseNoLj_barrel_iso
-  obj_cuts: 
+  obj_cuts:
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
@@ -323,7 +333,7 @@ baseNoLj_barrel_iso: &baseNoLj_barrel_iso
     - *evt_baseNoLj
 
 baseNoLj_barrel_eInvMinusPInv: &baseNoLj_barrel_eInvMinusPInv
-  obj_cuts: 
+  obj_cuts:
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
@@ -333,7 +343,7 @@ baseNoLj_barrel_eInvMinusPInv: &baseNoLj_barrel_eInvMinusPInv
     - *evt_baseNoLj
 
 baseNoLj_barrel_lostHists: &baseNoLj_barrel_lostHists
-  obj_cuts: 
+  obj_cuts:
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
@@ -343,7 +353,7 @@ baseNoLj_barrel_lostHists: &baseNoLj_barrel_lostHists
     - *evt_baseNoLj
 
 baseNoLj_barrel_convVeto: &baseNoLj_barrel_convVeto
-  obj_cuts: 
+  obj_cuts:
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
@@ -353,7 +363,7 @@ baseNoLj_barrel_convVeto: &baseNoLj_barrel_convVeto
     - *evt_baseNoLj
 
 baseNoLj_endcap: &baseNoLj_endcap
-  obj_cuts: 
+  obj_cuts:
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
@@ -363,7 +373,7 @@ baseNoLj_endcap: &baseNoLj_endcap
     - *evt_baseNoLj
 
 baseNoLj_endcap_sieie: &baseNoLj_endcap_sieie
-  obj_cuts: 
+  obj_cuts:
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
@@ -373,7 +383,7 @@ baseNoLj_endcap_sieie: &baseNoLj_endcap_sieie
     - *evt_baseNoLj
 
 baseNoLj_endcap_hoe: &baseNoLj_endcap_hoe
-  obj_cuts: 
+  obj_cuts:
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
@@ -383,7 +393,7 @@ baseNoLj_endcap_hoe: &baseNoLj_endcap_hoe
     - *evt_baseNoLj
 
 baseNoLj_endcap_iso: &baseNoLj_endcap_iso
-  obj_cuts: 
+  obj_cuts:
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
@@ -393,7 +403,7 @@ baseNoLj_endcap_iso: &baseNoLj_endcap_iso
     - *evt_baseNoLj
 
 baseNoLj_endcap_eInvMinusPInv: &baseNoLj_endcap_eInvMinusPInv
-  obj_cuts: 
+  obj_cuts:
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
@@ -403,7 +413,7 @@ baseNoLj_endcap_eInvMinusPInv: &baseNoLj_endcap_eInvMinusPInv
     - *evt_baseNoLj
 
 baseNoLj_endcap_lostHists: &baseNoLj_endcap_lostHists
-  obj_cuts: 
+  obj_cuts:
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
@@ -413,7 +423,7 @@ baseNoLj_endcap_lostHists: &baseNoLj_endcap_lostHists
     - *evt_baseNoLj
 
 baseNoLj_endcap_convVeto: &baseNoLj_endcap_convVeto
-  obj_cuts: 
+  obj_cuts:
     <<: *obj_baseNoLj
     electrons:
       - "pT > 10 GeV"
@@ -723,7 +733,7 @@ baseNoLj_A_ee_matched_lj_highPT_lowLxyA: &baseNoLj_A_ee_matched_lj_highPT_lowLxy
   evt_cuts:
     - *evt_baseNoLj
     - "genAs_toE_matched_egmLj"
-    
+
 baseNoLj_A_ee_matched_elj_highPT_lowLxyA: &baseNoLj_A_ee_matched_elj_highPT_lowLxyA
   <<: *baseNoLj
   obj_cuts:
@@ -995,6 +1005,49 @@ baseNoLj_A_mumu_highPtA: &baseNoLj_A_mumu_highPtA
     - *evt_baseNoLj
     - "genAs_toMu"
 
+baseNoLj_A_mumu_matched_pfMu_highPT: &baseNoLj_A_mumu_matched_pfMu_highPT
+  <<: *baseNoLj
+  obj_cuts:
+    <<: *obj_baseNoLj
+    genAs_toMu:
+      - "pT > 30 GeV"
+  postLj_obj_cuts:
+    genAs_toMu:
+      - "dR(A, pfMu) < 0.4"
+  evt_cuts:
+    - *evt_baseNoLj
+    - "genAs_toMu"
+
+baseNoLj_A_mumu_matched_dsaMu_highPT: &baseNoLj_A_mumu_matched_dsaMu_highPT
+  <<: *baseNoLj
+  obj_cuts:
+    <<: *obj_baseNoLj
+    genAs_toMu:
+      - "pT > 30 GeV"
+  postLj_obj_cuts:
+    genAs_toMu:
+      - "dR(A, dsaMu) < 0.4"
+  evt_cuts:
+    - *evt_baseNoLj
+    - "genAs_toMu"
+
+baseNoLj_A_mumu_matched_dsaMuWithoutNoPfMatch_highPT: &baseNoLj_A_mumu_matched_dsaMuWithoutNoPfMatch_highPT
+  <<: *baseNoLj
+  obj_cuts:
+    <<: *obj_baseNoLj
+    dsaMuons:
+      - "pT > 10 GeV"
+      - "|eta| < 2.4"
+      - "displaced ID"
+    genAs_toMu:
+      - "pT > 30 GeV"
+  postLj_obj_cuts:
+    genAs_toMu:
+      - "dR(A, dsaMu) < 0.4"
+  evt_cuts:
+    - *evt_baseNoLj
+    - "genAs_toMu"
+
 baseNoLj_A_mumu_matched_lj_highPT_lowLxyAUpto60: &baseNoLj_A_mumu_matched_lj_highPT_lowLxyAUpto60
   <<: *baseNoLj
   obj_cuts:
@@ -1036,7 +1089,7 @@ baseNoLj_A_mumu_matched_lj_highPT: &baseNoLj_A_mumu_matched_lj_highPT
   evt_cuts:
     - *evt_baseNoLj
     - "genAs_toMu_matched_muLj"
-    
+
 baseNoLj_A_mumu_matched_pflj_highPT: &baseNoLj_A_mumu_matched_pflj_highPT
   <<: *baseNoLj
   obj_cuts:
@@ -1053,7 +1106,7 @@ baseNoLj_A_mumu_matched_pflj_highPT: &baseNoLj_A_mumu_matched_pflj_highPT
   evt_cuts:
     - *evt_baseNoLj
     - "genAs_toMu_matched_muLj"
-    
+
 baseNoLj_A_mumu_matched_dsalj_highPT: &baseNoLj_A_mumu_matched_dsalj_highPT
   <<: *baseNoLj
   obj_cuts:
@@ -1070,7 +1123,7 @@ baseNoLj_A_mumu_matched_dsalj_highPT: &baseNoLj_A_mumu_matched_dsalj_highPT
   evt_cuts:
     - *evt_baseNoLj
     - "genAs_toMu_matched_muLj"
-    
+
 baseNoLj_A_mumu_matched_pfDsalj_highPT: &baseNoLj_A_mumu_matched_pfDsalj_highPT
   <<: *baseNoLj
   obj_cuts:
@@ -1087,7 +1140,7 @@ baseNoLj_A_mumu_matched_pfDsalj_highPT: &baseNoLj_A_mumu_matched_pfDsalj_highPT
   evt_cuts:
     - *evt_baseNoLj
     - "genAs_toMu_matched_muLj"
-    
+
 baseNoLj_A_mumu_highPtA_LxyUpto400A: &baseNoLj_A_mumu_highPtA_LxyUpto400A
   <<: *baseNoLj
   obj_cuts:
