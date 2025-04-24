@@ -975,7 +975,7 @@ hist_defs = {
                    label="Matched Jet PT [GeV]"),
                    lambda objs, mask:  objs["ljs"].matched_jet.pt),
         ],
-    ),      
+    ),
     # matchedjet-lj
     "matched_jet_lj_dR": h.Histogram(
         [
@@ -983,7 +983,7 @@ hist_defs = {
                    label="dR(LJ, Matched Jet)"),
                    lambda objs, mask: dR(objs["ljs"].matched_jet, objs["ljs"])),
         ],
-    ),    
+    ),
     "lj_isolation": h.Histogram(
         [
             h.Axis(hist.axis.Regular(50, 0, 2, name="lj_isolation",
