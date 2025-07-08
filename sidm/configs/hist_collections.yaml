@@ -45,6 +45,12 @@ electron_base: &electron_base
   - "electron_eInvMinusPInv"
   - "electron_lostHits"
   - "electron_deltaEtaSC"
+  - "electron_dxy_XXXXLowRange"
+  - "electron_dxy_XXXLowRange"
+  - "electron_dxy_XXLowRange"
+  - "electron_dxy_XLowRange"
+  - "electron_dxy_lowRange"
+  - "electron_dxy"
 
 photon_base: &photon_base
   - "photon_n"
@@ -62,7 +68,12 @@ muon_base: &muon_base
   - "muon_eta_phi"
   - "muon_absD0"
   - "muon_absD0_lowRange"
-
+  - "muon_dxy_XXXXLowRange"
+  - "muon_dxy_XXXLowRange"
+  - "muon_dxy_XXLowRange"
+  - "muon_dxy_XLowRange"
+  - "muon_dxy_lowRange"
+ 
 dsaMuon_base: &dsaMuon_base
   - "dsaMuon_n"
   - "dsaMuon_pt"
@@ -539,6 +550,18 @@ displacement_base: &displacement_base
   - "lj_iso"
   - "egm_lj_iso"
   - "mu_lj_iso"
+  - "muon_dxy_XXXXLowRange"
+  - "muon_dxy_XXXLowRange"
+  - "muon_dxy_XXLowRange"
+  - "muon_dxy_XLowRange"
+  - "muon_dxy_lowRange"
+  - "muon_dxy"
+  - "electron_dxy_XXXXLowRange"
+  - "electron_dxy_XXXLowRange"
+  - "electron_dxy_XXLowRange"
+  - "electron_dxy_XLowRange"
+  - "electron_dxy_lowRange"
+  - "electron_dxy"
 
 lj_reco_effi_base: &lj_reco_effi_base
   - "genAs_toE_pt"
