@@ -1037,6 +1037,7 @@ baseNoLj_A_mumu_matched_lj_highPT: &baseNoLj_A_mumu_matched_lj_highPT
       - *lj_base
     genAs_toMu:
       - "dR(A, LJ) < 0.4"
+      - "mu_lj_iso < 0.1"
   evt_cuts:
     - *evt_pv_cuts
     - "genAs_toMu_matched_muLj"
@@ -1057,6 +1058,7 @@ baseNoLj_A_mumu_matched_pflj_highPT: &baseNoLj_A_mumu_matched_pflj_highPT
       - "dR(A, LJ) < 0.4"
     mu_ljs:
       - "pfMuLj"
+      - "mu_lj_iso < 0.1"
   evt_cuts:
     - *evt_pv_cuts
     - "genAs_toMu_matched_muLj"
@@ -1077,6 +1079,7 @@ baseNoLj_A_mumu_matched_dsalj_highPT: &baseNoLj_A_mumu_matched_dsalj_highPT
       - "dR(A, LJ) < 0.4"
     mu_ljs:
       - "dsaMuLj"
+      - "mu_lj_iso < 0.1"
   evt_cuts:
     - *evt_pv_cuts
     - "genAs_toMu_matched_muLj"
@@ -1097,6 +1100,7 @@ baseNoLj_A_mumu_matched_pfDsalj_highPT: &baseNoLj_A_mumu_matched_pfDsalj_highPT
       - "dR(A, LJ) < 0.4"
     mu_ljs:
       - "pf_dsa_muLj"
+      - "mu_lj_iso < 0.1"
   evt_cuts:
     - *evt_pv_cuts
     - "genAs_toMu_matched_muLj"
