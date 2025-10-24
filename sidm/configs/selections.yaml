@@ -186,7 +186,7 @@ base_ljObjCut_ljIso_2lj: &base_ljObjCut_ljIso_2lj
     - ">=1 egm_ljs"
     - ">=1 mu_ljs"
 
-base_ljObjCut_ljIso0p1_2pf: &base_ljObjCut_ljIso0p1_2pf
+base_ljObjCut_ljIso_2pf: &base_ljObjCut_ljIso_2pf
   obj_cuts:
     <<: *obj_baseNoLj
   postLj_obj_cuts:
@@ -200,7 +200,7 @@ base_ljObjCut_ljIso0p1_2pf: &base_ljObjCut_ljIso0p1_2pf
   evt_cuts:
     - *evt_baseNoLj
 
-base_ljObjCut_ljIso0p1_2pf_2lj: &base_ljObjCut_ljIso0p1_2pf_2lj
+base_ljObjCut_ljIso_2pf_2lj: &base_ljObjCut_ljIso_2pf_2lj
   obj_cuts:
     <<: *obj_baseNoLj
   preLj_obj_cuts: &preLj_obj_base
@@ -218,7 +218,7 @@ base_ljObjCut_ljIso0p1_2pf_2lj: &base_ljObjCut_ljIso0p1_2pf_2lj
     - ">=1 egm_ljs"
     - ">=1 mu_ljs"
 
-base_ljObjCut_ljIso0p1_1dsa_2lj: &base_ljObjCut_ljIso0p1_1dsa_2lj
+base_ljObjCut_ljIso_1dsa_2lj: &base_ljObjCut_ljIso_1dsa_2lj
   obj_cuts:
     <<: *obj_baseNoLj
   preLj_obj_cuts: &preLj_obj_base
@@ -236,7 +236,7 @@ base_ljObjCut_ljIso0p1_1dsa_2lj: &base_ljObjCut_ljIso0p1_1dsa_2lj
     - ">=1 egm_ljs"
     - ">=1 mu_ljs"
 
-base_ljObjCut_ljIso0p1_1pf_1dsa_2lj: &base_ljObjCut_ljIso0p1_1pf_1dsa_2lj
+base_ljObjCut_ljIso_1pf_1dsa_2lj: &base_ljObjCut_ljIso_1pf_1dsa_2lj
   obj_cuts:
     <<: *obj_baseNoLj
   preLj_obj_cuts: &preLj_obj_base
@@ -254,7 +254,7 @@ base_ljObjCut_ljIso0p1_1pf_1dsa_2lj: &base_ljObjCut_ljIso0p1_1pf_1dsa_2lj
     - ">=1 egm_ljs"
     - ">=1 mu_ljs"
 
-base_ljObjCut_ljIso0p1_2dsa: &base_ljObjCut_ljIso0p1_2dsa
+base_ljObjCut_ljIso_2dsa: &base_ljObjCut_ljIso_2dsa
   obj_cuts:
     <<: *obj_baseNoLj
   preLj_obj_cuts: &preLj_obj_base
