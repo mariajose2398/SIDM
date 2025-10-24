@@ -172,7 +172,7 @@ base_ljObjCut_1e_lostHits: &base_ljObjCut_1e_lostHits
 base_ljObjCut_ljIso: &base_ljObjCut_ljIso
   obj_cuts:
     <<: *obj_baseNoLj
-  preLj_obj_cuts: &preLj_obj_base
+  preLj_obj_cuts:
     <<: *preLj_obj_baseNoLj
   postLj_obj_cuts:
     ljs:
@@ -187,7 +187,7 @@ base_ljObjCut_ljIso: &base_ljObjCut_ljIso
 base_ljObjCut_ljIso_2lj: &base_ljObjCut_ljIso_2lj
   obj_cuts:
     <<: *obj_baseNoLj
-  preLj_obj_cuts: &preLj_obj_base
+  preLj_obj_cuts:
     <<: *preLj_obj_baseNoLj
   postLj_obj_cuts:
     ljs:
@@ -204,6 +204,8 @@ base_ljObjCut_ljIso_2lj: &base_ljObjCut_ljIso_2lj
 base_ljObjCut_ljIso_2pf: &base_ljObjCut_ljIso_2pf
   obj_cuts:
     <<: *obj_baseNoLj
+  preLj_obj_cuts:
+    <<: *preLj_obj_baseNoLj
   postLj_obj_cuts:
     ljs:
       - *lj_base
@@ -218,7 +220,7 @@ base_ljObjCut_ljIso_2pf: &base_ljObjCut_ljIso_2pf
 base_ljObjCut_ljIso_2pf_2lj: &base_ljObjCut_ljIso_2pf_2lj
   obj_cuts:
     <<: *obj_baseNoLj
-  preLj_obj_cuts: &preLj_obj_base
+  preLj_obj_cuts:
     <<: *preLj_obj_baseNoLj
   postLj_obj_cuts:
     ljs:
@@ -236,7 +238,7 @@ base_ljObjCut_ljIso_2pf_2lj: &base_ljObjCut_ljIso_2pf_2lj
 base_ljObjCut_ljIso_1dsa_2lj: &base_ljObjCut_ljIso_1dsa_2lj
   obj_cuts:
     <<: *obj_baseNoLj
-  preLj_obj_cuts: &preLj_obj_base
+  preLj_obj_cuts:
     <<: *preLj_obj_baseNoLj
   postLj_obj_cuts:
     ljs:
@@ -254,7 +256,7 @@ base_ljObjCut_ljIso_1dsa_2lj: &base_ljObjCut_ljIso_1dsa_2lj
 base_ljObjCut_ljIso_1pf_1dsa_2lj: &base_ljObjCut_ljIso_1pf_1dsa_2lj
   obj_cuts:
     <<: *obj_baseNoLj
-  preLj_obj_cuts: &preLj_obj_base
+  preLj_obj_cuts:
     <<: *preLj_obj_baseNoLj
   postLj_obj_cuts:
     ljs:
@@ -272,7 +274,7 @@ base_ljObjCut_ljIso_1pf_1dsa_2lj: &base_ljObjCut_ljIso_1pf_1dsa_2lj
 base_ljObjCut_ljIso_2dsa: &base_ljObjCut_ljIso_2dsa
   obj_cuts:
     <<: *obj_baseNoLj
-  preLj_obj_cuts: &preLj_obj_base
+  preLj_obj_cuts:
     <<: *preLj_obj_baseNoLj
   postLj_obj_cuts:
     ljs:
@@ -288,7 +290,7 @@ base_ljObjCut_ljIso_2dsa: &base_ljObjCut_ljIso_2dsa
 base_ljObjCut_ljIso0p1_2dsa_2lj: &base_ljObjCut_ljIso0p1_2dsa_2lj
   obj_cuts:
     <<: *obj_baseNoLj
-  preLj_obj_cuts: &preLj_obj_base
+  preLj_obj_cuts:
     <<: *preLj_obj_baseNoLj
   postLj_obj_cuts:
     ljs:
