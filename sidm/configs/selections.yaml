@@ -182,6 +182,15 @@ base: &base
     - *evt_baseNoLj
     - ">=2 LJs"
 
+base_data: &base_data
+  obj_cuts: &obj_base
+    <<: *obj_baseNoLj
+  postLj_obj_cuts:
+    <<: *base_postLj_obj_cuts
+  evt_cuts: &evt_base
+    - *evt_baseNoLj
+    - "< 2 LJs"
+
 4mu: &4mu
   <<: *base
   evt_cuts: &evt_4mu
