@@ -182,15 +182,6 @@ base: &base
     - *evt_baseNoLj
     - ">=2 LJs"
 
-base_data: &base_data
-  obj_cuts: &obj_base
-    <<: *obj_baseNoLj
-  postLj_obj_cuts:
-    <<: *base_postLj_obj_cuts
-  evt_cuts: &evt_base
-    - *evt_baseNoLj
-    - "< 2 LJs"
-
 4mu: &4mu
   <<: *base
   evt_cuts: &evt_4mu
@@ -1367,3 +1358,17 @@ baseNoLj_A_mumu_matched_lj_noPfMatch_highLjPt: &baseNoLj_A_mumu_matched_lj_noPfM
   evt_cuts:
     - *evt_pv_cuts
     - "genAs_toMu_matched_muLj"
+
+Z_to_mumu_control_region: &Z_to_mumu_control_region
+  obj_cuts:
+    <<: *obj_ljsource_cuts
+    muons: 
+      - "looseID"
+      - "pT > 5 GeV"
+      - "|eta| < 2.4"
+  evt_cuts:
+    - *evt_baseNoLj
+    - "60 <= inv(Mu_0, Mu_1) <= 120"
+    - "n_mu == 2"
+
+    
