@@ -216,6 +216,18 @@ evt_cut_defs = {
         | objs["hlt"].DoubleL2Mu25NoVtx_2Cha_Eta2p4
         | objs["hlt"].DoubleL2Mu25NoVtx_2Cha_CosmicSeed_Eta2p4
     ),
+    "pass flags": lambda objs: (
+          objs["flags"].goodVertices
+        & objs["flags"].globalSuperTightHalo2016Filter
+        & objs["flags"].HBHENoiseFilter
+        & objs["flags"].HBHENoiseIsoFilter
+        & objs["flags"].EcalDeadCellTriggerPrimitiveFilter
+        & objs["flags"].BadPFMuonFilter
+        & objs["flags"].BadPFMuonDzFilter
+        & objs["flags"].eeBadScFilter
+        & objs["flags"].ecalBadCalibFilter
+        & objs["flags"].hfNoisyHitsFilter
+    ),
     ">=1 muon": lambda objs: ak.num(objs["muons"]) >= 1,
     "PV filter": lambda objs: ak.flatten(objs["pvs"].npvsGood) >= 1,
     #"Cosmic veto": lambda objs: objs["cosmicveto"].result,
