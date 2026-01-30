@@ -1190,7 +1190,7 @@ hist_defs = {
     "leading_egm_lj_electron_min_dxy": h.Histogram(
         [
             h.Axis(hist.axis.Regular(100, 0, 0.1, name=r"Leading $e\gamma$- type LJ  $e$ min $d_{xy}$"),
-                   lambda objs, mask: ak.max(objs["egm_ljs"][mask, 0].electrons.dxy, axis=-1)),
+                   lambda objs, mask: ak.max(abs(objs["egm_ljs"][mask, 0].electrons.dxy), axis=-1)),
         ],
         evt_mask=lambda objs: (ak.num(objs["egm_ljs"]) > 0)
     ),
@@ -1204,7 +1204,7 @@ hist_defs = {
     "leading_mu_lj_pf_muon_min_dxy": h.Histogram(
         [
             h.Axis(hist.axis.Regular(100, 0, 0.1, name=r"Leading $\mu$- type LJ PF $\mu$ min $d_{xy}$"),
-                   lambda objs, mask: ak.max(objs["mu_ljs"][mask, 0].pfMuons.dxy, axis=-1)),
+                   lambda objs, mask: ak.max(abs(objs["mu_ljs"][mask, 0].pfMuons.dxy), axis=-1)),
         ],
         evt_mask=lambda objs: (ak.num(objs["mu_ljs"]) > 0)
     ),
