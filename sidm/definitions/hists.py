@@ -1483,17 +1483,17 @@ hist_defs = {
     ),
     "pf_mu_lj_pfMuon_max_trkNumTrkLayers_max_trkNumPixelHits": h.Histogram(
         [
-            h.Axis(hist.axis.Regular(, 0, 40, name=r"PF $\mu$- type LJ PF $\mu$ max trkNumTrkLayers"),
+            h.Axis(hist.axis.Regular(20, 0, 20, name=r"PF $\mu$- type LJ PF $\mu$ max trkNumTrkLayers"),
                    lambda objs, mask: ak.max(abs(objs["mu_ljs"][(objs["mu_ljs"].pfMu_n > 0) & (objs["mu_ljs"].dsaMu_n == 0)].pfMuons.trkNumTrkLayers), axis=-1)),
-            h.Axis(hist.axis.Regular(40, 0, 40, name=r"PF $\mu$- type LJ PF $\mu$ max trkNumPixelHits"),
+            h.Axis(hist.axis.Regular(20, 0, 20, name=r"PF $\mu$- type LJ PF $\mu$ max trkNumPixelHits"),
                    lambda objs, mask: ak.max(abs(objs["mu_ljs"][(objs["mu_ljs"].pfMu_n > 0) & (objs["mu_ljs"].dsaMu_n == 0)].pfMuons.trkNumPixelHits), axis=-1)),
         ],
     ),
     "pf_dsa_mu_lj_pfMuon_max_trkNumTrkLayers_max_trkNumPixelHits": h.Histogram(
         [
-            h.Axis(hist.axis.Regular(40, 0, 40, name=r"PF-DSA $\mu$- type LJ PF $\mu$ max trkNumTrkLayers"),
+            h.Axis(hist.axis.Regular(20, 0, 20, name=r"PF-DSA $\mu$- type LJ PF $\mu$ max trkNumTrkLayers"),
                    lambda objs, mask: ak.max(abs(objs["mu_ljs"][(objs["mu_ljs"].pfMu_n > 0) & (objs["mu_ljs"].dsaMu_n > 0) ].pfMuons.trkNumTrkLayers), axis=-1)),
-            h.Axis(hist.axis.Regular(40, 0, 40, name=r"PF-DSA $\mu$- type LJ PF $\mu$ max trkNumPixelHits"),
+            h.Axis(hist.axis.Regular(20, 0, 20, name=r"PF-DSA $\mu$- type LJ PF $\mu$ max trkNumPixelHits"),
                    lambda objs, mask: ak.max(abs(objs["mu_ljs"][(objs["mu_ljs"].pfMu_n > 0) & (objs["mu_ljs"].dsaMu_n > 0)].pfMuons.trkNumPixelHits), axis=-1)),
         ],
     ),
