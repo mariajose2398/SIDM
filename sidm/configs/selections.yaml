@@ -1363,7 +1363,7 @@ Z_to_mumu_control_region: &Z_to_mumu_control_region
   obj_cuts:
     <<: *obj_ljsource_cuts
     muons: 
-      - "looseID"
+      - "tightID"
       - "pT > 5 GeV"
       - "|eta| < 2.4"
   evt_cuts:
@@ -1371,5 +1371,6 @@ Z_to_mumu_control_region: &Z_to_mumu_control_region
     - "pass flags"
     - "60 <= inv(Mu_0, Mu_1) <= 120"
     - "n_mu == 2"
+    - "dPhi(Mu_0, Mu_1) > 2.4"
 
     
