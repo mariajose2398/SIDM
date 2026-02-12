@@ -771,7 +771,9 @@ lj_reco_effi_base: &lj_reco_effi_base
   - *genA_toMu_effi_base
   - *genA_toE_effi_base
 
-
+ttjets_base: &ttjets_base
+  - "jet_n"
+  - "muon_n"
 data_base: &data_base
   - "muon_n"
   - "muon_pt"
