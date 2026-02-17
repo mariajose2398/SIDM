@@ -15,7 +15,7 @@ QCD_Pt470To600: 58.9
 QCD_Pt600To800: 18.12
 QCD_Pt800To1000: 3.318
 QCD_Pt1000: 1.085
-TTJets: 471.7 # used LO value -- NLO is 734.6
+TTJets: 803 # used LO value -- NLO is 734.6
 
 # assume 1fb for all signal
 # hardcoded in utilities.get_xs() and will be overridden by specific entries here
