@@ -9,7 +9,7 @@ llpNanoAOD_v2:
       - skimmed_output_1.root
       - skimmed_output_10.root
       - skimmed_output_100.root
-      - skimmed_output_101.root
+      # - skimmed_output_101.root
       - skimmed_output_102.root
       - skimmed_output_103.root
       - skimmed_output_104.root
@@ -27,7 +27,7 @@ llpNanoAOD_v2:
       - skimmed_output_115.root
       - skimmed_output_116.root
       - skimmed_output_117.root
-      - skimmed_output_118.root
+      # - skimmed_output_118.root
       - skimmed_output_119.root
       - skimmed_output_12.root
       - skimmed_output_120.root
@@ -36,7 +36,7 @@ llpNanoAOD_v2:
       - skimmed_output_123.root
       - skimmed_output_124.root
       - skimmed_output_125.root
-      - skimmed_output_126.root
+      # - skimmed_output_126.root
       - skimmed_output_127.root
       - skimmed_output_128.root
       - skimmed_output_129.root
