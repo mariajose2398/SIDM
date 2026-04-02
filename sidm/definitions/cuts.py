@@ -4,7 +4,7 @@
 import awkward as ak
 # local
 from sidm.definitions.objects import derived_objs
-from sidm.tools.utilities import dR, lxy, rho, check_bits, returnBitMapTArrayPhoton, dR_outer, cosA_cut, cosA_pair_cut
+from sidm.tools.utilities import dR, lxy, rho, check_bits, returnBitMapTArrayPhoton, dR_outer, cosA_cut, cosA_pair_cut, cosAlpha
 
 obj_cut_defs = {
     "pvs": {
@@ -277,6 +277,7 @@ evt_cut_defs = {
     "dR(Mu_0, Mu_1) > 0.03": lambda objs: objs["genMus"][:,0].delta_r(objs["genMus"][:,1]) > 0.03,
     "60 <= inv(Mu_0, Mu_1) <= 120": lambda objs : ((objs["muons"][:,:2].sum().mass) <= 120) &  ((objs["muons"][:,:2].sum().mass) >= 60),
     "n_mu == 2": lambda objs : ak.num(objs["muons"]) == 2,
+    "n_dsa == 2": lambda objs : ak.num(objs["dsaMuons"]) == 2,
     "n_bjet == 2": lambda objs : ak.num(objs["bjets"]) == 2,
     "n_jet == 2": lambda objs : ak.num(objs["jets"]) == 2,
     "2j2btag": lambda objs : (ak.num(objs["jets"]) == 2) &  (ak.num(objs["bjets"]) == 2),
@@ -289,6 +290,7 @@ evt_cut_defs = {
     "cosA_dsaMuons > -0.95":  lambda objs : cosA_cut(objs["dsaMuons"]),
     "cosmic_mu_pair <= 6":lambda objs : cosA_pair_cut(objs["muons"]),
     "cosmic_dsaMu_pair <= 6":lambda objs : cosA_pair_cut(objs["dsaMuons"]),
+    "all cos_alpha(dsa, dsa) >= -0.95" : lambda objs : ak.all(cosAlpha(objs["dsaMuons"]), axis =1) >= -0.95,
     "pass two missing triggers": lambda objs: (
     (
         objs["hlt"].DoubleL2Mu23NoVtx_2Cha_NoL2Matched
