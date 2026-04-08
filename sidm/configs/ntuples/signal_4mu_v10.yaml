@@ -2296,7 +2296,7 @@ llpNanoAOD_v2:
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-200_MDp-5p0_ctau-0p2_v3_part-47.root
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-200_MDp-5p0_ctau-0p2_v3_part-48.root
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-200_MDp-5p0_ctau-0p2_v3_part-49.root
-      - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-200_MDp-5p0_ctau-0p2_v3_part-5.root
+      # - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-200_MDp-5p0_ctau-0p2_v3_part-5.root #DeserializationError('attempting to get bytes 22262088:22262106\noutside expected range 22262107:22263129 for this Chunk', <Chunk 22262107-22263129>, Cursor(22262106), {'basket_num': 1, 'breadcrumbs': (<TBasket 1 of 'BS_x' at 0x7f773fdc35c0>,)}
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-200_MDp-5p0_ctau-0p2_v3_part-50.root
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-200_MDp-5p0_ctau-0p2_v3_part-51.root
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-200_MDp-5p0_ctau-0p2_v3_part-52.root
@@ -3805,7 +3805,7 @@ llpNanoAOD_v2:
     4Mu_800GeV_1p2GeV_0p012mm:
       files:
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-800_MDp-1p2_ctau-0p012_v3_part-0.root
-      - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-800_MDp-1p2_ctau-0p012_v3_part-1.root
+      # - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-800_MDp-1p2_ctau-0p012_v3_part-1.root #DecompressionError('lzma data error')
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-800_MDp-1p2_ctau-0p012_v3_part-10.root
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-800_MDp-1p2_ctau-0p012_v3_part-11.root
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-800_MDp-1p2_ctau-0p012_v3_part-12.root
@@ -4432,7 +4432,7 @@ llpNanoAOD_v2:
       path: CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-1000_MDp-0p25_ctau-0p002_v3/LLPnanoAODv2/
     4Mu_1000GeV_0p25GeV_0p02mm:
       files:
-      - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-1000_MDp-0p25_ctau-0p02_v3.root
+      # - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-1000_MDp-0p25_ctau-0p02_v3.root #KilledWorker exception (likely a segfault or out-of-memory issue)
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-1000_MDp-0p25_ctau-0p02_v3_part-0.root
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-1000_MDp-0p25_ctau-0p02_v3_part-1.root
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-1000_MDp-0p25_ctau-0p02_v3_part-10.root
@@ -4488,7 +4488,7 @@ llpNanoAOD_v2:
       path: CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-1000_MDp-0p25_ctau-0p02_v3/LLPnanoAODv2/
     4Mu_1000GeV_0p25GeV_0p2mm:
       files:
-      - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-1000_MDp-0p25_ctau-0p2_v3.root
+      # - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-1000_MDp-0p25_ctau-0p2_v3.root Didn't cause any issues yet. 
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-1000_MDp-0p25_ctau-0p2_v3_part-0.root
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-1000_MDp-0p25_ctau-0p2_v3_part-1.root
       - CutDecayFalse_SIDM_BsTo2DpTo4Mu_MBs-1000_MDp-0p25_ctau-0p2_v3_part-10.root
