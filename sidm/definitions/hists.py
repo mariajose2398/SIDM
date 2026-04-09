@@ -1036,6 +1036,12 @@ hist_defs = {
                    lambda objs, mask: abs(objs["mu_ljs"].dsaMuons.dxy)),
         ],
     ),
+    "mu_lj_dsaMuon_dz": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0, 50, name=r"$\mu$- type LJ DSA $\mu$ dz (cm)"),
+                   lambda objs, mask: abs(objs["mu_ljs"].dsaMuons.dz)),
+        ],
+    ),
     "mu_lj_muon_dxy_lowRange": h.Histogram(
         [
             h.Axis(hist.axis.Regular(100, 0, 10, name=r"$\mu$- type LJ $\mu$ dxy (cm)"),
