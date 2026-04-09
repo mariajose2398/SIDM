@@ -84,7 +84,7 @@ dsaMuon_base: &dsaMuon_base
   - "dsaMuon_n"
   - "dsaMuon_pt"
   - "dsaMuon_dxy"
-  - "dsaMuon_dz "
+  - "dsaMuon_dz"
   - "dsaMuon_eta_phi"
   - "dsaMuon_absD0"
   - "dsaMuon_absD0_lowRange"
