@@ -1032,14 +1032,20 @@ hist_defs = {
     ),
     "mu_lj_dsaMuon_dxy": h.Histogram(
         [
-            h.Axis(hist.axis.Regular(100, 0, 50, name=r"$\mu$- type LJ DSA $\mu$ dxy (cm)"),
+            h.Axis(hist.axis.Regular(100, 0, 100, name=r"$\mu$- type LJ DSA $\mu$ dxy (cm)"),
                    lambda objs, mask: abs(objs["mu_ljs"].dsaMuons.dxy)),
         ],
     ),
     "mu_lj_dsaMuon_dz": h.Histogram(
         [
-            h.Axis(hist.axis.Regular(100, 0, 50, name=r"$\mu$- type LJ DSA $\mu$ dz (cm)"),
+            h.Axis(hist.axis.Regular(300, 0, 300, name=r"$\mu$- type LJ DSA $\mu$ dz (cm)"),
                    lambda objs, mask: abs(objs["mu_ljs"].dsaMuons.dz)),
+        ],
+    ),
+    "mu_lj_dsaMuon_cosAlpha": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, -1, 1, name=r"$\mu$- type LJ DSA $\mu$ cos $\alpha$"),
+                   lambda objs, mask: cosAlpha(objs["mu_ljs"].dsaMuons)),
         ],
     ),
     "mu_lj_muon_dxy_lowRange": h.Histogram(
