@@ -105,7 +105,7 @@ def get_pairs(obj):
     pairs = pairs = ak.combinations(obj, 2, axis=1)
     v1, v2 = ak.unzip(pairs)
     return (v1, v2)
-    
+
 def lj_combination_dR(obj):
     pair = ak.combinations(obj, 2, axis=1, fields=["lj1", "lj2"])
     dR = dR_general(pair["lj1"], pair["lj2"])
@@ -1335,3 +1335,12 @@ def get_pairs(obj):
     pairs = ak.combinations(obj, 2, axis=1)
     return (pairs)
 
+def get_pairs_lj(obj):
+    pairs = ak.combinations(obj, 2, axis=-1)
+    return (pairs)
+
+def cosAlpha_lj(muons): #could work for any object
+    pairs = ak.combinations(muons, 2, axis=-1)
+    v1, v2 = ak.unzip(pairs)
+    cos_alpha = np.cos(v1.deltaangle(v2))
+    return (cos_alpha)
