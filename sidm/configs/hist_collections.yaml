@@ -1196,4 +1196,5 @@ cosmic_veto: &cosmic_veto ##final set of histograms for slides and AN
   - "photon_n"
   - "muon_muon_invmass"
   - "muon_muon_invmass_highRange"
-
+  - "mulj_egmlj_invmass"
+  - "lj_lj_invmass"
