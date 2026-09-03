@@ -1339,23 +1339,6 @@ def nearest_lj_index(obj, lj):
 def vx_diff(obj1, obj2):
     return abs(obj1.vx-obj2.vx)
 
-def sum_hist_lpcEOS_output (samples_list, user, foldername):
-    summed_out = None
-    for x in samples_list:
-        print(x)
-        LFN = f"/store/group/lpcmetx/SIDM/coffea_outputs/{user}/{foldername}/{x}.coffea"
-        tmp = tempfile.mkdtemp()
-        prefix = "root://xcache/"
-        local = os.path.join(tmp, os.path.basename(LFN))
-        subprocess.run(["xrdcp", "-f", "-s", prefix + LFN, local], check=True)
-        output = coffea.util.load(local)
-        hists = output["out"][x]["hists"]
-        if summed_out is None:
-            summed_out = hists.copy()
-        else:
-            summed_out = accumulate ([hists, summed_out])
-    return summed_out
-
 def vz_diff(obj1, obj2):
     return abs(obj1.vz-obj2.vz)
 
