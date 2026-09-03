@@ -1154,16 +1154,9 @@ pf_dz_vz: &pf_dz_vz
   - "muon_dz_by_dzErr"
   - "muon_ptErr_by_pt"
 
-cosmic_muons: &cosmic_muons
-  - *mu_ljSpread_dsa
-  - *mu_ljSpread_pf
-  - *mu_ljSpread_mu
-  - *number
-  - *cosAlpha
-  - *pf_dz_vz
+cosmic_veto_extra: &cosmic_veto_extra
   - "dsaMu_pfMu_dR_closest"
   - "dsaMu_pfMu_pt_diff"
-  - *deltaR_cosmic
 
 cosmic_veto: &cosmic_veto ##final set of histograms for slides and AN
   - *cosAlpha
