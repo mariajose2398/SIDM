@@ -530,49 +530,6 @@ baseNoLjNoLjsource_4_trigger: &baseNoLjNoLjsource_4_trigger
     - *evt_pv_cuts
 
 
-ljsource_cuts_barrel: &ljsource_cuts_barrel
-  obj_cuts: &obj_ljsource_cuts_barrel
-    electrons: &electrons_ljsource_cuts_barrel
-      - "pT > 10 GeV"
-      - "barrel"
-      - 'MVANonIsoWPL'
-    muons: &muons_ljsource_cuts_barrel
-      - "looseID"
-      - "pT > 5 GeV"
-      - "barrel"
-    photons: &photons_ljsource_cuts_barrel
-      - "pT > 20 GeV"
-      - "barrel"
-      - 'Custom Cutbased'
-      - "pixelSeed"
-      - 'Photon DR Veto 0p025'
-    dsaMuons: &dsaMuons_ljsource_cuts_barrel
-      - "pT > 10 GeV"
-      - "barrel"
-      - "displaced ID"
-      - "all" # cross-cleaning
-
-ljsource_cuts_endcap: &ljsource_cuts_endcap
-  obj_cuts: &obj_ljsource_cuts_endcap
-    electrons: &electrons_ljsource_cuts_endcap
-      - "pT > 10 GeV"
-      - "endcap"
-      - 'MVANonIsoWPL'
-    muons: &muons_ljsource_cuts_endcap
-      - "looseID"
-      - "pT > 5 GeV"
-      - "endcap"
-    photons: &photons_ljsource_cuts_endcap
-      - "pT > 20 GeV"
-      - "endcap"
-      - 'Custom Cutbased'
-      - "pixelSeed"
-      - 'Photon DR Veto 0p025'
-    dsaMuons: &dsaMuons_ljsource_cuts_endcap
-      - "pT > 10 GeV"
-      - "endcap"
-      - "displaced ID"
-      - "all" # cross-cleaning
 
 
 
