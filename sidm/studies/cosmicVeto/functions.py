@@ -207,23 +207,6 @@ def plot_DataMC_from2D(histogram_2D, summed_QCD, summed_TT, summed_DY, summed_DB
     plt.show()
     plt.close()
 
-def sum_hist_lpcEOS_output (samples_list, user, foldername):
-    summed_out = None
-    for x in samples_list:
-        print(x)
-        LFN = f"/store/group/lpcmetx/SIDM/coffea_outputs/{user}/{foldername}/{x}.coffea"
-        tmp = tempfile.mkdtemp()
-        prefix = "root://xcache/"
-        local = os.path.join(tmp, os.path.basename(LFN))
-        subprocess.run(["xrdcp", "-f", "-s", prefix + LFN, local], check=True)
-        output = coffea.util.load(local)
-        hists = output["out"][x]["hists"]
-        if summed_out is None:
-            summed_out = hists.copy()
-        else:
-            summed_out = accumulate ([hists, summed_out])
-    return summed_out
-
 def plot_fraction_less (signals, histogram_name, channel_name,
                         output_signal_2mu, output_signal_4mu,
                         thresholds, colors, ylabel=None):

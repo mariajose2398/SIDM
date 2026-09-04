@@ -16,7 +16,6 @@ import hist.intervals
 from sidm import BASE_DIR
 import coffea.util
 from coffea.processor import accumulate
-import os, sys, time, subprocess, tempfile
 
 def print_list(l):
     """Print one list element per line"""

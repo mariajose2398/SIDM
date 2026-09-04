@@ -61,13 +61,13 @@ obj_cut_defs = {
         "mu_lj_iso < 0.1": lambda objs: objs["mu_ljs"].isolation < 0.1,
         "reverse_iso": lambda objs: objs["mu_ljs"].isolation >= 0.1,
         "pf_pixelhits <= 2": lambda objs: ak.max(objs["mu_ljs"].pfMuons.trkNumPixelHits, axis=-1) <= 2,
-        "displaced": lambda objs: (ak.max(objs["mu_ljs"].muons.trkNumPixelHits, axis=-1) <= 2) ,
+        "displaced": lambda objs: (ak.max(objs["mu_ljs"].muons.trkNumPixelHits, axis=-1) <= 2),
         "Mu == 1": lambda objs: objs["mu_ljs"].muon_n == 1,
         "Mu == 2": lambda objs: objs["mu_ljs"].muon_n == 2,
         "Mu == 3": lambda objs: objs["mu_ljs"].muon_n == 3,
         "Mu >= 4": lambda objs: objs["mu_ljs"].muon_n >= 4,
         "Mu >= 2": lambda objs: objs["mu_ljs"].muon_n >= 2,
-        "reverse_displaced": lambda objs: (ak.min(objs["mu_ljs"].muons.trkNumPixelHits, axis=-1) > 2) ,
+        "reverse_displaced": lambda objs: (ak.min(objs["mu_ljs"].muons.trkNumPixelHits, axis=-1) > 2)`,
         "dzSpread_dsa <= 50": lambda objs: objs["mu_ljs"].dzSpread_dsa <= 50,
         "vxySpread_dsa <= 50": lambda objs: objs["mu_ljs"].vxySpread_dsa <= 50,
         "dzSpread_dsa <= 5": lambda objs: objs["mu_ljs"].dzSpread_dsa <= 5,
@@ -94,7 +94,7 @@ obj_cut_defs = {
                                          |(objs["mu_ljs"].vxySpread_pf > 10)
                                          |(objs["mu_ljs"].vxySpread_mu > 50)
                                          |(objs["mu_ljs"].vxySpread_mu > 50) )
-    }, 
+    },
     "genMus":{
         "pT >= 10 GeV": lambda objs: objs["genMus"].pt >= 10,
         "status 1": lambda objs: objs["genMus"].status == 1,
@@ -352,7 +352,7 @@ evt_cut_defs = {
     ">=2 muons (pf or dsa) pT > 26 GeV": lambda objs: (
         ak.sum(objs["muons"].pt > 26, axis=-1) + ak.sum(objs["dsaMuons"].pt > 26, axis=-1) >= 2
     ),
-    
+
     "PV filter": lambda objs: ak.flatten(objs["pvs"].npvsGood) >= 1,
     #"Cosmic veto": lambda objs: objs["cosmicveto"].result,
     ">=2 LJs": lambda objs: ak.num(objs["ljs"]) >= 2,
