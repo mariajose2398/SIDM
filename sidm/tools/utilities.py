@@ -1,21 +1,22 @@
 """Module to define miscellaneous helper methods"""
 
+import json
 import math
 import os
-import json
 import warnings
-import yaml
-import numpy as np
+
 import awkward as ak
-import numpy as np
-import matplotlib.pyplot as plt
-import mplhep as hep
-import scipy.optimize as opt
+import coffea.util
 import hist
 import hist.intervals
-from sidm import BASE_DIR
-import coffea.util
+import matplotlib.pyplot as plt
+import mplhep as hep
+import numpy as np
+import scipy.optimize as opt
+import yaml
 from coffea.processor import accumulate
+
+from sidm import BASE_DIR
 
 def print_list(l):
     """Print one list element per line"""
@@ -1320,52 +1321,65 @@ def plot_data_mc(
 
     return fig, ax_main, ax_ratio
 
-def cosAlpha(muons): #could work for any object
+def cosAlpha(muons): 
+    """could work for any object, find cosAlpha between objects"""
     pairs = ak.combinations(muons, 2, axis=1)
     v1, v2 = ak.unzip(pairs)
     cos_alpha = np.cos(v1.deltaangle(v2))
-    return (cos_alpha)
+    return cos_alpha
 
 def get_pairs(obj):
+    """make pairs of object"""
     pairs = ak.combinations(obj, 2, axis=1)
-    return (pairs)
+    return pairs
 
 def nearest_lj_index(obj, lj):
+    """find nearest LJ index"""
     nearest=obj.nearest(lj, threshold=0.4)
     nearest_idx =  ak.fill_none(nearest.idx, -999)
     return(nearest_idx)
 
 def vx_diff(obj1, obj2):
+    """Vx difference"""
     return abs(obj1.vx-obj2.vx)
 
 def vz_diff(obj1, obj2):
+    """Vz difference"""
     return abs(obj1.vz-obj2.vz)
 
 def vy_diff(obj1, obj2):
+    """Vy difference"""
     return abs(obj1.vy-obj2.vy)
 
 def dxy_diff(obj1, obj2):
+    """dxy difference"""
     return abs(obj1.dxy-obj2.dxy)
 
 def dz_diff(obj1, obj2):
+    """dz difference"""
     return abs(obj1.dz-obj2.dz)
 
 def vxy_diff(obj1, obj2):
+    """Vxy difference"""
     return ((obj1.vx-obj2.vx)**2 +
             (obj1.vy-obj2.vy)**2)**0.5
 
 def vyz_diff(obj1, obj2):
+    """yz difference"""
     return ((obj1.vy-obj2.vy)**2 +
             (obj1.vz-obj2.vz)**2)**0.5
 
 def vzx_diff(obj1, obj2):
+    """Vzx difference"""
     return ((obj1.vz-obj2.vz)**2 +
             (obj1.vx-obj2.vx)**2)**0.5
 def v3d_diff(obj1, obj2):
+    """V3d difference"""
     return ((obj1.vx-obj2.vx)**2 +
             (obj1.vy-obj2.vy)**2 +
             (obj1.vz-obj2.vz)**2)**0.5
 
 def vz_diff_minus_dz_diff(obj1, obj2):
+    """Vz-dz difference"""
     return abs(obj1.vz - obj2.vz) - abs(obj1.dz-obj2.dz)
 
