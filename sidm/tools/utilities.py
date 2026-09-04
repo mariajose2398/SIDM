@@ -703,11 +703,6 @@ def sum_hist(samples_list, folder_name):
             summed_out = accumulate ([hists, summed_out])
     return summed_out
 
-def cosAlpha(objs):
-    pairs = ak.combinations(objs, 2, axis=1)
-    v1, v2 = ak.unzip(pairs)
-    return np.cos(v1.deltaangle(v2))
-
 def get_cut_yield(out_dict, sample, cut_name, channel, weighted=True, cumulative=True):
     """Return a weighted or unweighted yield for a cutflow cut."""
     if sample not in out_dict:
@@ -1321,9 +1316,9 @@ def plot_data_mc(
 
     return fig, ax_main, ax_ratio
 
-def cosAlpha(muons): 
-    """could work for any object, find cosAlpha between objects"""
-    pairs = ak.combinations(muons, 2, axis=1)
+def cosAlpha(objs, axis=1):
+    """cos Alpha between objects"""
+    pairs = ak.combinations(objs, 2, axis=axis)
     v1, v2 = ak.unzip(pairs)
     cos_alpha = np.cos(v1.deltaangle(v2))
     return cos_alpha

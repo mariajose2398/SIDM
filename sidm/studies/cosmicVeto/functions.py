@@ -89,17 +89,23 @@ def get_signal_label(signal):
     label  = f"{label}, {mass}, {zd_mass}, {closest_lxy}cm"
     return (label)
 
-def isM (histogram):
-    """Correct the histogram when there is negative values"""
-    values =  histogram.values()
+def isM(histogram):
+    """Return a copy of histogram with negative bin contents made positive.
+
+    NOTE: negative bins are physical -- they come from negative MC event
+    weights -- so flipping their sign biases the background upwards. Prefer
+    leaving them alone, or clipping to zero, unless the plotting backend
+    genuinely cannot take them.
+    """
+    values = histogram.values().copy()
     isMinus = values < 0
-    if ak.any(isMinus):
-        print("found negative values. set them to postive")
-        hist_corrected = histogram.copy()
-        values[isMinus] = abs(values[isMinus])
-        hist_corrected.values()[...] = values
-        return hist_corrected
-    return(histogram) 
+    if not np.any(isMinus):
+        return histogram
+    print("found negative values, setting them positive")
+    values[isMinus] = abs(values[isMinus])
+    hist_corrected = histogram.copy()
+    hist_corrected.values()[...] = values
+    return hist_corrected
 
 ## plots data/MC for all the histograms provided in a list
 def plot_DataMC(histogram_list, channel_name,
@@ -147,7 +153,7 @@ def plot_DataMC(histogram_list, channel_name,
         hep.cms.label(data=True, lumi=59.83, ax=ax_main)
         ax_main.set_yscale("log")
         if title:
-            ax_main.legend(title=title_name)
+            ax_main.legend(title=title)
         else:
             ax_main.legend()
     if file_name:
@@ -167,10 +173,12 @@ def plot_fraction_less (signals, histogram_name, channel_name,
     plt.figure(figsize =(15, 12))
     for i, s in enumerate(signals):
         label = get_signal_label(s)
-        if label[0]=="2":
-            histogram= output_signal_2mu["out"][s]["hists"][histogram_name][channel_name, :]
+        if label[0] == "2":
+            histogram = output_signal_2mu["out"][s]["hists"][histogram_name][channel_name, :]
         elif label[0] == "4":
-            histogram= output_signal_4mu["out"][s]["hists"][histogram_name][channel_name, :]
+            histogram = output_signal_4mu["out"][s]["hists"][histogram_name][channel_name, :]
+        else:
+            raise ValueError(f"cannot tell 2mu2e and 4mu apart for sample {s}")
         values = histogram.values()
         values_flow = histogram.values(flow=True)
         overflow = values_flow[-1]
@@ -203,10 +211,12 @@ def plot_fraction_great (signals, histogram_name, channel_name,
     plt.figure(figsize =(15, 12))
     for i, s in enumerate(signals):
         label = get_signal_label(s)
-        if label[0]=="2":
-            histogram= output_signal_2mu["out"][s]["hists"][histogram_name][channel_name, :]
+        if label[0] == "2":
+            histogram = output_signal_2mu["out"][s]["hists"][histogram_name][channel_name, :]
         elif label[0] == "4":
-            histogram= output_signal_4mu["out"][s]["hists"][histogram_name][channel_name, :]
+            histogram = output_signal_4mu["out"][s]["hists"][histogram_name][channel_name, :]
+        else:
+            raise ValueError(f"cannot tell 2mu2e and 4mu apart for sample {s}")
         values = histogram.values()
         values_flow = histogram.values(flow=True)
         overflow = values_flow[-1]
