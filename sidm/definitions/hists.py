@@ -2684,13 +2684,6 @@ hist_defs = {
                    lambda objs, mask:  objs["ljs"].isolation),
         ],
     ),
-    "mu_lj_iso": h.Histogram(
-        [
-            h.Axis(hist.axis.Regular(50, 0, 2, name="mu_lj_isolation",
-                   label="Mu-LJ Isolation"),
-                   lambda objs, mask:  objs["mu_ljs"].isolation),
-        ],
-    ),
     "mu_lj_isolation_zoom": h.Histogram(
         [
             h.Axis(hist.axis.Regular(50, 0, 0.2, name="mu_lj_isolation",
@@ -2724,13 +2717,6 @@ hist_defs = {
             h.Axis(hist.axis.Regular(50, 0, 0.2, name="dsamu_lj_isolation",
                    label="DSA Mu-LJ Isolation"),
                    lambda objs, mask:  objs["dsamu_ljs"].isolation),
-        ],
-    ),
-    "egm_lj_iso": h.Histogram(
-        [
-            h.Axis(hist.axis.Regular(50, 0, 2, name="egm_lj_isolation",
-                   label="EGM-LJ Isolation"),
-                   lambda objs, mask:  objs["egm_ljs"].isolation),
         ],
     ),
     "egm_lj_isolation_zoom": h.Histogram(
@@ -4558,7 +4544,6 @@ hist_defs = {
     "genAs_mass":  obj_attr("genAs", "mass", nbins=100, xmax=10),
     "genAs_eta":   obj_attr("genAs", "eta", nbins=50, xmin=-5, xmax=5),
     "genAs_phi":   obj_attr("genAs", "phi"),
-    "genAs_pt":    obj_attr("genAs", "pt", xmax=1000),
     "genAs_gamma": obj_attr("genAs", "gamma"),
     "genAs_cosTheta_bsFrame": h.Histogram(
         [

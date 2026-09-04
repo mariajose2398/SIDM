@@ -155,61 +155,13 @@ def plot_DataMC(histogram_list, channel_name,
 
 ##get 1D histograms from 2D
 def plot_1d (eta_phi_histogram, axs_name):
-    print()
     histogram_1d = eta_phi_histogram.project(axs_name)
     return(histogram_1d)
-
-
-def plot_DataMC_from2D(histogram_2D, summed_QCD, summed_TT, summed_DY, summed_DB, summed_data, ratio, binning=1j, ranges=None, file_name = None):
-    # columns=  len(histogram_list)
-    fig, axs = plt.subplots(2, 2,figsize=(15*columns, 15),
-    gridspec_kw={"height_ratios": [3, 1],"hspace": 0.05,})
-    
-    for i, histogram_name in enumerate(histogram_list):
-        print(histogram_name)
-        if columns == 1:
-            ax_main = axs[0]
-            ax_comp = axs[1]
-        else:
-            ax_main = axs[0, i]
-            ax_comp = axs[1, i]
-
-        if ranges:
-            sum_bg_qcd = ratio * isM(summed_QCD[histogram_name][channel_name, :ranges:binning])
-            sum_bg_tt = ratio * isM(summed_TT[histogram_name][channel_name, :ranges:binning])
-            sum_bg_dy = ratio * isM(summed_DY[histogram_name][channel_name, :ranges:binning])
-            sum_bg_db = ratio * isM(summed_DB[histogram_name][channel_name, :ranges:binning])
-            sum_data = sum_data_all[histogram_name][channel_name, :ranges:binning]
-        else:
-            sum_bg_qcd = ratio * isM(summed_QCD[histogram_name][channel_name, ::binning])
-            sum_bg_tt = ratio * isM(summed_TT[histogram_name][channel_name, ::binning])
-            sum_bg_dy = ratio * isM(summed_DY[histogram_name][channel_name, ::binning])
-            sum_bg_db = ratio * isM(summed_DB[histogram_name][channel_name, ::binning])
-            sum_data = sum_data_all[histogram_name][channel_name, ::binning]
-        hep.comp.data_model(
-        data_hist=sum_data,
-        stacked_components=[sum_bg_qcd, sum_bg_tt, sum_bg_dy, sum_bg_db],
-        stacked_labels=["QCD", "TT","DY", "DB"],
-        # xlabel=histogram_name,
-        xlabel=sum_data.axes[0].label,
-        ylabel="Events",
-        data_w2method="poisson",
-        fig=fig,
-        ax_main=ax_main,
-        ax_comparison=ax_comp,
-         )
-        hep.cms.label(data=True, lumi=59.83, ax=ax_main)
-        ax_main.set_yscale("log")
-        ax_main.legend(title=channel_name)
-        ax_comparison.set_ylim(0, 3)
-    if file_name:
-        plt.savefig(f"Plots/{file_name}.png")
-    plt.show()
-    plt.close()
 
 def plot_fraction_less (signals, histogram_name, channel_name,
                         output_signal_2mu, output_signal_4mu,
                         thresholds, colors, ylabel=None):
+    """plot fraction error when we use less than or equal"""
     plt.figure(figsize =(15, 12))
     for i, s in enumerate(signals):
         label = get_signal_label(s)
@@ -245,6 +197,7 @@ def plot_fraction_less (signals, histogram_name, channel_name,
 def plot_fraction_great (signals, histogram_name, channel_name,
                         output_signal_2mu, output_signal_4mu,
                         thresholds, colors, ylabel=None):
+    """plot fraction error when we use greater than or equal"""
     plt.figure(figsize =(15, 12))
     for i, s in enumerate(signals):
         label = get_signal_label(s)
