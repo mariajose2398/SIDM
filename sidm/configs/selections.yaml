@@ -35,46 +35,32 @@ ljsource_cuts: &ljsource_cuts
 ljsource_cuts_barrel: &ljsource_cuts_barrel
   obj_cuts: &obj_ljsource_cuts_barrel
     electrons: &electrons_ljsource_cuts_barrel
-      - "pT > 10 GeV"
+      - *electrons_ljsource_cuts
       - "barrel"
-      - 'MVANonIsoWPL'
     muons: &muons_ljsource_cuts_barrel
-      - "looseID"
-      - "pT > 5 GeV"
+      - *muons_ljsource_cuts
       - "barrel"
     photons: &photons_ljsource_cuts_barrel
-      - "pT > 20 GeV"
+      - *photons_ljsource_cuts
       - "barrel"
-      - 'Custom Cutbased'
-      - "pixelSeed"
-      - 'Photon DR Veto 0p025'
     dsaMuons: &dsaMuons_ljsource_cuts_barrel
-      - "pT > 10 GeV"
+      - *dsaMuons_ljsource_cuts
       - "barrel"
-      - "displaced ID"
-      - "all" # cross-cleaning
 
 ljsource_cuts_endcap: &ljsource_cuts_endcap
   obj_cuts: &obj_ljsource_cuts_endcap
     electrons: &electrons_ljsource_cuts_endcap
-      - "pT > 10 GeV"
+      - *electrons_ljsource_cuts
       - "endcap"
-      - 'MVANonIsoWPL'
     muons: &muons_ljsource_cuts_endcap
-      - "looseID"
-      - "pT > 5 GeV"
+      - *muons_ljsource_cuts
       - "endcap"
     photons: &photons_ljsource_cuts_endcap
-      - "pT > 20 GeV"
+      - *photons_ljsource_cuts
       - "endcap"
-      - 'Custom Cutbased'
-      - "pixelSeed"
-      - 'Photon DR Veto 0p025'
     dsaMuons: &dsaMuons_ljsource_cuts_endcap
-      - "pT > 10 GeV"
+      - *dsaMuons_ljsource_cuts
       - "endcap"
-      - "displaced ID"
-      - "all" # cross-cleaning
 
 # require final-state gen e and mu
 gen_level_cuts: &gen_level_cuts
@@ -102,6 +88,7 @@ baseNoLjNoLjsource: &baseNoLjNoLjsource
     - *trigger
     - *evt_pv_cuts
     - ">=2 muons (pf or dsa) pT > 26 GeV"
+    - "all cosAlpha(mu, mu) > -0.99"
 
 # apply trigger, gen cuts, pv filter, and lj-source cuts
 baseNoLj: &baseNoLj
@@ -165,7 +152,6 @@ base_ljDisplacementIso_cosAlpha_ljSpread: &base_ljDisplacementIso_cosAlpha_ljSpr
       - "dxySpread_pf <= 10"
   evt_cuts:
     - *evt_baseNoLj
-    - "all cosAlpha(mu, mu) > -0.99"
 
 # add >=2 LJ requirement and >=2 high pt muons
 base: &base
