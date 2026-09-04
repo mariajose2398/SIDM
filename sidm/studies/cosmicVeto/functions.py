@@ -1,18 +1,19 @@
-import yaml
+import awkward as ak
 import coffea.util
 import matplotlib.pyplot as plt
-import awkward as ak
 import mplhep as hep
 import numpy as np
-##get list of data file names
+import yaml
+
+## get list of data file names
 def get_data_files():
     yaml_file_path = '../../configs/ntuples/data_skimmed.yaml'
     with open(yaml_file_path, 'r') as file:
         yaml_data = yaml.safe_load(file)
     data_files = list(yaml_data["llpNanoAOD_v2"]["samples"].keys())
-    return(data_files)
+    return data_files
 
-##get the list of bg file name
+## get the list of bg file name
 def get_bg_file_names(name):
     yaml_file_path = '../../configs/composite_samples.yaml'
     with open(yaml_file_path, 'r') as file:
@@ -20,7 +21,7 @@ def get_bg_file_names(name):
     file_names = list(yaml_data[name])
     return(file_names)
 
-#get the list of 2mu2e signal
+# get the list of 2mu2e signal
 def get_signal_2mu2e_list():
     yaml_file_path = '../../configs/ntuples/signal_2mu2e_v10.yaml'
     with open(yaml_file_path, 'r') as file:
@@ -28,7 +29,7 @@ def get_signal_2mu2e_list():
     signals = list(data["llpNanoAOD_v2"]["samples"].keys())
     return(signals)
 
-##get the list of 4mu signals
+## get the list of 4mu signals
 def get_signal_4mu_list():
     yaml_file_path = '../../configs/ntuples/signal_4mu_v10.yaml'
     with open(yaml_file_path, 'r') as file:
@@ -37,12 +38,12 @@ def get_signal_4mu_list():
     return(signals)
 
 
-##load output files from Output folder for each study
+## load output files from Output folder for each study
 def load_output(file_name, channel_name):
     output = coffea.util.load(f"OutputFiles/{channel_name}/{file_name}.coffea")
     return(output)
 
-##get the cuts, cuflow list for easy plotting
+## get the cuts, cuflow list for easy plotting
 def get_cutflow_list(cutflow, raw=False):
     rows = cutflow.rows
     cuts = rows.keys()
@@ -54,7 +55,7 @@ def get_cutflow_list(cutflow, raw=False):
             N.append(rows[x]["weighted"])
     return cuts, N
 
-##summing cutflow for backgrounds
+## summing cutflow for backgrounds
 def sum_bg_cutflow(bg_list, channel_name, raw=False):
     summed_cutflow = None
     cut = None
@@ -67,7 +68,7 @@ def sum_bg_cutflow(bg_list, channel_name, raw=False):
             summed_cutflow += cutflow
     return (summed_cutflow)
 
-##get a plotting label for each signal
+## get a plotting label for each signal
 def get_signal_label(signal):
     allowed_lxy = [0.3, 3, 30, 150, 300]
 
@@ -89,6 +90,7 @@ def get_signal_label(signal):
     return (label)
 
 def isM (histogram):
+    """Correct the histogram when there is negative values"""
     values =  histogram.values()
     isMinus = values < 0
     if ak.any(isMinus):
@@ -99,7 +101,7 @@ def isM (histogram):
         return hist_corrected
     return(histogram) 
 
-##plots data/MC for all the histograms provided in a list
+## plots data/MC for all the histograms provided in a list
 def plot_DataMC(histogram_list, channel_name,
                 summed_QCD, 
                 summed_TT, summed_DY, 
@@ -153,7 +155,7 @@ def plot_DataMC(histogram_list, channel_name,
     plt.show()
     plt.close()
 
-##get 1D histograms from 2D
+## get 1D histograms from 2D
 def plot_1d (eta_phi_histogram, axs_name):
     histogram_1d = eta_phi_histogram.project(axs_name)
     return(histogram_1d)
