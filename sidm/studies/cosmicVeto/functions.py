@@ -19,7 +19,7 @@ def get_bg_file_names(name):
     with open(yaml_file_path, 'r') as file:
         yaml_data = yaml.safe_load(file)
     file_names = list(yaml_data[name])
-    return(file_names)
+    return file_names
 
 # get the list of 2mu2e signal
 def get_signal_2mu2e_list():
@@ -27,7 +27,7 @@ def get_signal_2mu2e_list():
     with open(yaml_file_path, 'r') as file:
         data = yaml.safe_load(file)
     signals = list(data["llpNanoAOD_v2"]["samples"].keys())
-    return(signals)
+    return signals
 
 ## get the list of 4mu signals
 def get_signal_4mu_list():
@@ -35,13 +35,13 @@ def get_signal_4mu_list():
     with open(yaml_file_path, 'r') as file:
         data = yaml.safe_load(file)
     signals = list(data["llpNanoAOD_v2"]["samples"].keys())
-    return(signals)
+    return signals
 
 
 ## load output files from Output folder for each study
 def load_output(file_name, channel_name):
     output = coffea.util.load(f"OutputFiles/{channel_name}/{file_name}.coffea")
-    return(output)
+    return output
 
 ## get the cuts, cuflow list for easy plotting
 def get_cutflow_list(cutflow, raw=False):
@@ -66,7 +66,7 @@ def sum_bg_cutflow(bg_list, channel_name, raw=False):
             summed_cutflow = cutflow
         else:
             summed_cutflow += cutflow
-    return (summed_cutflow)
+    return summed_cutflow
 
 ## get a plotting label for each signal
 def get_signal_label(signal):
@@ -87,7 +87,7 @@ def get_signal_label(signal):
     lxy = ctau *factor
     closest_lxy = min(allowed_lxy, key=lambda x: abs(x - lxy))  
     label  = f"{label}, {mass}, {zd_mass}, {closest_lxy}cm"
-    return (label)
+    return label
 
 def isM(histogram):
     """Return a copy of histogram with negative bin contents made positive.
