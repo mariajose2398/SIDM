@@ -136,7 +136,6 @@ base_ljDisplacementIso_cosAlpha: &base_ljDisplacementIso_cosAlpha
     <<: *lj_displacementIso
   evt_cuts:
     - *evt_baseNoLj
-    - "all cosAlpha(mu, mu) > -0.99"
 
 # add LJ isolation, displacement cuts and cosAlpha
 base_ljDisplacementIso_cosAlpha_ljSpread: &base_ljDisplacementIso_cosAlpha_ljSpread
