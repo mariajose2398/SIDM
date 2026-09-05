@@ -269,43 +269,6 @@ def make_fileset(samples, ntuple_version, max_files=-1, location_cfg="signal_v8.
         }
     return fileset
 
-def make_fileset_new(samples, ntuple_version, max_files=-1, location_cfg="signal_v8.yaml", fileset=None):
-    """Make fileset to pass to processor.runner"""
-    location_cfg = f"{BASE_DIR}/configs/ntuples/" + location_cfg
-    locations = load_yaml(location_cfg)[ntuple_version]
-
-    if not fileset:
-        fileset = {}
-
-    for sample in samples:
-        sample_yaml = locations["samples"][sample]
-        base_path = locations["path"] + sample_yaml["path"]
-
-        # New structure: list of dicts
-        file_entries = sample_yaml["files"]
-
-        # Apply max_files
-        if max_files != -1:
-            file_entries = file_entries[:max_files]
-
-        # Build file list
-        file_list = [base_path + f["name"] for f in file_entries]
-
-        # Sum lumi of selected files
-        total_lumi = sum(f.get("lumi", 0.0) for f in file_entries)
-
-        fileset[sample] = {
-            "files": file_list,
-            "metadata": {
-                "skim_factor": sample_yaml.get("skim_factor", 1.0),
-                "is_data": sample_yaml.get("is_data", False),
-                "year": sample_yaml.get("year", "2018"),
-                "total_lumi": total_lumi,   # ← added
-            },
-        }
-
-    return fileset
-
 def check_bit(array, bit_num):
     """Return boolean stored in the bit_numth bit of array"""
     return (array & pow(2, bit_num)) > 0
