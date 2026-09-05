@@ -106,6 +106,10 @@ base_ljObjCut: &base_ljObjCut
     ljs: &lj_base
       - "pT > 30 GeV"
       - "|eta| < 2.4"
+      - "dzSpread_mu <= 50"
+      - "dxySpread_mu <= 50"
+      - "dzSpread_pf <= 10"
+      - "dxySpread_pf <= 10"
     mu_ljs: &mu_lj_base
       - "Mu >= 2"
   evt_cuts:
@@ -125,30 +129,6 @@ base_ljDisplacementIso: &base_ljDisplacementIso
     egm_ljs: &egm_lj_displacementIso
       - "egm_lj_iso < 0.2"
       - "displaced"
-  evt_cuts:
-    - *evt_baseNoLj
-
-# add LJ isolation, displacement cuts and cosAlpha
-base_ljDisplacementIso_cosAlpha: &base_ljDisplacementIso_cosAlpha
-  obj_cuts:
-    <<: *obj_baseNoLj
-  postLj_obj_cuts:
-    <<: *lj_displacementIso
-  evt_cuts:
-    - *evt_baseNoLj
-
-# add LJ isolation, displacement cuts and cosAlpha
-base_ljDisplacementIso_cosAlpha_ljSpread: &base_ljDisplacementIso_cosAlpha_ljSpread
-  obj_cuts:
-    <<: *obj_baseNoLj
-  postLj_obj_cuts:
-    <<: *lj_displacementIso
-    mu_ljs:
-      - *mu_lj_displacementIso
-      - "dzSpread_mu <= 50"
-      - "dxySpread_mu <= 50"
-      - "dzSpread_pf <= 10"
-      - "dxySpread_pf <= 10"
   evt_cuts:
     - *evt_baseNoLj
 
