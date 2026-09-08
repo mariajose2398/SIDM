@@ -106,12 +106,12 @@ base_ljObjCut: &base_ljObjCut
     ljs: &lj_base
       - "pT > 30 GeV"
       - "|eta| < 2.4"
+    mu_ljs: &mu_lj_base
+      - "Mu >= 2"
       - "dzSpread_mu <= 50"
       - "dxySpread_mu <= 50"
       - "dzSpread_pf <= 10"
       - "dxySpread_pf <= 10"
-    mu_ljs: &mu_lj_base
-      - "Mu >= 2"
   evt_cuts:
     - *evt_baseNoLj
 
