@@ -5494,5 +5494,6 @@ hist_defs = {
                   lambda objs, mask: (lambda v2: v2.charge)(*ak.unzip(derived_objs["parallel_dsa_pairs"](objs))[1:2])),
         ],
     ),
-
+    "mu_lj_mass": obj_attr("mu_ljs", "mass", nbins=100, xmax=200),
+    "egm_lj_mass": obj_attr("egm_ljs", "mass", nbins=100, xmax=200),
 }

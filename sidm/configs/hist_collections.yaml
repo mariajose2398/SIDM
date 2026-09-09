@@ -1156,3 +1156,15 @@ cosmic_veto: &cosmic_veto ##final set of histograms for slides and AN
   - "muon_muon_invmass_highRange"
   - "mulj_egmlj_invmass"
   - "lj_lj_invmass"
+
+dyjet_study: &dyjet_study
+  - "muon_muon_invmass"
+  - "muon_muon_invmass_highRange"
+  - "mulj_egmlj_invmass"
+  - "lj_lj_invmass"
+  - "muon_n"
+  - "electron_n"
+  - "dsaMuon_n"
+  - "photon_n"
+  - "mu_lj_mass"
+  - "egm_lj_mass"
