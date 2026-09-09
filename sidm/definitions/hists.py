@@ -47,7 +47,8 @@ obj_labels = {
     "genMus_fromA": r"Gen $\mu$ (from $Z_d$)",
     "genEs_fromA":  r"Gen $e$ (from $Z_d$)",
     "genBSs_toA":  r"Gen BS (to $Z_d$)",
-    "genBS_from_genAs": r"BS (reco from Gen $Z_d$)"
+    "genBS_from_genAs": r"BS (reco from Gen $Z_d$)",
+    "jets": "Jet",
 }
 attr_labels = {
     "pt": r"$p_T$ (GeV)",
@@ -5496,4 +5497,41 @@ hist_defs = {
     ),
     "mu_lj_mass": obj_attr("mu_ljs", "mass", nbins=100, xmax=200),
     "egm_lj_mass": obj_attr("egm_ljs", "mass", nbins=100, xmax=200),
+    "mu0_mu1_dphi_invMass": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, math.pi, name="muon_dphi",
+                                     label=r"|$\Delta\phi$| between $\mu_0$ $\mu_1$"),
+                   lambda objs, mask: abs(objs["muons"][mask, 1].delta_phi(objs["muons"][mask, 0]))),
+            h.Axis(hist.axis.Regular(100, 0, 200, name="muon_muon_mass",
+                                     label=r"InvMass($\mu_{0}$, $\mu_{1}$)"),
+                   lambda objs, mask: objs["muons"][mask, :2].sum().mass),
+        ],
+        evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+    "mu_mu_dphi_invMass": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, math.pi, name="muon_pair_dPhi",
+                                     label=r" abs(PF $\mu$1 d$\phi$ - PF $\mu$2 d$\phi$ ) "),
+                   lambda objs, mask: (lambda v1, v2: abs(v1.delta_phi(v2)))(*ak.unzip(get_pairs(objs["muons"])))),
+            h.Axis(hist.axis.Regular(100, 0, 200, name="muon_muon_mass",
+                                     label=r"InvMass of muon pairs"),
+                   lambda objs, mask: (lambda v1, v2: (v1+v2).mass)(*ak.unzip(get_pairs(objs["muons"]))))
+        ],
+    ),
+    "mu_mu_dphi": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, math.pi, name="muon_pair_dPhi",
+                                     label=r" abs(PF $\mu$1 $d_z$ - PF $\mu$2 $d_z$ ) "),
+                   lambda objs, mask: (lambda v1, v2: abs(v1.delta_phi(v2)))(*ak.unzip(get_pairs(objs["muons"])))),
+        ],
+    ),
+    "mu_mu_inv_mass": h.Histogram(
+        [
+           h.Axis(hist.axis.Regular(100, 0, 200, name="muon_muon_mass",
+                                     label=r"InvMass of muon pairs"),
+                   lambda objs, mask: (lambda v1, v2: (v1+v2).mass)(*ak.unzip(get_pairs(objs["muons"]))))
+        ],
+    ),
+    "jets_n": obj_attr("jets", "n"),
+    "jets_pt": obj_attr("jets", "pt", xmax=200),
 }
