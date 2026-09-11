@@ -658,7 +658,12 @@ def plot_and_fit_gaussian(hist, ax=None, color='black', label_prefix="Data", fit
 def sum_hist(samples_list, folder_name):
     summed_out = None
     for x in samples_list:
-        output = coffea.util.load(f"{folder_name}/{x}.coffea")
+        try:
+            output = coffea.util.load(f"{folder_name}/{x}.coffea")
+        except Exception as e:
+            print(f"{x} not found")
+            print(e)
+            continue
         hists = output["out"][x]["hists"]
         if summed_out is None:
             summed_out = hists.copy()
