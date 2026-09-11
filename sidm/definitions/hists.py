@@ -5508,6 +5508,22 @@ hist_defs = {
         ],
         evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
     ),
+    "mu0_mu1_dphi": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, math.pi, name="muon_dphi",
+                                     label=r"|$\Delta\phi$| between $\mu_0$ $\mu_1$"),
+                   lambda objs, mask: abs(objs["muons"][mask, 1].delta_phi(objs["muons"][mask, 0]))),
+        ],
+        evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+    "mu0_mu1_dR": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, math.pi, name="muon_dphi",
+                                     label=r"$\Delta$R between $\mu_0$ $\mu_1$"),
+                   lambda objs, mask: objs["muons"][mask, 1].delta_r(objs["muons"][mask, 0])),
+        ],
+        evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
     "mu_mu_dphi_invMass": h.Histogram(
         [
             h.Axis(hist.axis.Regular(50, 0, math.pi, name="muon_pair_dPhi",
@@ -5521,7 +5537,7 @@ hist_defs = {
     "mu_mu_dphi": h.Histogram(
         [
             h.Axis(hist.axis.Regular(50, 0, math.pi, name="muon_pair_dPhi",
-                                     label=r" abs(PF $\mu$1 $d_z$ - PF $\mu$2 $d_z$ ) "),
+                                     label=r" abs(PF $\mu$1 d$\phi$ - PF $\mu$2 d$\phi$ ) "),
                    lambda objs, mask: (lambda v1, v2: abs(v1.delta_phi(v2)))(*ak.unzip(get_pairs(objs["muons"])))),
         ],
     ),
@@ -5532,6 +5548,30 @@ hist_defs = {
                    lambda objs, mask: (lambda v1, v2: (v1+v2).mass)(*ak.unzip(get_pairs(objs["muons"]))))
         ],
     ),
-    "jets_n": obj_attr("jets", "n"),
-    "jets_pt": obj_attr("jets", "pt", xmax=200),
+    "jet_n": obj_attr("jets", "n"),
+    "jet_pt": obj_attr("jets", "pt", xmax=200),
+    "jet_eta_phi": obj_eta_phi("jets"),
+    "muN_muLj_muN_diff": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(10, 0, 10, name="muN_muLj_muN_diff",
+                                     label=r" abs(PF $\mu$ N - $\mu$ LJ PF $\mu$ N ) "),
+                   lambda objs, mask: abs(ak.num(objs["muons"], axis=1)- objs["mu_ljs"].pfMu_n))
+        ],
+    ),
+     "jet0Pt_muLj0_pt": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0,1000, name="jet0Pt_pt", label = r"Leading Jet $p_T$"),
+                   lambda objs, mask: abs(objs["jets"][mask, 0].pt)),
+            h.Axis(hist.axis.Regular(100, 0, 1000, name="mu_lj0_pt", label =r"Leading $\mu$ LJ $p_T$" ),
+                   lambda objs, mask: abs(objs["mu_ljs"][mask, 0].pt)),
+        ],
+        evt_mask=lambda objs: (ak.num(objs["jets"], axis =1)) > 0 & (ak.num(objs["mu_ljs"], axis =1) >0)
+    ),
+     "jet0_muLj0_dPhi": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, math.pi, name="jet0_muLj0_dPhi", label = r"$\Delta\Phi$ between Jet0 and $\mu$ LJ 0"),
+                   lambda objs, mask: abs(objs["jets"][mask, 0].delta_phi(objs["mu_ljs"][mask, 0]))),
+        ],
+        evt_mask=lambda objs: (ak.num(objs["jets"], axis =1)) > 0 & (ak.num(objs["mu_ljs"], axis =1) >0)
+    ),
 }
