@@ -1158,6 +1158,9 @@ cosmic_veto: &cosmic_veto ##final set of histograms for slides and AN
   - "lj_lj_invmass"
 
 dyjet_study: &dyjet_study
+  - "mu_lj_pfMu_max_trkNumPixelHits"
+  - "mu_lj_pfMu_min_trkNumPixelHits"
+  - "mu_lj_pfMu_min_trkNumTrkLayers"
   - "muon_muon_invmass"
   - "muon_muon_invmass_highRange"
   - "muon_n"
@@ -1186,3 +1189,4 @@ dyjet_study: &dyjet_study
   - "jet0_muLj0_dPhi"
   - "mu0_mu1_dphi"
   - "mu0_mu1_dR"
+  - "jet0_muLj0_dR"

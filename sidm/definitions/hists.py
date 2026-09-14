@@ -5574,4 +5574,11 @@ hist_defs = {
         ],
         evt_mask=lambda objs: (ak.num(objs["jets"], axis =1) > 0) & (ak.num(objs["mu_ljs"], axis =1) >0)
     ),
+     "jet0_muLj0_dR": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, 5, name="jet0_muLj0_dR", label = r"$\Delta$R between Jet0 and $\mu$ LJ 0"),
+                   lambda objs, mask: abs(objs["jets"][mask, 0].delta_r(objs["mu_ljs"][mask, 0]))),
+        ],
+        evt_mask=lambda objs: (ak.num(objs["jets"], axis =1) > 0) & (ak.num(objs["mu_ljs"], axis =1) >0)
+    ),
 }
