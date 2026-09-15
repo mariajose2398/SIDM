@@ -13,6 +13,7 @@ ljsource_cuts: &ljsource_cuts
       - "|eta| < 2.4"
       - 'MVANonIsoWPL'
       - "eta-phi_veto"
+      - "hem_veto"
     muons: &muons_ljsource_cuts
       - "looseID"
       - "pT > 5 GeV"
