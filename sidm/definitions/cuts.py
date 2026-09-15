@@ -167,6 +167,10 @@ obj_cut_defs = {
                                          & (objs["electrons"].eta >= -0.1)
                                          & (objs["electrons"].phi >= 0.4)
                                          & (objs["electrons"].phi <=0.8)),
+        "hem_veto" : lambda objs: ~ ((objs["electrons"].eta <= -1.3)
+                                         & (objs["electrons"].eta >= -3.0)
+                                         & (objs["electrons"].phi >= -1.57)
+                                         & (objs["electrons"].phi <=-0.87)),
         "1.479 < |eta| < 2.4": lambda objs: ((abs(objs["electrons"].eta) > 1.479)
                                              & (abs(objs["electrons"].eta) < 2.4)),
         "|eta| < 2.4": lambda objs: abs(objs["electrons"].eta) < 2.4,
