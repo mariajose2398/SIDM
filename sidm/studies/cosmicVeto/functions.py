@@ -114,7 +114,7 @@ def plot_DataMC(histogram_list, channel_name,
                 summed_DB, summed_data, 
                 ratio, binning=1j, 
                 ranges=None, file_name = None,
-               title = None):
+               title = None, lumi=59.83):
     columns=  len(histogram_list)
     fig, axs = plt.subplots(2, columns,figsize=(15*columns, 15),
     gridspec_kw={"height_ratios": [3, 1],"hspace": 0.05,})
@@ -150,7 +150,7 @@ def plot_DataMC(histogram_list, channel_name,
         ax_main=ax_main,
         ax_comparison=ax_comp,
          )
-        hep.cms.label(data=True, lumi=59.83, ax=ax_main)
+        hep.cms.label(data=True, lumi=lumi, ax=ax_main)
         ax_main.set_yscale("log")
         if title:
             ax_main.legend(title=title)
