@@ -5581,4 +5581,28 @@ hist_defs = {
         ],
         evt_mask=lambda objs: (ak.num(objs["jets"], axis =1) > 0) & (ak.num(objs["mu_ljs"], axis =1) >0)
     ),
+     "jet1_muLj0_dR": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, 5, name="jet1_muLj0_dR", label = r"$\Delta$R between Jet1 and $\mu$ LJ 0"),
+                   lambda objs, mask: abs(objs["jets"][mask, 1].delta_r(objs["mu_ljs"][mask, 0]))),
+        ],
+        evt_mask=lambda objs: (ak.num(objs["jets"], axis =1) > 1) & (ak.num(objs["mu_ljs"], axis =1) >0)
+    ),
+       "jet1_muLj0_dPhi": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, math.pi, name="jet1_muLj0_dPhi", label = r"|$\Delta\Phi$| between Jet0 and $\mu$ LJ 0"),
+                   lambda objs, mask: abs(objs["jets"][mask, 1].delta_phi(objs["mu_ljs"][mask, 0]))),
+        ],
+        evt_mask=lambda objs: (ak.num(objs["jets"], axis =1) > 1) & (ak.num(objs["mu_ljs"], axis =1) >0)
+    ),
+    ),
+     "jet1Pt_muLj0_pt": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0,1000, name="jet1Pt_pt", label = r"Sub-leading Jet $p_T$"),
+                   lambda objs, mask: abs(objs["jets"][mask, 1].pt)),
+            h.Axis(hist.axis.Regular(100, 0, 1000, name="mu_lj0_pt", label =r"Leading $\mu$ LJ $p_T$" ),
+                   lambda objs, mask: abs(objs["mu_ljs"][mask, 0].pt)),
+        ],
+        evt_mask=lambda objs: (ak.num(objs["jets"], axis =1)) > 1 & (ak.num(objs["mu_ljs"], axis =1) >0)
+    ),
 }
