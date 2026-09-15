@@ -1803,6 +1803,8 @@ cr_1LJ_Zmumu_cosmicVeto: &cr_1LJ_Zmumu_cosmicVeto
       - "pT > 400 GeV"
     mu_ljs:
       - *mu_lj_base
+    jets:
+      - "dR(jets, LJ) > 0.6"
   evt_cuts:
     - *evt_baseNoLj
     - "60 <= inv(Mu_0, Mu_1) <= 120"
