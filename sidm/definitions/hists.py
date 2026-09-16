@@ -5604,4 +5604,42 @@ hist_defs = {
         ],
         evt_mask=lambda objs: (ak.num(objs["jets"], axis =1)) > 1 & (ak.num(objs["mu_ljs"], axis =1) >0)
     ),
+    "mu0_mu1_pt": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, math.pi, name="muon_dphi",
+                                     label=r"$\Delta$R between $\mu_0$ $\mu_1$"),
+                    lambda objs, mask: (objs["muons"][mask, 0] + objs["muons"][mask, 1]).pt),
+        ],
+        evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+    "jet0Pt_diMuon_pt": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0,1000, name="jet0Pt_pt", label = r"Leading Jet $p_T$"),
+                   lambda objs, mask: abs(objs["jets"][mask, 0].pt)),
+             h.Axis(hist.axis.Regular(100, 0, 1000, name="muon_dphi",
+                                     label=r"$\Delta$R between $\mu_0$ $\mu_1$"),
+                    lambda objs, mask: (objs["muons"][mask, 0] + objs["muons"][mask, 1]).pt),
+        ],
+         evt_mask=lambda objs: (ak.num(objs["muons"]) > 1) & (ak.num(objs["jets"], axis =1) > 0)
+    ),
+    "jet0Pt_diMuon_dR": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0,1000, name="jet0Pt_pt", label = r"Leading Jet $p_T$"),
+                   lambda objs, mask: abs(objs["jets"][mask, 0].pt)),
+             h.Axis(hist.axis.Regular(50, 0, 7, name="muon_dphi",
+                                     label=r"$\Delta$R between $\mu_0$ $\mu_1$"),
+                    lambda objs, mask: (objs["muons"][mask, 0].delta_r(objs["muons"][mask, 1]))),
+        ],
+         evt_mask=lambda objs: (ak.num(objs["muons"]) > 1) & (ak.num(objs["jets"], axis =1) > 0)
+    ),
+    "jet0Pt_diMuon_dPhi": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(100, 0,1000, name="jet0Pt_pt", label = r"Leading Jet $p_T$"),
+                   lambda objs, mask: abs(objs["jets"][mask, 0].pt)),
+             h.Axis(hist.axis.Regular(50, 0, 7, name="diMuon_dphi",
+                                     label=r"$\Delta\Phi$ between $\mu_0$  and $\mu_1$"),
+                    lambda objs, mask: (objs["muons"][mask, 0].delta_phi(objs["muons"][mask, 1]))),
+        ],
+         evt_mask=lambda objs: (ak.num(objs["muons"]) > 1) & (ak.num(objs["jets"], axis =1) > 0)
+    ),
 }
