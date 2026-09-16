@@ -1195,3 +1195,7 @@ dyjet_study: &dyjet_study
   - "jet1_muLj0_dR"
   - "jet1_muLj0_dPhi"
   - "jet1Pt_muLj0_pt"
+  - "mu0_mu1_pt"
+  - "jet0Pt_diMuon_dR"
+  - "jet0Pt_diMuon_pt"
+  - "jet0Pt_diMuon_dPhi"
