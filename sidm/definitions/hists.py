@@ -5595,7 +5595,6 @@ hist_defs = {
         ],
         evt_mask=lambda objs: (ak.num(objs["jets"], axis =1) > 1) & (ak.num(objs["mu_ljs"], axis =1) >0)
     ),
-    ),
      "jet1Pt_muLj0_pt": h.Histogram(
         [
             h.Axis(hist.axis.Regular(100, 0,1000, name="jet1Pt_pt", label = r"Sub-leading Jet $p_T$"),
