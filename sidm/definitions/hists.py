@@ -5569,7 +5569,7 @@ hist_defs = {
     ),
      "jet0_muLj0_dPhi": h.Histogram(
         [
-            h.Axis(hist.axis.Regular(50, 0, math.pi, name="jet0_muLj0_dPhi", label = r"|$\Delta\Phi$| between Jet0 and $\mu$ LJ 0"),
+            h.Axis(hist.axis.Regular(50, 0, 2*math.pi, name="jet0_muLj0_dPhi", label = r"|$\Delta\Phi$| between Jet0 and $\mu$ LJ 0"),
                    lambda objs, mask: abs(objs["jets"][mask, 0].delta_phi(objs["mu_ljs"][mask, 0]))),
         ],
         evt_mask=lambda objs: (ak.num(objs["jets"], axis =1) > 0) & (ak.num(objs["mu_ljs"], axis =1) >0)
@@ -5590,7 +5590,7 @@ hist_defs = {
     ),
        "jet1_muLj0_dPhi": h.Histogram(
         [
-            h.Axis(hist.axis.Regular(50, 0, math.pi, name="jet1_muLj0_dPhi", label = r"|$\Delta\Phi$| between Jet0 and $\mu$ LJ 0"),
+            h.Axis(hist.axis.Regular(50, 0, 2*math.pi, name="jet1_muLj0_dPhi", label = r"|$\Delta\Phi$| between Jet0 and $\mu$ LJ 0"),
                    lambda objs, mask: abs(objs["jets"][mask, 1].delta_phi(objs["mu_ljs"][mask, 0]))),
         ],
         evt_mask=lambda objs: (ak.num(objs["jets"], axis =1) > 1) & (ak.num(objs["mu_ljs"], axis =1) >0)
