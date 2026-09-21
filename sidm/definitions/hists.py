@@ -5606,7 +5606,7 @@ hist_defs = {
     ),
     "mu0_mu1_pt": h.Histogram(
         [
-            h.Axis(hist.axis.Regular(100, 0, 1000, nameShow="mu0_mu1_pt",
+            h.Axis(hist.axis.Regular(100, 0, 1000, name="mu0_mu1_pt",
                                      label=r"$p_T(\mu\mu)$"),
                     lambda objs, mask: (objs["muons"][mask, 0] + objs["muons"][mask, 1]).pt),
         ],
