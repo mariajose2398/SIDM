@@ -5565,7 +5565,7 @@ hist_defs = {
             h.Axis(hist.axis.Regular(100, 0, 1000, name="mu_lj0_pt", label =r"Leading $\mu$ LJ $p_T$" ),
                    lambda objs, mask: abs(objs["mu_ljs"][mask, 0].pt)),
         ],
-        evt_mask=lambda objs: (ak.num(objs["jets"], axis =1)) > 0 & (ak.num(objs["mu_ljs"], axis =1) >0)
+        evt_mask=lambda objs: (ak.num(objs["jets"], axis =1)> 0) & (ak.num(objs["mu_ljs"], axis =1) >0)
     ),
      "jet0_muLj0_dPhi": h.Histogram(
         [
@@ -5590,7 +5590,7 @@ hist_defs = {
     ),
        "jet1_muLj0_dPhi": h.Histogram(
         [
-            h.Axis(hist.axis.Regular(50, 0, 2*math.pi, name="jet1_muLj0_dPhi", label = r"|$\Delta\Phi$| between Jet0 and $\mu$ LJ 0"),
+            h.Axis(hist.axis.Regular(50, 0, 2*math.pi, name="jet1_muLj0_dPhi", label =  r"|$\Delta\Phi$| between Jet0 and $\mu$ LJ 0"),
                    lambda objs, mask: abs(objs["jets"][mask, 1].delta_phi(objs["mu_ljs"][mask, 0]))),
         ],
         evt_mask=lambda objs: (ak.num(objs["jets"], axis =1) > 1) & (ak.num(objs["mu_ljs"], axis =1) >0)
@@ -5602,22 +5602,22 @@ hist_defs = {
             h.Axis(hist.axis.Regular(100, 0, 1000, name="mu_lj0_pt", label =r"Leading $\mu$ LJ $p_T$" ),
                    lambda objs, mask: abs(objs["mu_ljs"][mask, 0].pt)),
         ],
-        evt_mask=lambda objs: (ak.num(objs["jets"], axis =1)) > 1 & (ak.num(objs["mu_ljs"], axis =1) >0)
+        evt_mask=lambda objs: (ak.num(objs["jets"], axis =1) > 1) & (ak.num(objs["mu_ljs"], axis =1) >0)
     ),
     "mu0_mu1_pt": h.Histogram(
         [
-            h.Axis(hist.axis.Regular(50, 0, math.pi, name="muon_dphi",
-                                     label=r"$\Delta$R between $\mu_0$ $\mu_1$"),
+            h.Axis(hist.axis.Regular(100, 0, 1000, nameShow="mu0_mu1_pt",
+                                     label=r"$p_T(\mu\mu)$"),
                     lambda objs, mask: (objs["muons"][mask, 0] + objs["muons"][mask, 1]).pt),
         ],
-        evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+        evt_mask=lambda objs: ak.num(objs["muons"], axis=1) > 1,
     ),
     "jet0Pt_diMuon_pt": h.Histogram(
         [
             h.Axis(hist.axis.Regular(100, 0,1000, name="jet0Pt_pt", label = r"Leading Jet $p_T$"),
                    lambda objs, mask: abs(objs["jets"][mask, 0].pt)),
              h.Axis(hist.axis.Regular(100, 0, 1000, name="muon_dphi",
-                                     label=r"$\Delta$R between $\mu_0$ $\mu_1$"),
+                                     label=r"$p_T(\mu\mu)$"),
                     lambda objs, mask: (objs["muons"][mask, 0] + objs["muons"][mask, 1]).pt),
         ],
          evt_mask=lambda objs: (ak.num(objs["muons"]) > 1) & (ak.num(objs["jets"], axis =1) > 0)
@@ -5626,7 +5626,7 @@ hist_defs = {
         [
             h.Axis(hist.axis.Regular(100, 0,1000, name="jet0Pt_pt", label = r"Leading Jet $p_T$"),
                    lambda objs, mask: abs(objs["jets"][mask, 0].pt)),
-             h.Axis(hist.axis.Regular(50, 0, 7, name="muon_dphi",
+             h.Axis(hist.axis.Regular(50, 0, 7, name="muon_dR",
                                      label=r"$\Delta$R between $\mu_0$ $\mu_1$"),
                     lambda objs, mask: (objs["muons"][mask, 0].delta_r(objs["muons"][mask, 1]))),
         ],
@@ -5638,7 +5638,7 @@ hist_defs = {
                    lambda objs, mask: abs(objs["jets"][mask, 0].pt)),
              h.Axis(hist.axis.Regular(50, 0, 7, name="diMuon_dphi",
                                      label=r"$\Delta\Phi$ between $\mu_0$  and $\mu_1$"),
-                    lambda objs, mask: (objs["muons"][mask, 0].delta_phi(objs["muons"][mask, 1]))),
+                    lambda objs, mask: abs((objs["muons"][mask, 0].delta_phi(objs["muons"][mask, 1])))),
         ],
          evt_mask=lambda objs: (ak.num(objs["muons"]) > 1) & (ak.num(objs["jets"], axis =1) > 0)
     ),
