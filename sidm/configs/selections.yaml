@@ -1865,3 +1865,22 @@ cr_Zmumu_muon_hits: &cr_Zmumu_muon_hits
     - "86 <= inv(Mu_0, Mu_1) <= 96"
     - "<= 1 LJs"
 
+cr_Zmumu_noISR: &cr_Zmumu_noISR
+  obj_cuts:
+    <<: *obj_ljsource_cuts
+    muons:
+      - "looseID"
+      - "pT > 5 GeV"
+      - "|eta| < 2.4"
+      - "eta-phi_veto"
+      -
+  postLj_obj_cuts:
+    ljs:
+      - *lj_base
+    mu_ljs:
+      - *mu_lj_base
+  evt_cuts:
+    - *evt_baseNoLj
+    - "86 <= inv(Mu_0, Mu_1) <= 96"
+    - "<= 1 LJs"
+
