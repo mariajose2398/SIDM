@@ -1199,3 +1199,9 @@ dyjet_study: &dyjet_study
   - "jet0Pt_diMuon_dR"
   - "jet0Pt_diMuon_pt"
   - "jet0Pt_diMuon_dPhi"
+
+test: &test
+  - "muon_dthits_cschits"
+  - "muon_dthits_cschits_leading"
+  - "mu_lj_eta_phi"
+  - "egm_lj_eta_phi"

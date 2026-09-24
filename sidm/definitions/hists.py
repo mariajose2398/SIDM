@@ -5642,4 +5642,25 @@ hist_defs = {
         ],
          evt_mask=lambda objs: (ak.num(objs["muons"]) > 1) & (ak.num(objs["jets"], axis =1) > 0)
     ),
+    "muon_dthits_cschits": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, 50, name="muon_trkNumDTHits", label=r"$\mu$ trkNumDTHits"),
+            lambda objs: objs["muons"].trkNumDTHits),
+            h.Axis(hist.axis.Regular(50, 0, 50, name="muon_trkNumCSCHits", label=r"$\mu$ trkNumCSCHits"),
+            lambda objs: objs["muons"].trkNumCSCHits),
+        ],
+    ),
+
+    "muon_dthits_cschits_leading": h.Histogram(
+        [
+            h.Axis(hist.axis.Regular(50, 0, 50, name="trkNumDTHits", label=r"leading $\mu$ trkNumDTHits"),
+            lambda objs, mask: objs["muons"][mask, 0].trkNumDTHits
+        ),
+            h.Axis(hist.axis.Regular(50, 0, 50, name="trkNumCSCHits", label=r"leading $\mu$ trkNumCSCHits"),
+            lambda objs, mask: objs["muons"][mask, 0].trkNumCSCHits),
+        ],
+        evt_mask=lambda objs: ak.num(objs["muons"]) > 0
+    ),
+    "mu_lj_eta_phi": obj_eta_phi("mu_ljs"),
+    "egm_lj_eta_phi": obj_eta_phi("egm_ljs"),
 }
