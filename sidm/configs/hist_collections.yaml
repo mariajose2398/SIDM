@@ -1204,3 +1204,10 @@ dyjet_study: &dyjet_study
   - "mu_lj_eta_phi"
   - "egm_lj_eta_phi"
   - "muon_dthits_plus_cschits"
+
+test: &test
+  - "muon_dthits_plus_cschits_leading_vs_dR"
+  - "muon_dthits_plus_cschits_subleading_vs_dR"
+  - "muon_dthits_plus_cschits"
+  - "muon_dthits_plus_cschits_leading_vs_dR_event_mask"
+  - "muon_dthits_plus_cschits_subleading_vs_dR_event_mask"
