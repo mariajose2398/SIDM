@@ -5643,23 +5643,23 @@ hist_defs = {
          evt_mask=lambda objs: (ak.num(objs["muons"]) > 1) & (ak.num(objs["jets"], axis =1) > 0)
     ),
     "muon_dthits_cschits": h.Histogram(
-    [
+        [
         h.Axis(hist.axis.Regular(50, 0, 50, name="muon_trkNumDTHits", label=r"$\mu$ trkNumDTHits"),
             lambda objs, mask: objs["muons"].trkNumDTHits),
         h.Axis(hist.axis.Regular(50, 0, 50, name="muon_trkNumCSCHits", label=r"$\mu$ trkNumCSCHits"),
             lambda objs, mask: objs["muons"].trkNumCSCHits),
-    ],
+        ],
     ),
 
     "muon_dthits_cschits_leading": h.Histogram(
-    [
+        [
         h.Axis(hist.axis.Regular(50, 0, 50, name="trkNumDTHits",
                                  label=r"leading $\mu$ trkNumDTHits"),
             lambda objs, mask: objs["muons"][mask, 0].trkNumDTHits),
         h.Axis(hist.axis.Regular(50, 0, 50, name="trkNumCSCHits",
                                  label=r"leading $\mu$ trkNumCSCHits"),
             lambda objs, mask: objs["muons"][mask, 0].trkNumCSCHits),
-    ],
+        ],
     evt_mask=lambda objs: ak.num(objs["muons"]) > 0
     ),
 
@@ -5668,55 +5668,230 @@ hist_defs = {
     "egm_lj_eta_phi": obj_eta_phi("egm_ljs"),
 
     "muon_dthits_plus_cschits": h.Histogram(
-    [
+        [
         h.Axis(hist.axis.Regular(50, 0, 50, name="muon_trkNumDTHits",
                                  label=r"$\mu$ trkNumDTHits + trkNumCSCHits"),
             lambda objs, mask: (objs["muons"].trkNumDTHits
                                 + objs["muons"].trkNumCSCHits)),
-    ],
+        ],
     ),
     "muon_dthits_plus_cschits_leading_vs_dR": h.Histogram(
-    [
+        [
         h.Axis(hist.axis.Regular(50, 0, 50, name="leading_muon_dthits_plus_cschits",
                                  label=r"Leading $\mu$ trkNumDTHits + trkNumCSCHits"),
             lambda objs, mask: (objs["muons"][mask, 0].trkNumDTHits+ objs["muons"][mask,0].trkNumCSCHits)),
         h.Axis(hist.axis.Regular(50, 0, 5, name="dR", label=r"$\Delta R(\mu_0,\mu_1)$"),
             lambda objs, mask: (objs["muons"][mask,0].delta_r(objs["muons"][mask, 1] ))),
-    ],
+        ],
     evt_mask=lambda objs: ak.num(objs["muons"]) > 0
     ),
 
     "muon_dthits_plus_cschits_subleading_vs_dR": h.Histogram(
-    [
+        [
         h.Axis(hist.axis.Regular(50, 0, 50, name="subleading_muon_dthits_plus_cschits",
                                  label=r"subleading $\mu$ trkNumDTHits + trkNumCSCHits"),
             lambda objs, mask: (objs["muons"][mask, 1].trkNumDTHits+ objs["muons"][mask,1].trkNumCSCHits)),
         h.Axis(hist.axis.Regular(50, 0, 5, name="dR", label=r"$\Delta R(\mu_0,\mu_1)$"),
             lambda objs, mask: (objs["muons"][mask,0].delta_r(objs["muons"][mask, 1] ))),
-    ],
+        ],
     evt_mask=lambda objs: ak.num(objs["muons"]) > 1
     ),
     "muon_dthits_plus_cschits_leading_vs_dR_event_mask": h.Histogram(
-    [
+        [
         h.Axis(hist.axis.Regular(50, 0, 50, name="leading_muon_dthits_plus_cschits",
                                  label=r"Leading $\mu$ trkNumDTHits + trkNumCSCHits"),
             lambda objs, mask: (objs["muons"][mask, 0].trkNumDTHits+ objs["muons"][mask,0].trkNumCSCHits)),
         h.Axis(hist.axis.Regular(50, 0, 5, name="dR", label=r"$\Delta R(\mu_0,\mu_1)$"),
             lambda objs, mask: (objs["muons"][mask,0].delta_r(objs["muons"][mask, 1] ))),
-    ],
+        ],
     evt_mask=lambda objs: ak.num(objs["muons"]) > 2
     ),
 
     "muon_dthits_plus_cschits_subleading_vs_dR_event_mask": h.Histogram(
-    [
+        [
         h.Axis(hist.axis.Regular(50, 0, 50, name="subleading_muon_dthits_plus_cschits",
                                  label=r"subleading $\mu$ trkNumDTHits + trkNumCSCHits"),
             lambda objs, mask: (objs["muons"][mask, 1].trkNumDTHits+ objs["muons"][mask,1].trkNumCSCHits)),
         h.Axis(hist.axis.Regular(50, 0, 5, name="dR", label=r"$\Delta R(\mu_0,\mu_1)$"),
             lambda objs, mask: (objs["muons"][mask,0].delta_r(objs["muons"][mask, 1] ))),
-    ],
+        ],
     evt_mask=lambda objs: ak.num(objs["muons"]) > 2
     ),
+    "mu0_mu1_dR_diMuonPt": h.Histogram(
+        [
+        h.Axis(hist.axis.Regular(50, 0, 5, name="muon_dR",
+                                 label=r"$\Delta R(\mu_0,\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, 1].delta_r(
+                   objs["muons"][mask, 0])),
+        h.Axis(hist.axis.Regular(100, 0, 500, name="dimuon_pt",
+                                 label=r"$p_T(\mu_0\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, :2].sum().pt),
+        ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+    "mu0_mu1_dR_eta_leading": h.Histogram(
+        [
+        h.Axis(hist.axis.Regular(100, 0, 5, name="muon_dR",
+                                 label=r"$\Delta R(\mu_0,\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, 1].delta_r(
+                   objs["muons"][mask, 0])),
+        h.Axis(hist.axis.Regular(60, -3, 3, name="mu0_eta_leading",
+                                 label=r"$\eta(\mu_0)$"),
+               lambda objs, mask: objs["muons"][mask, 0].eta),
+        ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+),
 
-    
+    "mu0_mu1_dR_phi_leading": h.Histogram(
+        [
+        h.Axis(hist.axis.Regular(100, 0, 5, name="muon_dR",
+                                 label=r"$\Delta R(\mu_0,\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, 1].delta_r(
+                   objs["muons"][mask, 0])),
+        h.Axis(hist.axis.Regular(64, -math.pi, math.pi, name="mu0_phi_leading",
+                                 label=r"$\phi(\mu_0)$"),
+               lambda objs, mask: objs["muons"][mask, 0].phi),
+        ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+    "mu0_mu1_dR_eta_subleading": h.Histogram(
+        [
+        h.Axis(hist.axis.Regular(100, 0, 5, name="muon_dR",
+                                 label=r"$\Delta R(\mu_0,\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, 1].delta_r(
+                   objs["muons"][mask, 0])),
+        h.Axis(hist.axis.Regular(60, -3, 3, name="mu1_eta_subleading",
+                                 label=r"$\eta(\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, 1].eta),
+        ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+
+    "mu0_mu1_dR_phi_subleading": h.Histogram(
+        [
+        h.Axis(hist.axis.Regular(100, 0, 5, name="muon_dR",
+                                 label=r"$\Delta R(\mu_0,\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, 1].delta_r(
+                   objs["muons"][mask, 0])),
+        h.Axis(hist.axis.Regular(64, -math.pi, math.pi, name="mu1_phi_subleading",
+                                 label=r"$\phi(\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, 1].phi),
+        ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+    "mu0_mu1_dR_diMuonMass": h.Histogram(
+        [
+        h.Axis(hist.axis.Regular(50, 0, 5, name="muon_dR",
+                                 label=r"$\Delta R(\mu_0,\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, 1].delta_r(
+                   objs["muons"][mask, 0])),
+        h.Axis(hist.axis.Regular(100, 0, 200, name="dimuon_mass",
+                                 label=r"$m(\mu_0\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, :2].sum().mass),
+        ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+    "mu0_mu1_dEta_dPhi": h.Histogram(
+        [
+        h.Axis(hist.axis.Regular(60, -3, 3, name="dEta",
+                                 label=r"$\Delta\eta(\mu_0,\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, 1].eta -
+                                  objs["muons"][mask, 0].eta),
+        h.Axis(hist.axis.Regular(64, -math.pi, math.pi, name="dPhi",
+                                 label=r"$\Delta\phi(\mu_0,\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, 1].delta_phi(
+                   objs["muons"][mask, 0])),
+        ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+    "mu0_mu1_absdEta_absdPhi": h.Histogram(
+        [
+        h.Axis(hist.axis.Regular(60, 0, 3, name="absdEta",
+                                 label=r"$|\Delta\eta(\mu_0,\mu_1)|$"),
+               lambda objs, mask: abs(
+                   objs["muons"][mask, 1].eta -
+                   objs["muons"][mask, 0].eta)),
+        h.Axis(hist.axis.Regular(64, 0, math.pi, name="absdPhi",
+                                 label=r"$|\Delta\phi(\mu_0,\mu_1)|$"),
+               lambda objs, mask: abs(
+                   objs["muons"][mask, 1].delta_phi(
+                       objs["muons"][mask, 0]))),
+        ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+    "mu0_mu1_dR_nPixelHits_leading": h.Histogram(
+        [
+        h.Axis(hist.axis.Regular(50, 0, 5, name="muon_dR",
+                                 label=r"$\Delta R(\mu_0,\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, 1].delta_r(
+                   objs["muons"][mask, 0])),
+        h.Axis(hist.axis.Regular(20, 0, 20, name="mu0_nPixelHits",
+                                 label=r"$N_{\mathrm{pixelHits}}(\mu_0)$"),
+               lambda objs, mask: objs["muons"][mask, 0].trkNumPixelHits),
+        ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+
+    "mu0_mu1_dR_nPixelHits_subleading": h.Histogram(
+        [
+        h.Axis(hist.axis.Regular(50, 0, 5, name="muon_dR",
+                                 label=r"$\Delta R(\mu_0,\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, 1].delta_r(
+                   objs["muons"][mask, 0])),
+        h.Axis(hist.axis.Regular(20, 0, 20, name="mu1_nPixelHits",
+                                 label=r"$N_{\mathrm{pixelHits}}(\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, 1].trkNumPixelHits),
+        ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+    "mu0_mu1_dR_trkNumDTHits_leading": h.Histogram(
+        [
+    h.Axis(hist.axis.Regular(50, 0, 5, name="muon_dR",
+                             label=r"$\Delta R(\mu_0,\mu_1)$"),
+           lambda objs, mask: objs["muons"][mask, 1].delta_r(
+               objs["muons"][mask, 0])),
+    h.Axis(hist.axis.Regular(50, 0, 50, name="mu0_trkNumDTHits",
+                             label=r"$N_{\mathrm{DT\,hits}}(\mu_0)$"),
+           lambda objs, mask: objs["muons"][mask, 0].trkNumDTHits),
+        ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+
+    "mu0_mu1_dR_trkNumDTHits_subleading": h.Histogram(
+        [
+    h.Axis(hist.axis.Regular(50, 0, 5, name="muon_dR",
+                             label=r"$\Delta R(\mu_0,\mu_1)$"),
+           lambda objs, mask: objs["muons"][mask, 1].delta_r(
+               objs["muons"][mask, 0])),
+    h.Axis(hist.axis.Regular(50, 0, 50, name="mu1_trkNumDTHits",
+                             label=r"$N_{\mathrm{DT\,hits}}(\mu_1)$"),
+           lambda objs, mask: objs["muons"][mask, 1].trkNumDTHits),
+        ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+    "mu0_mu1_dR_trkNumCSCHits_leading": h.Histogram(
+        [
+    h.Axis(hist.axis.Regular(50, 0, 5, name="muon_dR",
+                             label=r"$\Delta R(\mu_0,\mu_1)$"),
+           lambda objs, mask: objs["muons"][mask, 1].delta_r(
+               objs["muons"][mask, 0])),
+    h.Axis(hist.axis.Regular(50, 0, 50, name="mu0_trkNumCSCHits",
+                             label=r"$N_{\mathrm{CSC\,hits}}(\mu_0)$"),
+           lambda objs, mask: objs["muons"][mask, 0].trkNumCSCHits),
+        ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
+
+    "mu0_mu1_dR_trkNumCSCHits_subleading": h.Histogram(
+        [
+    h.Axis(hist.axis.Regular(50, 0, 5, name="muon_dR",
+                             label=r"$\Delta R(\mu_0,\mu_1)$"),
+           lambda objs, mask: objs["muons"][mask, 1].delta_r(
+               objs["muons"][mask, 0])),
+    h.Axis(hist.axis.Regular(50, 0, 50, name="mu1_trkNumCSCHits",
+                             label=r"$N_{\mathrm{CSC\,hits}}(\mu_1)$"),
+           lambda objs, mask: objs["muons"][mask, 1].trkNumCSCHits),
+        ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
+    ),
 }
