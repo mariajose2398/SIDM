@@ -5894,4 +5894,30 @@ hist_defs = {
         ],
     evt_mask=lambda objs: ak.num(objs["muons"]) > 1,
     ),
+    "mu0_mu1_dR_vs_jet0_mu0_dR": h.Histogram(
+        [
+    h.Axis(hist.axis.Regular(50, 0, 5, name="mu0_mu1_dR",
+                             label=r"$\Delta R(\mu_0,\mu_1)$"),
+           lambda objs, mask: objs["muons"][mask, 0].delta_r(
+               objs["muons"][mask, 1])),
+    h.Axis(hist.axis.Regular(50, 0, 5, name="jet0_mu0_dR",
+                             label=r"$\Delta R(\mathrm{jet}_0,\mu_0)$"),
+           lambda objs, mask: objs["jets"][mask, 0].delta_r(
+               objs["muons"][mask, 0])),
+        ],
+    evt_mask=lambda objs: ((ak.num(objs["muons"]) > 1) & (ak.num(objs["jets"]) > 0)),
+    ),
+    "mu0_mu1_dR_vs_jet0_mu1_dR": h.Histogram(
+        [
+    h.Axis(hist.axis.Regular(50, 0, 5, name="mu0_mu1_dR",
+                             label=r"$\Delta R(\mu_0,\mu_1)$"),
+           lambda objs, mask: objs["muons"][mask, 0].delta_r(
+               objs["muons"][mask, 1])),
+    h.Axis(hist.axis.Regular(50, 0, 5, name="jet0_mu1_dR",
+                             label=r"$\Delta R(\mathrm{jet}_0,\mu_1)$"),
+           lambda objs, mask: objs["jets"][mask, 0].delta_r(
+               objs["muons"][mask, 1])),
+        ],
+    evt_mask=lambda objs: ((ak.num(objs["muons"]) > 1) &(ak.num(objs["jets"]) > 0)),
+    ),
 }
