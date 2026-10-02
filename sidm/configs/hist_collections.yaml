@@ -1224,3 +1224,5 @@ dyjet_study: &dyjet_study
   - "mu0_mu1_dR_trkNumCSCHits_subleading"
 
 test: &test
+  -  "mu0_mu1_dR_vs_jet0_mu0_dR"
+  -  "mu0_mu1_dR_vs_jet0_mu1_dR"
