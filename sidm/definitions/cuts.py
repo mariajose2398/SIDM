@@ -218,6 +218,7 @@ obj_cut_defs = {
         #Tested the following to try to enable us to apply these cuts to muons *and* matched_muons associated to dsas
         "looseID": lambda objs, muons: muons.looseId,
         "tightID": lambda objs, muons: muons.tightId,
+        "highPtId": lambda objs, muons: muons.highPtId > 1,
         "pT > 5 GeV": lambda objs, muons: muons.pt > 5,
         "pT > 30 GeV": lambda objs, muons: muons.pt > 30,
         "eta-phi_veto" : lambda objs, muons: ~ ((muons.eta <= 1.4)
