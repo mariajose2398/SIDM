@@ -5932,4 +5932,18 @@ hist_defs = {
         ],
     evt_mask=lambda objs: ((ak.num(objs["muons"]) > 1) &(ak.num(objs["mu_ljs"]) > 0)),
     ),
+    "mu0_mu1_dR_vs_dimuon_mass": h.Histogram(
+    [
+        h.Axis(hist.axis.Regular(50, 0, 5, name="mu0_mu1_dR",
+                                 label=r"$\Delta R(\mu_0,\mu_1)$"),
+               lambda objs, mask: objs["muons"][mask, 0].delta_r(
+                   objs["muons"][mask, 1])),
+        h.Axis(hist.axis.Regular(100, 0, 200, name="dimuon_mass",
+                                 label=r"$m_{\mu\mu}$ [GeV]"),
+               lambda objs, mask: (
+                   objs["muons"][mask, 0] + objs["muons"][mask, 1]
+               ).mass),
+    ],
+    evt_mask=lambda objs: (ak.num(objs["muons"]) > 1)
+    ),
 }
