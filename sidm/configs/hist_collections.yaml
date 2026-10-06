@@ -1222,8 +1222,9 @@ dyjet_study: &dyjet_study
   - "mu0_mu1_dR_trkNumDTHits_subleading"
   - "mu0_mu1_dR_trkNumCSCHits_leading"
   - "mu0_mu1_dR_trkNumCSCHits_subleading"
-  -  "mu0_mu1_dR_vs_jet0_mu0_dR"
-  -  "mu0_mu1_dR_vs_jet0_mu1_dR"
+  - "mu0_mu1_dR_vs_jet0_mu0_dR"
+  - "mu0_mu1_dR_vs_jet0_mu1_dR"
+  - "mu0_mu1_dR_vs_mu_lj_mass"
 
 test: &test
  
