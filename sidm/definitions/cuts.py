@@ -204,6 +204,7 @@ obj_cut_defs = {
         "pT > 100 GeV": lambda objs: objs["jets"].pt > 100,
         "dR(jets, mu) > 0.4": lambda objs: dR(objs["jets"], objs["muons"]) > 0.4,
         "dR(jets, mu) > 0.6": lambda objs: dR(objs["jets"], objs["muons"]) > 0.6,
+        "dR(jets, mu) > 3.0": lambda objs: dR(objs["jets"], objs["muons"]) > 3.0,
         "dR(jets, LJ) > 0.6": lambda objs: dR(objs["jets"], objs["ljs"]) > 0.6,
 
     },

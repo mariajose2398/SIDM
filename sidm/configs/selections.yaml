@@ -1934,3 +1934,18 @@ cr_Zmumu_noMu_cut: &cr_Zmumu_noMu_cut
     - *evt_baseNoLj
     - "86 <= inv(Mu_0, Mu_1) <= 96"
     - "<= 1 LJs"
+
+cr_Zmumu_noMu_cut_isr: &cr_Zmumu_noMu_cut_isr
+  obj_cuts:
+    <<: *obj_ljsource_cuts
+    jets:
+      - "looseID"
+      - "pT > 100 GeV"
+      - "dR(jets, mu) > 3.0"
+  postLj_obj_cuts:
+    ljs:
+      - *lj_base
+  evt_cuts:
+    - *evt_baseNoLj
+    - "86 <= inv(Mu_0, Mu_1) <= 96"
+    - "<= 1 LJs"
