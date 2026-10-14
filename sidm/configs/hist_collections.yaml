@@ -1227,6 +1227,17 @@ dyjet_study: &dyjet_study
   - "mu0_mu1_dR_vs_mu_lj_mass"
   - "mu0_mu1_dR_vs_dimuon_mass"
 
-test: &test
+signal_highPttest: &signal_highPttest
+  - "mu_lj_pfMu_max_trkNumPixelHits"
+  - "mu_lj_pfMu_min_trkNumPixelHits"
+  - "mu_lj_pfMu_min_trkNumTrkLayers"
+  - "mu_lj_muonN"
+  - "mu_lj_pfMu_n"
+  - "mu_lj_dsaMu_n"
+  - "mu_lj_pt"
+  - "mu_lj_muon_pt"
+  - "mu_lj_pfMuon_pt"
+  - "mu_lj_dsaMuon_pt"
+  - "mu_lj_eta_phi"
 
  
