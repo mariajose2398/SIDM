@@ -134,6 +134,28 @@ base_ljDisplacementIso: &base_ljDisplacementIso
   evt_cuts:
     - *evt_baseNoLj
 
+base_ljDisplacementIsohighPtID: &base_ljDisplacementIsohighPtID
+  obj_cuts:
+    <<: *obj_baseNoLj
+    muons:
+      - "looseID"
+      - "pT > 5 GeV"
+      - "|eta| < 2.4"
+      - "eta-phi_veto"
+      - "highPtId"
+  postLj_obj_cuts: &lj_displacementIso
+    ljs:
+      - *lj_base
+    mu_ljs: &mu_lj_displacementIso
+      - *mu_lj_base
+      - "mu_lj_iso < 0.1"
+      - "displaced"
+    egm_ljs: &egm_lj_displacementIso
+      - "egm_lj_iso < 0.2"
+      - "displaced"
+  evt_cuts:
+    - *evt_baseNoLj
+
 # add >=2 LJ requirement and >=2 high pt muons
 base: &base
   obj_cuts: &obj_base
