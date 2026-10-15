@@ -217,6 +217,8 @@ obj_cut_defs = {
     },
     "muons": {
         #Tested the following to try to enable us to apply these cuts to muons *and* matched_muons associated to dsas
+        "prompt": lambda objs, muons: muons.trkNumPixelHits > 2,
+        "displaced" : lambda objs, muons: muons.trkNumPixelHits <= 2,
         "looseID": lambda objs, muons: muons.looseId,
         "tightID": lambda objs, muons: muons.tightId,
         "highPtId": lambda objs, muons: muons.highPtId > 1,
@@ -231,7 +233,6 @@ obj_cut_defs = {
         "dR(mu, A) < 0.5": lambda objs, muons: dR(muons, objs["genAs_toMu"]) < 0.5,
         "dR(mu, A) < 0.5 nested": lambda objs, muons: dR(muons, objs["genAs_toMu"][:,:,None]) < 0.5,
         "dxy >= 0.008" : lambda objs, muons: muons.dxy >= 0.008,
-        "trkNumPixelHits <= 2" : lambda objs, muons: muons.trkNumPixelHits <= 2,
         "barrel": lambda objs, muons: abs(muons.eta) <= 1.479,
         "endcap": lambda objs, muons: ((abs(muons.eta) > 1.479) & (abs(muons.eta) < 2.4)),
         "pfRelIso04_all <= 0.15": lambda objs, muons: muons.pfRelIso04_all <= 0.15,
