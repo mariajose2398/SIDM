@@ -5946,4 +5946,5 @@ hist_defs = {
     ],
     evt_mask=lambda objs: (ak.num(objs["muons"]) > 1)
     ),
+     "muon_trkNumPixelHits":obj_attr("muons", "trkNumPixelHits", xmax=20, nbins=20),
 }

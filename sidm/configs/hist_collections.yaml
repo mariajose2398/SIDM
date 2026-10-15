@@ -1160,6 +1160,7 @@ cosmic_veto: &cosmic_veto ##final set of histograms for slides and AN
   - "egm_lj_dzSpread_ele"
 
 dyjet_study: &dyjet_study
+  - "muon_trkNumPixelHits"
   - "mu_lj_pfMu_max_trkNumPixelHits"
   - "mu_lj_pfMu_min_trkNumPixelHits"
   - "mu_lj_pfMu_min_trkNumTrkLayers"
@@ -1239,5 +1240,3 @@ signal_highPttest: &signal_highPttest
   - "mu_lj_pfMuon_pt"
   - "mu_lj_dsaMuon_pt"
   - "mu_lj_eta_phi"
-
- 
