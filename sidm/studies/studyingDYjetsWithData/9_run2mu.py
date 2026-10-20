@@ -35,7 +35,7 @@ runner = processor.Runner(
 )
 
 
-channel_name = "base_ljDisplacementIso"
+channel_name = "base_ljIso"
 hist_collection = "signal_highPttest"
 
 p = sidm_processor.SidmProcessor(
@@ -47,15 +47,24 @@ p = sidm_processor.SidmProcessor(
 max_files_signal = -1
 
 
-yaml_file_path = '../../configs/ntuples/signal_2mu2e_v10.yaml'
-# Open and read the YAML file
-with open(yaml_file_path, 'r') as file:
-    data = yaml.safe_load(file)
-signals_all = list(data["llpNanoAOD_v2"]["samples"].keys())
-masses = [200, 500, 800, 1000]
+# yaml_file_path = '../../configs/ntuples/signal_2mu2e_v10.yaml'
+# # Open and read the YAML file
+# with open(yaml_file_path, 'r') as file:
+#     data = yaml.safe_load(file)
+# signals_all = list(data["llpNanoAOD_v2"]["samples"].keys())
+# masses = [200, 500, 800, 1000]
+# signals = [
+#     signal for signal in signals_all
+#     if any(f'{mass}GeV_' in signal for mass in masses)
+# ]
+
 signals = [
-    signal for signal in signals_all
-    if any(f'{mass}GeV_' in signal for mass in masses)
+'2Mu2E_500GeV_0p25GeV_0p04mm',
+'2Mu2E_500GeV_0p25GeV_2p0mm',
+'2Mu2E_500GeV_1p2GeV_0p19mm',
+'2Mu2E_500GeV_1p2GeV_9p6mm',
+'2Mu2E_500GeV_5p0GeV_0p8mm',
+'2Mu2E_500GeV_5p0GeV_40p0mm',
 ]
 
 
