@@ -38,7 +38,7 @@ runner = processor.Runner(
 )
 
 print("CHANNEL NAME AND HIST COLLECTION")
-channel_name ="cr_Zmumu_noLJ_displaced"
+channel_name ="base_ljIso"
 # hist_collection = "deltaR_cosmic"
 
 print(f"channel_name:{channel_name}")
@@ -87,26 +87,26 @@ for x in data:
     #    subprocess.run(["xrdcp", "-f", coffea_local, f"{REDIR}/{EOS_DIR}/{os.path.basename(coffea_local)}"], 
     #                   check=True)
 bgs = [
-     # "DYJetsToLL_M10to50",
-      # "DYJetsToLL_M50",
+     "DYJetsToLL_M10to50",
+      "DYJetsToLL_M50",
        "TTJets",
       "QCD_Pt1000",
-      #"QCD_Pt800To1000",
+      "QCD_Pt800To1000",
 
-      #"QCD_Pt600To800",
-      #"QCD_Pt470To600",
-      #"QCD_Pt300To470",
+      "QCD_Pt600To800",
+      "QCD_Pt470To600",
+      "QCD_Pt300To470",
       
-      #"QCD_Pt170To300",
-      #"QCD_Pt120To170",
+      "QCD_Pt170To300",
+      "QCD_Pt120To170",
        "QCD_Pt80To120",
        "QCD_Pt50To80",
        "QCD_Pt30To50",
-      # "QCD_Pt20To30", #error
-      # "QCD_Pt15To20", #error
-      # "WZ", 
-      # "ZZ",
-      # "WW"
+      "QCD_Pt20To30", #error
+      "QCD_Pt15To20", #error
+      "WZ", 
+      "ZZ",
+      "WW"
         ]
 
 print("Processing background")
