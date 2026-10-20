@@ -117,6 +117,20 @@ base_ljObjCut: &base_ljObjCut
   evt_cuts:
     - *evt_baseNoLj
 
+base_ljIso: &base_ljIso
+  obj_cuts:
+    <<: *obj_baseNoLj
+  postLj_obj_cuts:
+    ljs:
+      - *lj_base
+    mu_ljs: &mu_lj_iso
+      - *mu_lj_base
+      - "mu_lj_iso < 0.1"
+    egm_ljs: &egm_lj_iso
+      - "egm_lj_iso < 0.2"
+  evt_cuts:
+    - *evt_baseNoLj
+
 # add LJ isolation and displacement cuts
 base_ljDisplacementIso: &base_ljDisplacementIso
   obj_cuts:
