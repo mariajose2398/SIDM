@@ -47,17 +47,20 @@ p = sidm_processor.SidmProcessor(
 max_files_signal = -1
 
 
-yaml_file_path = '../../configs/ntuples/signal_4mu_v10.yaml'
-# Open and read the YAML file
-with open(yaml_file_path, 'r') as file:
-    data = yaml.safe_load(file)
-signals_all = list(data["llpNanoAOD_v2"]["samples"].keys())
-masses = [200, 500, 800, 1000]
-signals = [
-    signal for signal in signals_all
-    if any(f'{mass}GeV_' in signal for mass in masses)
-]
+# yaml_file_path = '../../configs/ntuples/signal_4mu_v10.yaml'
+# # Open and read the YAML file
+# with open(yaml_file_path, 'r') as file:
+#     data = yaml.safe_load(file)
+# signals_all = list(data["llpNanoAOD_v2"]["samples"].keys())
+# masses = [200, 500, 800, 1000]
+# signals = [
+#     signal for signal in signals_all
+#     if any(f'{mass}GeV_' in signal for mass in masses)
+# ]
 
+signals = [
+    
+]
 
 
 fileset = utilities.make_fileset(signals,
