@@ -5683,7 +5683,7 @@ hist_defs = {
         h.Axis(hist.axis.Regular(50, 0, 5, name="dR", label=r"$\Delta R(\mu_0,\mu_1)$"),
             lambda objs, mask: (objs["muons"][mask,0].delta_r(objs["muons"][mask, 1] ))),
         ],
-    evt_mask=lambda objs: ak.num(objs["muons"]) > 0
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 1
     ),
 
     "muon_dthits_plus_cschits_subleading_vs_dR": h.Histogram(
