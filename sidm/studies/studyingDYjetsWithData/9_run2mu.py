@@ -59,12 +59,22 @@ max_files_signal = -1
 # ]
 
 signals = [
+''2Mu2E_500GeV_0p25GeV_0p004mm',
 '2Mu2E_500GeV_0p25GeV_0p04mm',
+'2Mu2E_500GeV_0p25GeV_0p4mm',
 '2Mu2E_500GeV_0p25GeV_2p0mm',
+'2Mu2E_500GeV_0p25GeV_4p0mm',
+'2Mu2E_500GeV_1p2GeV_0p019mm',
 '2Mu2E_500GeV_1p2GeV_0p19mm',
+'2Mu2E_500GeV_1p2GeV_1p9mm',
 '2Mu2E_500GeV_1p2GeV_9p6mm',
+'2Mu2E_500GeV_1p2GeV_19p0mm',
+'2Mu2E_500GeV_5p0GeV_0p08mm',
 '2Mu2E_500GeV_5p0GeV_0p8mm',
+'2Mu2E_500GeV_5p0GeV_8p0mm',
 '2Mu2E_500GeV_5p0GeV_40p0mm',
+'2Mu2E_500GeV_5p0GeV_80p0mm',
+
 ]
 
 
