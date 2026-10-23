@@ -5946,5 +5946,14 @@ hist_defs = {
     ],
     evt_mask=lambda objs: (ak.num(objs["muons"]) > 1)
     ),
-     "muon_trkNumPixelHits":obj_attr("muons", "trkNumPixelHits", xmax=20, nbins=20),
+    "muon_trkNumPixelHits":obj_attr("muons", "trkNumPixelHits", xmax=20, nbins=20),
+    "leading_jet_dimuon_dPhi": h.Histogram(
+    [
+        h.Axis(hist.axis.Regular(64, -2*np.pi, 2*np.pi,name="leading_jet_dimuon_dPhi",
+                label=r"$\Delta\phi(\mathrm{jet}, \mu\mu)$"),
+            lambda objs, mask: objs["jets"][mask, 0].delta_phi(objs["muons"][mask, :2].sum() ),),
+    ],
+    evt_mask=lambda objs: (
+        (ak.num(objs["muons"]) > 1) & (ak.num(objs["jets"]) > 0) ),
+    ),
 }

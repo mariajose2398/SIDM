@@ -1227,6 +1227,7 @@ dyjet_study: &dyjet_study
   - "mu0_mu1_dR_vs_jet0_mu1_dR"
   - "mu0_mu1_dR_vs_mu_lj_mass"
   - "mu0_mu1_dR_vs_dimuon_mass"
+  - "leading_jet_dimuon_dPhi"
 
 signal_highPttest: &signal_highPttest
   - "mu_lj_pfMu_max_trkNumPixelHits"
