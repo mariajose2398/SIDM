@@ -59,7 +59,7 @@ max_files_signal = -1
 # ]
 
 signals = [
-''2Mu2E_500GeV_0p25GeV_0p004mm',
+'2Mu2E_500GeV_0p25GeV_0p004mm',
 '2Mu2E_500GeV_0p25GeV_0p04mm',
 '2Mu2E_500GeV_0p25GeV_0p4mm',
 '2Mu2E_500GeV_0p25GeV_2p0mm',
