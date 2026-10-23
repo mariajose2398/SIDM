@@ -16,12 +16,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument( "--ch" , type=str, default="base_ljIso",help="Channel name")
 parser.add_argument("--hist", type=str, default="deltaR_cosmic",help="Histogram collection name")
-)
-
 args = parser.parse_args()
-
-
-
 print("VOMSPROXY")
 os.environ["X509_USER_PROXY"] = "/uscms/home/mjose/x509up_u59701"
 scaleout.check_voms_proxy()
