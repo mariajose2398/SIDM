@@ -5956,4 +5956,12 @@ hist_defs = {
     evt_mask=lambda objs: (
         (ak.num(objs["muons"]) > 1) & (ak.num(objs["jets"]) > 0) ),
     ),
+    "dsaMuon_dthits_plus_cschits": h.Histogram(
+    [
+        h.Axis(hist.axis.Regular(50, 0, 50, name="dsaMuon_trkNumDTHits",
+                                 label=r"DSA $\mu$ trkNumDTHits + trkNumCSCHits"),
+            lambda objs, mask: (objs["dsaMuons"].trkNumDTHits
+                                + objs["dsaMuons"].trkNumCSCHits)),
+    ],
+),
 }
