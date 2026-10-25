@@ -16,6 +16,32 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument( "--ch" , type=str, default="base_ljIso",help="Channel name")
 parser.add_argument("--hist", type=str, default="deltaR_cosmic",help="Histogram collection name")
+
+bgs = [
+     "DYJetsToLL_M10to50",
+      "DYJetsToLL_M50",
+       "TTJets",
+      "QCD_Pt1000",
+      "QCD_Pt800To1000",
+      "QCD_Pt600To800",
+      "QCD_Pt470To600",
+      "QCD_Pt300To470",
+      "QCD_Pt170To300",
+      "QCD_Pt120To170",
+       "QCD_Pt80To120",
+       "QCD_Pt50To80",
+       "QCD_Pt30To50",
+      "QCD_Pt20To30", #error
+      "QCD_Pt15To20", #error
+      "WZ", 
+      "ZZ",
+      "WW"
+        ]
+
+parser.add_argument("--bgs", nargs="+", choices=bgs, default=bgs)
+args = parser.parse_args()
+bgs = args.bgs
+
 args = parser.parse_args()
 print("VOMSPROXY")
 os.environ["X509_USER_PROXY"] = "/uscms/home/mjose/x509up_u59701"
@@ -91,28 +117,7 @@ for x in data:
     #    print(f"{REDIR}/{EOS_DIR}/{os.path.basename(coffea_local)}")
     #    subprocess.run(["xrdcp", "-f", coffea_local, f"{REDIR}/{EOS_DIR}/{os.path.basename(coffea_local)}"], 
     #                   check=True)
-bgs = [
-     "DYJetsToLL_M10to50",
-      "DYJetsToLL_M50",
-       "TTJets",
-      "QCD_Pt1000",
-      "QCD_Pt800To1000",
 
-      "QCD_Pt600To800",
-      "QCD_Pt470To600",
-      "QCD_Pt300To470",
-      
-      "QCD_Pt170To300",
-      "QCD_Pt120To170",
-       "QCD_Pt80To120",
-       "QCD_Pt50To80",
-       "QCD_Pt30To50",
-      "QCD_Pt20To30", #error
-      "QCD_Pt15To20", #error
-      "WZ", 
-      "ZZ",
-      "WW"
-        ]
 
 print("Processing background")
 for x in bgs:
