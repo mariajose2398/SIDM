@@ -16,6 +16,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument( "--ch" , type=str, default="base_ljIso",help="Channel name")
 parser.add_argument("--hist", type=str, default="deltaR_cosmic",help="Histogram collection name")
+parser.add_argument("--no-data", action="store_true",help="Skip data samples")
 
 bgs = [
      "DYJetsToLL_M10to50",
@@ -89,6 +90,9 @@ max_files_signal = -1
 data = [ 
 'DoubleMuon_2018C',
 ]
+
+if args.no_data:
+    data = []
 print("Processing DATA")
 Fail_list = []
 for x in data:
