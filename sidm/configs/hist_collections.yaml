@@ -1255,3 +1255,7 @@ signal_highPttest: &signal_highPttest
   - "photon_eta_phi"
   - "mu_lj_eta_phi"
   - "egm_lj_eta_phi"
+
+dy_jets_new: &dy_jets_new
+  - "muon_eta_phi_pixelHits"
+  - "muon_PixelHits_vs_genAs_toMu_Lxy"
