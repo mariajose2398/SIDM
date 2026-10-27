@@ -5963,5 +5963,26 @@ hist_defs = {
             lambda objs, mask: (objs["dsaMuons"].trkNumDTHits
                                 + objs["dsaMuons"].trkNumCSCHits)),
     ],
-),
+    ),
+    "muon_eta_phi_pixelHits": h.Histogram(
+    [
+        h.Axis(hist.axis.Regular(60, -3, 3, name="muon_eta", label=r"$\eta(\mu)$"),
+               lambda objs, mask: objs["muons"][mask].eta),
+        h.Axis(hist.axis.Regular(64, -math.pi, math.pi, name="muon_phi", label=r"$\phi(\mu)$"),
+               lambda objs, mask: objs["muons"][mask].phi),
+        h.Axis(hist.axis.Regular(20, 0, 20, name="muon_trkNumPixelHits", label=r"$\mu$ Pixel hits"),
+               lambda objs, mask: objs["muons"][mask].trkNumPixelHits),
+    ],
+    evt_mask=lambda objs: ak.num(objs["muons"]) > 0,
+    ),
+    "muon_PixelHits_vs_genAs_toMu_Lxy": h.Histogram(
+    [
+        h.Axis(hist.axis.Regular(60, 0, 300, name="Lxy", label=r"$Z_d \to \mu\mu$ $L_{xy}$ (cm)"),
+               lambda objs, mask: objs["genAs_toMu"][mask, 0].lxy * ak.ones_like(objs["muons"][mask].trkNumPixelHits)),
+        h.Axis(hist.axis.Regular(11, -0.5, 10.5, name="muon_pixelHits", label=r"$\mu$ Pixel Hits"),
+               lambda objs, mask: objs["muons"][mask].trkNumPixelHits),
+    ],
+    evt_mask=lambda objs: (ak.num(objs["muons"]) > 0) & (ak.num(objs["genAs_toMu"]) > 0),
+    ),
+
 }
