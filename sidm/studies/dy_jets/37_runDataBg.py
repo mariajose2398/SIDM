@@ -43,6 +43,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument( "--ch" , type=str, default="base_ljIso",help="Channel name")
 parser.add_argument("--hist", type=str, default="deltaR_cosmic",help="Histogram collection name")
 parser.add_argument("--no-data", action="store_true",help="Skip data samples")
+parser.add_argument("--no-bgs", action="store_true", help="Skip background samples")
 parser.add_argument("--max_files_bg", type=int, default=1000)
 parser.add_argument("--max_files_data", type=int, default=-1)
 parser.add_argument("--max_files_signal", type=int, default=-1)
@@ -128,6 +129,8 @@ for x in data:
 
 
 print("Processing background")
+if args.no_bgs:
+    bgs = []
 for x in bgs:
     print(x)
     try:
