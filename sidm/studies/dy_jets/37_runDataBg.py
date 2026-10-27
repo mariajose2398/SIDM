@@ -155,7 +155,7 @@ if args.run_4mu:
     print("RUNNING 4Mu")
     yaml_file_path = '../../configs/ntuples/signal_4mu_v10.yaml'
     with open(yaml_file_path, 'r') as file:
-    data = yaml.safe_load(file)
+        data = yaml.safe_load(file)
     signals_4mu = list(data["llpNanoAOD_v2"]["samples"].keys())
     signals = [signal for signal in signals_4mu if any(f'{mass}GeV_' in signal for mass in args.masses)]
     fileset = utilities.make_fileset(signals,
@@ -176,7 +176,7 @@ if args.run_2mu:
     print("RUNNING 2Mu")
     yaml_file_path = '../../configs/ntuples/signal_2mu2e_v10.yaml'
     with open(yaml_file_path, 'r') as file:
-    data = yaml.safe_load(file)
+        data = yaml.safe_load(file)
     signals_2mu = list(data["llpNanoAOD_v2"]["samples"].keys())
     signals = [signal for signal in signals_2mu if any(f'{mass}GeV_' in signal for mass in args.masses)]
     fileset = utilities.make_fileset(signals,
