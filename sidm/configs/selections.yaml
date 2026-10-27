@@ -364,6 +364,23 @@ base_ljObjCut_ljIso_1lj: &base_ljObjCut_ljIso_1lj
     - *evt_baseNoLj
     - ">=1 LJs"
 
+base_ljObjCut_ljIso_2lj: &base_ljObjCut_ljIso_2lj
+  obj_cuts:
+    <<: *obj_ljsource_cuts_barrel
+    <<: *obj_gen_level_cuts
+  postLj_obj_cuts:
+    ljs:
+      - "pT > 30 GeV"
+    mu_ljs:
+      - *mu_lj_base
+      - "mu_lj_iso < 0.1"
+    egm_ljs:
+      - "egm_lj_iso < 0.2"
+  evt_cuts:
+    - *evt_baseNoLj
+    - ">=1 egm_ljs"
+    - ">=1 mu_ljs"
+
 base_ljObjCut_ljIso_2lj_barrel: &base_ljObjCut_ljIso_2lj_barrel
   obj_cuts:
     <<: *obj_ljsource_cuts_barrel
