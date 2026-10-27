@@ -155,7 +155,7 @@ def plot_DataMC(histogram_list, channel_name,
         if title:
             ax_main.legend(title=title)
         else:
-            ax_main.legend()
+            ax_main.legend(title=channel_name)
     if file_name:
         plt.savefig(f"Plots/{file_name}.png")
     plt.show()
