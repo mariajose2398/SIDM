@@ -39,8 +39,8 @@ def get_signal_4mu_list():
 
 
 ## load output files from Output folder for each study
-def load_output(file_name, channel_name):
-    output = coffea.util.load(f"OutputFiles/{channel_name}/{file_name}.coffea")
+def load_output(file_name, file_path):
+    output = coffea.util.load(f"{file_path}/{file_name}.coffea")
     return output
 
 ## get the cuts, cuflow list for easy plotting
@@ -161,7 +161,7 @@ def plot_DataMC(histogram_list, channel_name,
     plt.show()
     plt.close()
 
-## get 1D histograms from 2D
+## get 1D histograms from multidimensional histogram
 def plot_1d (eta_phi_histogram, axs_name):
     histogram_1d = eta_phi_histogram.project(axs_name)
     return(histogram_1d)
