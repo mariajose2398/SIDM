@@ -51,9 +51,11 @@ parser.add_argument("--run_2mu", action="store_true", help="Run 2mu signal sampl
 parser.add_argument("--run_4mu", action="store_true", help="Run 4mu signal samples")
 parser.add_argument("--masses", type=int, nargs="+", default=[500], help="Bound-state masses (GeV)")
 parser.add_argument("--bgs", nargs="+", choices=bgs, default=bgs)
+parser.add_argument("--date", default=datetime.now().strftime("%Y_%d_%m"), help="Output date folder (default: today)")
+
 args = parser.parse_args()
 
-
+date_folder = args.date
 bgs = args.bgs
 max_files_bg = args.max_files_bg
 max_files_data = args.max_files_data
@@ -120,7 +122,7 @@ for x in data:
          print(e)
          Fail_list.append(x)
          continue
-    date_folder = datetime.now().strftime("%Y_%d_%m")
+    # date_folder = datetime.now().strftime("%Y_%d_%m")
     dir_path = f"OutputFiles/{channel_name}/{date_folder}"
     os.makedirs(dir_path, exist_ok=True)
     filename =  f"{dir_path}/{x}.coffea"
@@ -142,7 +144,7 @@ for x in bgs:
          print(e)
          Fail_list.append(x)
          continue
-    date_folder = datetime.now().strftime("%Y_%d_%m")
+    # date_folder = datetime.now().strftime("%Y_%d_%m")
     dir_path = f"OutputFiles/{channel_name}/{date_folder}"
     os.makedirs(dir_path, exist_ok=True)
     filename =  f"{dir_path}/{x}.coffea"
@@ -164,7 +166,7 @@ if args.run_4mu:
                                  location_cfg="signal_4mu_v10.yaml",
                                  replace_xcache=True, )
     output_signal = runner.run(fileset, treename="Events", processor_instance=p)
-    date_folder = datetime.now().strftime("%Y_%d_%m")
+    # date_folder = datetime.now().strftime("%Y_%d_%m")
     dir_path = f"OutputFiles/{channel_name}/{date_folder}"
     os.makedirs(dir_path, exist_ok=True)
     filename =  f"{dir_path}/signal_4mu.coffea"
@@ -185,7 +187,7 @@ if args.run_2mu:
                                  location_cfg="signal_2mu2e_v10.yaml",
                                  replace_xcache=True, )
     output_signal = runner.run(fileset, treename="Events", processor_instance=p)
-    date_folder = datetime.now().strftime("%Y_%d_%m")
+    # date_folder = datetime.now().strftime("%Y_%d_%m")
     dir_path = f"OutputFiles/{channel_name}/{date_folder}"
     os.makedirs(dir_path, exist_ok=True)
     filename = f"{dir_path}/signal_2mu.coffea"
