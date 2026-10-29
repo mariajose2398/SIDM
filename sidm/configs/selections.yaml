@@ -2108,7 +2108,6 @@ cr_Zmumu_noLJ_noVeto: &cr_Zmumu_noLJ_noVeto
       - "pT > 10 GeV"
       - "|eta| < 2.4"
       - 'MVANonIsoWPL'
-      - "missing_hits >= 1"
     muons:
       - "looseID"
       - "pT > 5 GeV"

@@ -1264,3 +1264,4 @@ dy_jets_new: &dy_jets_new
   - "jet_eta_phi"
   - "mu_lj_eta_phi"
   - "egm_lj_eta_phi"
+  - "electron_eta_phi_lostHits"

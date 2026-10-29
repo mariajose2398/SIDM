@@ -5984,5 +5984,16 @@ hist_defs = {
     ],
     evt_mask=lambda objs: (ak.num(objs["muons"]) > 0) & (ak.num(objs["genAs_toMu"]) > 0),
     ),
+    "electron_eta_phi_lostHits": h.Histogram(
+    [
+        h.Axis(hist.axis.Regular(60, -3, 3, name="electron_eta", label=r"$\eta(e)$"),
+               lambda objs, mask: objs["electrons"][mask].eta),
+        h.Axis(hist.axis.Regular(64, -math.pi, math.pi, name="electron_phi", label=r"$\phi(e)$"),
+               lambda objs, mask: objs["electrons"][mask].phi),
+        h.Axis(hist.axis.Regular(10, 0, 10, name="electron_lostHits", label=r"$\mathrm{lostHits}(e)$"),
+               lambda objs, mask: objs["electrons"][mask].lostHits),
+    ],
+    evt_mask=lambda objs: ak.num(objs["electrons"]) > 0,
+),
 
 }
