@@ -206,6 +206,8 @@ obj_cut_defs = {
         "dR(jets, mu) > 0.6": lambda objs: dR(objs["jets"], objs["muons"]) > 0.6,
         "dR(jets, mu) > 3.0": lambda objs: dR(objs["jets"], objs["muons"]) > 3.0,
         "dR(jets, LJ) > 0.6": lambda objs: dR(objs["jets"], objs["ljs"]) > 0.6,
+        "hem_region": lambda objs: ((objs["jets"].phi > -1.57) & (objs["jets"].phi < -0.87) &
+                                        (objs["jets"].eta > -3.0) & (objs["jets"].eta < -2.5)),
 
     },
     "bjets":{
