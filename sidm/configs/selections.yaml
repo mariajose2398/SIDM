@@ -2207,3 +2207,24 @@ cr_Zmumu_noLJ_jet_noVeto: &cr_Zmumu_noLJ_jet_noVeto
     - *evt_baseNoLj
     - "86 <= inv(Mu_0, Mu_1) <= 96"
     - ">=1 jets"
+
+base_ljObjCut_ljIso_2lj_noTriggerPt: &base_ljObjCut_ljIso_2lj_noTriggerPt
+  obj_cuts:
+    <<: *obj_ljsource_cuts_barrel
+    <<: *obj_gen_level_cuts
+  postLj_obj_cuts:
+    ljs:
+      - "pT > 30 GeV"
+    mu_ljs:
+      - *mu_lj_base
+      - "mu_lj_iso < 0.1"
+    egm_ljs:
+      - "egm_lj_iso < 0.2"
+  evt_cuts:
+    - *trigger
+    - *evt_pv_cuts
+    # - ">=2 muons (pf or dsa) pT > 26 GeV"
+    - "all cosAlpha(mu, mu) > -0.99"
+    - "pass flags"
+    - ">=1 egm_ljs"
+    - ">=1 mu_ljs"
