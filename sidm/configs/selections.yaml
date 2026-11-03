@@ -2228,3 +2228,24 @@ base_ljObjCut_ljIso_2lj_noTriggerPt: &base_ljObjCut_ljIso_2lj_noTriggerPt
     - "pass flags"
     - ">=1 egm_ljs"
     - ">=1 mu_ljs"
+
+base_ljObjCut_ljIso_2lj_no3D: &base_ljObjCut_ljIso_2lj_no3D
+  obj_cuts:
+    <<: *obj_ljsource_cuts_barrel
+    <<: *obj_gen_level_cuts
+  postLj_obj_cuts:
+    ljs:
+      - "pT > 30 GeV"
+    mu_ljs:
+      - *mu_lj_base
+      - "mu_lj_iso < 0.1"
+    egm_ljs:
+      - "egm_lj_iso < 0.2"
+  evt_cuts:
+    - *trigger
+    - *evt_pv_cuts
+    - ">=2 muons (pf or dsa) pT > 26 GeV"
+    # - "all cosAlpha(mu, mu) > -0.99"
+    - "pass flags"
+    - ">=1 egm_ljs"
+    - ">=1 mu_ljs"
