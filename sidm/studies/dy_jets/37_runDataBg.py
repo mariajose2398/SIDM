@@ -51,7 +51,7 @@ parser.add_argument("--run_2mu", action="store_true", help="Run 2mu signal sampl
 parser.add_argument("--run_4mu", action="store_true", help="Run 4mu signal samples")
 parser.add_argument("--masses", type=int, nargs="+", default=[500], help="Bound-state masses (GeV)")
 parser.add_argument("--bgs", nargs="+", choices=bgs, default=bgs)
-parser.add_argument("--date", default=datetime.now().strftime("%Y_%d_%m"), help="Output date folder (default: today)")
+parser.add_argument("--date", default=datetime.now().strftime("%Y_%m_%d"), help="Output date folder (default: today)")
 
 args = parser.parse_args()
 
