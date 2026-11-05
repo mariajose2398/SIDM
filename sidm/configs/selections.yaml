@@ -2313,7 +2313,7 @@ cr_Zee_noLJ_jet_noVeto: &cr_Zee_noLJ_jet_noVeto
     jets:
       - "looseID"
       - "pT > 100 GeV"
-      - "dR(jets, mu) > 0.6"
+      - "dR(jets, e) > 0.6"
   postLj_obj_cuts:
     ljs:
       - *lj_base
