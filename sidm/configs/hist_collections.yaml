@@ -1271,3 +1271,7 @@ prompt_displaced: &prompt_displaced
   - "muon_eta_phi_pixelHits"
   - "muon_n"
   - "muon_muon_invmass"
+
+signal_plots: &signal_plots
+    - "muon_PixelHits_eta_phi_vs_genAs_toMu_Lxy_lowRange"
+
