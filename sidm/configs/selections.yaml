@@ -87,11 +87,12 @@ baseNoLjNoLjsource: &baseNoLjNoLjsource
   obj_cuts: &obj_baseNoLjNoLjsource
     <<: *obj_gen_level_cuts
   evt_cuts: &evt_baseNoLjNoljsource
-    - *trigger
-    - *evt_pv_cuts
-    - ">=2 muons (pf or dsa) pT > 26 GeV"
-    - "all cosAlpha(mu, mu) > -0.99"
-    - "pass flags"
+   - "pass flags"
+   - *evt_pv_cuts
+   - *trigger
+   - ">=2 muons (pf or dsa) pT > 26 GeV"
+   - "all cosAlpha(mu, mu) > -0.99"
+ 
 
 # apply trigger, gen cuts, pv filter, and lj-source cuts
 baseNoLj: &baseNoLj

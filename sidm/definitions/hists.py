@@ -6012,7 +6012,7 @@ hist_defs = {
                lambda objs, mask: objs["muons"][mask].eta),
         h.Axis(hist.axis.Regular(64, -math.pi, math.pi, name="muon_phi", label=r"$\phi(\mu)$"),
                lambda objs, mask: objs["muons"][mask].phi),
-        h.Axis(hist.axis.Regular(20, 0, 20, name="muon_trkNumPixelHits", label=r"$\mu$ Pixel hits"),
+        h.Axis(hist.axis.Regular(11, 0, 10, name="muon_trkNumPixelHits", label=r"$\mu$ Pixel hits"),
                lambda objs, mask: objs["muons"][mask].trkNumPixelHits),
     ],
     evt_mask=lambda objs: (ak.num(objs["muons"]) > 0) & (ak.num(objs["genAs_toMu"]) > 0),
