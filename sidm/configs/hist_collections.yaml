@@ -1265,3 +1265,9 @@ dy_jets_new: &dy_jets_new
   - "mu_lj_eta_phi"
   - "egm_lj_eta_phi"
   - "electron_eta_phi_lostHits"
+  - "muon_PixelHits_eta_phi_vs_genAs_toMu_Lxy_lowRange"
+
+prompt_displaced: &prompt_displaced
+  - "muon_eta_phi_pixelHits"
+  - "muon_n"
+  - "muon_muon_invmass"

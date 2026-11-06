@@ -2288,7 +2288,6 @@ base_ljObjCut_ljIso_1lj_noTriggerPt: &base_ljObjCut_ljIso_1lj_noTriggerPt
     - "pass flags"
     - ">=1 LJs"
 
-
 cr_Zee_noLJ_jet_noVeto: &cr_Zee_noLJ_jet_noVeto
   obj_cuts:
     electrons:
@@ -2323,3 +2322,38 @@ cr_Zee_noLJ_jet_noVeto: &cr_Zee_noLJ_jet_noVeto
     - *evt_baseNoLj
     - "86 <= inv(e_0, e_1) <= 96"
     - ">=1 jets"
+
+cr_Zmumu_noLJ_noVeto_Zmu: &cr_Zmumu_noLJ_noVeto_Zmu
+  obj_cuts:
+    electrons:
+      - "pT > 10 GeV"
+      - "|eta| < 2.4"
+      - 'MVANonIsoWPL'
+    muons:
+      - "looseID"
+      - "pT > 5 GeV"
+      - "|eta| < 2.4"
+      -  "Z_parent"
+    photons:
+      - "pT > 20 GeV"
+      - "|eta| < 2.5"
+      - 'Custom Cutbased'
+      - "pixelSeed"
+      - 'Photon DR Veto 0p025'
+    dsaMuons:
+      - "pT > 10 GeV"
+      - "|eta| < 2.4"
+      - "displaced ID"
+      - "all" # cross-cleaning
+    jets:
+      - "looseID"
+      - "pT > 100 GeV"
+      - "dR(jets, mu) > 0.6"
+  postLj_obj_cuts:
+    ljs:
+      - *lj_base
+    mu_ljs:
+      - *mu_lj_base
+  evt_cuts:
+    - *evt_baseNoLj
+    - "86 <= inv(Mu_0, Mu_1) <= 96"

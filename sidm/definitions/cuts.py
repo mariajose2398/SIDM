@@ -242,6 +242,7 @@ obj_cut_defs = {
         "sip3d < 4": lambda objs, muons: abs(muons.sip3d) < 4,
         "DT + CSC hits > 3": lambda objs, muons: (muons.trkNumDTHits
                                             + muons.trkNumCSCHits) > 3,
+        "Z_parent": lambda objs, muons: ak.fill_none(muons.matched_gen.distinctParent.pdgId == 23, False,),
     },
     "photons":{
         "pT > 20 GeV": lambda objs: objs["photons"].pt > 20,
